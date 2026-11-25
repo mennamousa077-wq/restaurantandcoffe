@@ -1,0 +1,980 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="../../js/firebase-config.js"></script>
+<script defer src="../../js/app.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#bb7336","surface-bright":"#fbf9f6","background":"#fbf9f6","on-error":"#ffffff","tertiary-container":"#2f1400","tertiary-fixed-dim":"#ffb780","surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f0","on-secondary-container":"#6c2400","error":"#ba1a1a","error-container":"#ffdad6","primary-container":"#1c1b1b","on-surface":"#1b1c1a","on-error-container":"#93000a","inverse-on-surface":"#f2f0ed","on-surface-variant":"#444748","primary-fixed":"#e5e2e1","surface-container-highest":"#e4e2df","surface-tint":"#5f5e5e","surface-dim":"#dbdad7","inverse-primary":"#c8c6c5","on-primary-fixed-variant":"#474746","on-primary-container":"#858383","on-primary":"#ffffff","outline-variant":"#c4c7c7","surface-container":"#efeeeb","outline":"#747878","primary-fixed-dim":"#c8c6c5","on-tertiary-fixed":"#2f1400","on-background":"#1b1c1a","on-secondary-fixed-variant":"#7f2b00","on-secondary":"#ffffff","secondary-container":"#fe8450","secondary-fixed":"#ffdbce","secondary":"#a23f0f","on-tertiary":"#ffffff","surface-container-high":"#eae8e5","surface":"#fbf9f6","inverse-surface":"#30312f","tertiary":"#000000","tertiary-fixed":"#ffdcc4","surface-variant":"#e4e2df","on-primary-fixed":"#1c1b1b","secondary-fixed-dim":"#ffb598","on-tertiary-fixed-variant":"#6f3800","primary":"#000000","on-secondary-fixed":"#370e00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"3rem","gutter":"1.5rem","margin-tablet":"2rem"},"fontFamily":{"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"display-hero":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script><link rel="stylesheet" href="../../css/style.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_-2px_rgba(26,26,26,0.06)]"><div class="h-20 w-full px-margin-mobile md:px-margin-tablet xl:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="home" href="../view_restaurant_caf_home/code.html"><img alt="View Restaurant &amp; Café Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold leading-tight">VIEW</span><span class="font-label-sm text-label-sm tracking-widest text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-secondary font-semibold border-b-2 border-secondary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="home" href="../view_restaurant_caf_home/code.html">Home</a><a aria-current="page" class="transition-colors py-space-xs text-secondary font-semibold border-b-2 border-secondary" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Menu</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Online Order</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Book a Table</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="contact" href="#">Contact</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="terms-and-conditions" href="#">Terms &amp; Conditions</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center bg-surface-container-high rounded-full p-1 shadow-inner"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm" type="button">EN</button><button class="px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button"><span>العربية</span><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span></button></div><a class="relative p-2.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors flex items-center justify-center" data-path="cart-checkout" href="../view_restaurant_online_ordering_cart/code.html"><span class="material-symbols-outlined text-xl">shopping_bag</span><span class="absolute -top-1 -right-1 bg-secondary text-on-secondary font-label-sm text-label-sm px-1.5 py-0.5 rounded-full leading-none font-bold shadow-sm">3</span></a><a class="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-sm text-secondary">swap_horiz</span><span>Portals</span></a><div class="flex items-center gap-space-sm pl-space-xs"><a class="flex items-center gap-space-sm p-1 rounded-full hover:bg-surface-container transition-colors group" data-path="user-account" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary/30 group-hover:ring-secondary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/><span class="hidden lg:inline font-label-md text-label-md text-on-surface font-medium pr-1">My Table</span></a></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Interactive & State Control Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      let cart = (window.ViewApp?.getCart && window.ViewApp.getCart().length > 0) 
+        ? window.ViewApp.getCart() 
+        : [
+            { id: 'item-ribeye', name: 'Prime Ribeye Steak', price: 42, qty: 1 },
+            { id: 'item-waffle', name: 'Belgian Golden Waffle', price: 15, qty: 2 }
+          ];
+
+      function updateCartUI() {
+        const totalItems = cart.reduce((acc, item) => acc + item.qty, 0);
+        const totalPrice = cart.reduce((acc, item) => acc + (item.price * item.qty), 0);
+        const countBadge = document.getElementById('drawer-item-count');
+        const priceLabel = document.getElementById('drawer-subtotal');
+        const itemsList = document.getElementById('drawer-items-list');
+
+        if (countBadge) countBadge.textContent = totalItems + (totalItems === 1 ? ' item' : ' items');
+        if (priceLabel) priceLabel.textContent = `$${totalPrice}.00 / ${(totalPrice * 3.75).toFixed(0)} SAR`;
+
+        if (window.ViewApp?.saveCart) {
+          window.ViewApp.saveCart(cart);
+        }
+
+        if (itemsList) {
+          itemsList.innerHTML = cart.map(item => `
+            <div class="flex items-center justify-between py-2 text-on-surface">
+              <div class="flex flex-col min-w-0 pr-2">
+                <span class="font-label-md text-label-md truncate">${item.name}</span>
+                <span class="font-body-sm text-body-sm text-on-surface-variant">$${item.price} x ${item.qty}</span>
+              </div>
+              <div class="flex items-center gap-1.5 shrink-0">
+                <button onclick="window.modifyCartItem('${item.id}', -1)" class="w-6 h-6 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center font-bold text-xs">-</button>
+                <span class="font-label-md text-label-md w-5 text-center">${item.qty}</span>
+                <button onclick="window.modifyCartItem('${item.id}', 1)" class="w-6 h-6 rounded-full bg-surface-container-high hover:bg-surface-container-highest flex items-center justify-center font-bold text-xs">+</button>
+              </div>
+            </div>
+          `).join('');
+        }
+      }
+
+      window.modifyCartItem = (id, delta) => {
+        const idx = cart.findIndex(i => i.id === id);
+        if (idx !== -1) {
+          cart[idx].qty += delta;
+          if (cart[idx].qty <= 0) cart.splice(idx, 1);
+          updateCartUI();
+        }
+      };
+
+      window.addToCart = (id, name, price) => {
+        const existing = cart.find(i => i.id === id);
+        if (existing) {
+          existing.qty += 1;
+        } else {
+          cart.push({ id, name, price, qty: 1 });
+        }
+        updateCartUI();
+
+        // Brief visual toast feedback
+        const notification = document.getElementById('cart-toast');
+        if (notification) {
+          notification.classList.remove('translate-y-24', 'opacity-0');
+          setTimeout(() => {
+            notification.classList.add('translate-y-24', 'opacity-0');
+          }, 2200);
+        }
+      };
+
+      window.toggleDrawerExpand = () => {
+        const modal = document.getElementById('cart-expanded-view');
+        if (modal) {
+          modal.classList.toggle('hidden');
+        }
+      };
+
+      // Search & Tag Filter Logic
+      const searchInput = document.getElementById('menu-search-input');
+      const tagButtons = document.querySelectorAll('.dietary-tag-btn');
+      const categoryTabs = document.querySelectorAll('.category-tab-pill');
+      const menuCards = document.querySelectorAll('.menu-item-card');
+
+      let currentTag = 'all';
+      let currentCategory = 'all';
+      let searchQuery = '';
+
+      function filterItems() {
+        menuCards.forEach(card => {
+          const title = card.getAttribute('data-title')?.toLowerCase() || '';
+          const ingredients = card.getAttribute('data-ingredients')?.toLowerCase() || '';
+          const tags = card.getAttribute('data-tags') || '';
+          const category = card.getAttribute('data-category') || '';
+
+          const matchesSearch = title.includes(searchQuery) || ingredients.includes(searchQuery);
+          const matchesTag = currentTag === 'all' || tags.includes(currentTag);
+          const matchesCategory = currentCategory === 'all' || category === currentCategory;
+
+          if (matchesSearch && matchesTag && matchesCategory) {
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+
+        // Hide category headers if all children hidden
+        document.querySelectorAll('.menu-category-section').forEach(sec => {
+          const secCategory = sec.getAttribute('data-category-id');
+          if (currentCategory !== 'all' && currentCategory !== secCategory) {
+            sec.style.display = 'none';
+          } else {
+            const visibleCards = sec.querySelectorAll('.menu-item-card:not([style*="display: none"])');
+            sec.style.display = visibleCards.length > 0 ? 'block' : 'none';
+          }
+        });
+      }
+
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          searchQuery = e.target.value.toLowerCase().trim();
+          filterItems();
+        });
+      }
+
+      tagButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          tagButtons.forEach(b => {
+            b.classList.remove('bg-secondary', 'text-on-secondary');
+            b.classList.add('bg-surface-container', 'text-on-surface-variant');
+          });
+          btn.classList.add('bg-secondary', 'text-on-secondary');
+          btn.classList.remove('bg-surface-container', 'text-on-surface-variant');
+          currentTag = btn.getAttribute('data-tag-value');
+          filterItems();
+        });
+      });
+
+      categoryTabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          categoryTabs.forEach(t => {
+            t.classList.remove('bg-primary', 'text-on-primary', 'shadow-md');
+            t.classList.add('bg-surface-container-low', 'text-on-surface-variant');
+          });
+          tab.classList.add('bg-primary', 'text-on-primary', 'shadow-md');
+          tab.classList.remove('bg-surface-container-low', 'text-on-surface-variant');
+          currentCategory = tab.getAttribute('data-category-target');
+          filterItems();
+        });
+      });
+
+      updateCartUI();
+    });
+  </script>
+<!-- Editorial Sub-Header Banner with Skyline Warmth -->
+<section class="relative w-full bg-surface-container-low overflow-hidden">
+<div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-xl relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-7 flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-xs">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Level 52 Gastronomy &amp; Roastery
+            </span>
+<span class="font-label-md text-label-md text-on-surface-variant tracking-wider uppercase">قائمة الطعام الفاخرة</span>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface font-extrabold tracking-tight">
+            Culinary Precision &amp; Specialty Brews
+          </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
+            Explore our artisanal menu, crafted with flame-kissed cuts, heritage Levantine marinades, stone-baked pizzas, and pour-over micro-lot coffees against panoramic city skylines.
+          </p>
+</div>
+<div class="lg:col-span-5 flex flex-wrap lg:justify-end gap-space-md items-center">
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">restaurant</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">5 Curated Sections</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">48 Signature Dishes &amp; Brews</span>
+</div>
+</div>
+<div class="flex items-center gap-space-md p-space-sm bg-surface-container-lowest rounded-xl shadow-sm">
+<div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">workspace_premium</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">100% Halal Certified</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Farm-Direct Gourmet Produce</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Sticky Interactive Search & Navigation Filter Bar -->
+<div class="sticky top-20 z-40 bg-surface/90 backdrop-blur-xl shadow-sm">
+<div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-sm flex flex-col gap-space-sm">
+<!-- Search & Dietary Bar -->
+<div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-space-sm">
+<!-- Live Search Field -->
+<div class="relative flex-1 max-w-xl">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-xl">search</span>
+<input class="w-full h-11 pl-11 pr-4 bg-surface-container-lowest rounded-lg font-body-md text-body-md text-on-surface placeholder:text-on-surface-variant/70 shadow-sm focus:outline-none focus:ring-2 focus:ring-secondary/40" id="menu-search-input" placeholder="Search dishes, ingredients (e.g. Shawarma, Truffle, Pasta)..." type="search"/>
+</div>
+<!-- Dietary Toggles -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+<span class="font-label-md text-label-md text-on-surface-variant mr-1 shrink-0">Filter:</span>
+<button class="dietary-tag-btn px-3 py-1.5 rounded-full font-label-md text-label-md bg-secondary text-on-secondary shrink-0 transition-colors shadow-sm" data-tag-value="all">
+            All
+          </button>
+<button class="dietary-tag-btn px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-colors flex items-center gap-1" data-tag-value="chef">
+<span class="material-symbols-outlined text-sm text-secondary">star</span> Chef Signature
+          </button>
+<button class="dietary-tag-btn px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-colors flex items-center gap-1" data-tag-value="vegetarian">
+<span class="material-symbols-outlined text-sm text-on-tertiary-container">eco</span> Vegetarian
+          </button>
+<button class="dietary-tag-btn px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-colors flex items-center gap-1" data-tag-value="halal">
+<span class="material-symbols-outlined text-sm text-secondary">verified</span> Halal
+          </button>
+<button class="dietary-tag-btn px-3 py-1.5 rounded-full font-label-md text-label-md bg-surface-container text-on-surface-variant hover:text-on-surface shrink-0 transition-colors flex items-center gap-1" data-tag-value="spicy">
+<span class="material-symbols-outlined text-sm text-error">local_fire_department</span> Spicy
+          </button>
+</div>
+</div>
+<!-- Category Filter Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pb-1 scrollbar-none">
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary shadow-md flex items-center gap-2 shrink-0 transition-all" data-category-target="all">
+<span class="material-symbols-outlined text-base">apps</span>
+<span>All Menu</span>
+<span class="bg-surface-container-lowest/20 text-on-primary px-1.5 py-0.5 rounded-full text-xs">48</span>
+</button>
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-all" data-category-target="sec-grills">
+<span class="material-symbols-outlined text-base text-secondary">outdoor_grill</span>
+<span>Grills &amp; Mains</span>
+<span class="text-xs opacity-75 font-normal">مشويات وأطباق</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full text-xs">12</span>
+</button>
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-all" data-category-target="sec-burgers">
+<span class="material-symbols-outlined text-base text-secondary">lunch_dining</span>
+<span>Burgers, Fried Chicken &amp; Sides</span>
+<span class="text-xs opacity-75 font-normal">برجر ومقبلات</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full text-xs">14</span>
+</button>
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-all" data-category-target="sec-pizza">
+<span class="material-symbols-outlined text-base text-secondary">local_pizza</span>
+<span>Pizza</span>
+<span class="text-xs opacity-75 font-normal">بيتزا إيطالية</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full text-xs">6</span>
+</button>
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-all" data-category-target="sec-desserts">
+<span class="material-symbols-outlined text-base text-secondary">bakery_dining</span>
+<span>Desserts &amp; Waffles</span>
+<span class="text-xs opacity-75 font-normal">حلويات ووافل</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full text-xs">7</span>
+</button>
+<button class="category-tab-pill px-4 py-2 rounded-full font-label-md text-label-md bg-surface-container-low text-on-surface-variant hover:text-on-surface flex items-center gap-2 shrink-0 transition-all" data-category-target="sec-beverages">
+<span class="material-symbols-outlined text-base text-secondary">coffee</span>
+<span>Beverages &amp; Dairy</span>
+<span class="text-xs opacity-75 font-normal">مشروبات وحليب</span>
+<span class="bg-surface-container text-on-surface-variant px-1.5 py-0.5 rounded-full text-xs">9</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Primary Gastronomic Sections Wrapper -->
+<div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-xl flex flex-col gap-space-xl">
+<!-- ========================================== -->
+<!-- SECTION 1: GRILLS & MAINS                  -->
+<!-- ========================================== -->
+<section class="menu-category-section flex flex-col gap-space-md" data-category-id="sec-grills" id="sec-grills">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-widest">Section 01</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Grills &amp; Mains</h2>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant" dir="rtl">مشويات وأطباق رئيسية فاخرة مشوية على الفحم</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Item 1: Prime Ribeye -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-grills" data-ingredients="french fries, truffle demi-glace, angus ribeye" data-tags="chef halal" data-title="prime ribeye steak">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet chargrilled Prime Ribeye steak sliced to reveal medium-rare pink center, accompanied by crisp golden truffle french fries, rich glossed demi-glace reduction, and rosemary sprig in an upscale moodily lit dining table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0kgw4vMgvxojxft3YcI_Bb81RSRrL6f14LGcxbPRFHT8pXHFw7i7_M1sHp3lwQXrlCfup6I5W0YAP3WdfOwbDiHO-xJG52n0FpmK4ylXAW6mJw7L2C-gsaSyc32YvVnwbFFU11TDGhdbr20Ly0i5VogruwPreBFNe9ZHoM5Hn31O3jEx09IisHkcI-f_a_IRCDXtyYrPsvnvMCEzD-9cw0DMoEGOQ9GtOngsbbQWE"/>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2.5 py-0.5 rounded-full bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">star</span> CHEF SIGNATURE
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 25 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Prime Ribeye Steak</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$42</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">157 SAR / 154 AED • 850 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Prime grade grain-fed Angus ribeye served with skin-on parmesan fries and slow-simmered black truffle demi-glace.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-ribeye', 'Prime Ribeye Steak', 42)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Item 2: Signature Chicken Supreme Pasta -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-grills" data-ingredients="creamy parmesan sauce, sun-dried tomatoes, grilled breast, fettuccine" data-tags="halal" data-title="signature chicken supreme pasta">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal creamy fettuccine pasta swirled with sun-dried tomatoes, topped with seared sliced chicken breast fillet, aged Parmigiano Reggiano curls, and micro basil in a deep ceramic bowl, natural daylight restaurant lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3vl1qHe0fkpqJlLDDtpSq_3BP8LTD0ZEoueZj8uIHOn0e265SDSu6c2aDIxkPrX-wZUpc4ltIiHbxdWqG36oHeqFO2bgW-3bSxlZx93TmYhYVTJjBQT-eK9LasPldWTDm2UEByy_UG3ioLvXzZe4Y3UfusnUNiElreuAhIPCdYi2-3e1LMTN7ytFMeHpzjWTHeGxiEQtzoM7GRKYAA2fdPisBPgTYklv-mna4gjwz"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 18 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Chicken Supreme Pasta</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$26</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">97 SAR / 95 AED • 720 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Handcrafted egg fettuccine drenched in velvety Parmesan reduction, Italian sun-dried tomatoes, and pan-charred herb chicken breast.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-pasta', 'Chicken Supreme Pasta', 26)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Item 3: View Mixed Grill Platter -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-grills" data-ingredients="shish tawook, lamb kofta, tenderloin skewers, charred vegetables, biwaz bread" data-tags="chef halal" data-title="view mixed grill platter">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Lavish Middle Eastern mixed grill platter presented on an artisanal iron platter, featuring saffron shish tawook skewers, spiced lamb kofta, tenderloin cubes, blistered chili peppers, sumac onions, and fresh saj flatbread." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvx9Cv9J_iIKamHYD8JJYowUZYn393abZTqqFh5IbZYGY6C2gGvtFbZhZs2UUVG1EHx7VaKaeywPsNeBQRFN7O2Dm_D5URmBM7v5r4CnOwACoLPNFPOwu1E177sudckAZ9kp7sMAnYBbZrCDzZmIfMqQMOjwozC6F8mdj-4l6SaIZlLdzfNIiJoqgDeqnmkXg2sP_3u12TEEmoUXS73YKDapmUDv8Zolqf_M_NMfty"/>
+<div class="absolute top-3 left-3 flex flex-wrap gap-1">
+<span class="px-2.5 py-0.5 rounded-full bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">star</span> SIGNATURE
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 22 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">View Mixed Grill Platter</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$38</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">142 SAR / 139 AED • 940 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Lemony Shish Tawook skewers, spiced Awassi Lamb Kofta, and prime tenderloin chargrilled with fire-roasted tomatoes and biwaz salad.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-grill', 'View Mixed Grill Platter', 38)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Item 4: Shawarma Platter -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-grills" data-ingredients="saj, garlic toumeya, pickled turnips, tahini, chicken, beef" data-tags="halal" data-title="artisanal beef chicken shawarma platter">
+<div class="relative h-56 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Sliced gourmet artisanal chicken and beef shawarma rolls arranged on rustic wooden board, accompanied by authentic garlic toumeya dip, pickled wild cucumber, turnip slices, and salted hand-cut fries." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBONdqjaMa73HucjRIHhBrzP77GWTymcxEnkADXt-j76K8EUVKcg4WSho1BjQtMyco1Zs7xhiw07uueYKp_g8aVHDgx1pyTG2a915VP6E92xGndASzCXz8qPLPa4fdz13RnMVxvlAkQm9ZjoGSMQxENzvQLYXCW4npMsCd41yv9_VMgt6kPiw2MC6zFCG5J1N7yrVFXu09u7wF4XPRKi00D3-wXovTPWMmKjLfMzzxo"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 15 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Shawarma Duo Platter</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$22</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">82 SAR / 80 AED • 680 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Tenderloin beef and spiced chicken rolled in freshly baked Saj bread, paired with garlic toumeya, tarator dip, and house pickles.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-shawarma', 'Shawarma Duo Platter', 22)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 2: BURGERS, FRIED CHICKEN & SIDES  -->
+<!-- ========================================== -->
+<section class="menu-category-section flex flex-col gap-space-md" data-category-id="sec-burgers" id="sec-burgers">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-widest">Section 02</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Burgers, Fried Chicken &amp; Sides</h2>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant" dir="rtl">برجر فاخر، دجاج مقرمش، مقبلات ومخبوزات طازجة</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-gutter">
+<!-- Wagyu Truffle Burger -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="brioche bun, aged cheddar, caramelised onion, truffle aioli, wagyu beef" data-tags="chef halal" data-title="wagyu truffle burger">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Decadent Wagyu beef burger in a glossy toasted golden brioche bun, overflowing with melted vintage English cheddar cheese, dark caramelized onions, and dripping black truffle aioli." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBa8J0aqcr-Sv2KNC6rGrEMySpeUDrYb-2rz8pB87IpbV1WbRcTK_M_DayVYRd4FiV18TlzgDjomcJgISR_Y_2RF1peNEMUgHDthmhWBJi0JedSs0W4MgC2kY1cirEJPBbJjTPi3Q9Ey-4IhZYEmHTSX2oV2WIlfnmERdywsWHfgJyOAFrGidv7_TC3FfQT7cCndW04BMEcECbkIez1yP5fjzHzjTeqBpptkjmKRd1K"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">
+                BESTSELLER
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 16 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Wagyu Truffle Burger</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$24</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">90 SAR / 88 AED • 790 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Japanese Wagyu chuck blend, 24-month cheddar, slow-braised onions, and fragrant black winter truffle aioli.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-wagyu', 'Wagyu Truffle Burger', 24)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Buttermilk Fried Chicken Basket -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="chicken tenders, house spices, hot honey, buttermilk" data-tags="halal spicy" data-title="ultra crispy buttermilk fried chicken basket">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Deep golden ultra crispy buttermilk fried chicken tenders served in an artisan wire wire basket lined with checkered paper, accompanied by spiced honey dip and garlic remoulade sauce." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDh6nSoVUyXOtdLcDyTlnlyLxT_GqTjiJ__4rB3XI_X7zqGmCgn4fDobkcMK4haYAc1BPdt6j9fzjktsNcAg8T2Lh6H2fZy2C7WAPccZUnBj5Jm1nE73g-ezny9x-Uaql2B6O0dgEhBbsiaachC_0wGERUL9qORRIfCsup16I2viQislrZ31F9rsWNvvQ4NA98sbbACuq9dkcNmdqS3YtzqsTFrs0Dx0ddXXcs9H_Z8"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 14 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Crispy Chicken Basket</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$21</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">78 SAR / 77 AED • 690 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                24-hour buttermilk soaked tender chicken coated in spiced double-dredged crust, served with hot acacia honey.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-chicken', 'Crispy Chicken Basket', 21)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Golden Crisp French Fries -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="truffle parmesan, smoked paprika, sea salt, potatoes" data-tags="vegetarian halal" data-title="golden crisp french fries">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Mound of thin golden French fries dusted with grated parmesan cheese and fresh chopped parsley, served with house truffle mayonnaise in a ceramic cup." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzdk28hUqI5EqZzivNYNd0C3m5v2pt7Dso_EBeWi3rDceiYhHMXgwIEWA6n-YRHV4fzqx0kbEZ7k_dNu1yV7zjzUJjnJtlY944JYi276zDqXZ4ccfu2GRzz4OHE5lx1Z1BZdCoX7ylJNjNPhmFoPRMBs5yBujgKz0q9JVzwZEFEcwG5E_Hjpw0jX3HRe842uFmZGnStGFkV3OHNfDGuQQlOvdr1BdAJukmH9gTw2Kp"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 8 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Golden French Fries</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$8</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">30 SAR / 29 AED • 380 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Hand-cut Russet potatoes double-fried in peanut oil. Choose between White Truffle Parmesan or Smoked Paprika salt.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-fries', 'Golden French Fries', 8)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Savory Crepes -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="smoked turkey, emmental cheese, spinach ricotta, buckwheat crepe" data-tags="halal" data-title="savory crepes">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Folded Parisian savory buckwheat crepe stuffed with thinly sliced smoked turkey, melted nutty Emmental cheese, wilted spinach and whipped ricotta, dusted with cracked pink peppercorn." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAFZIsK2nuO8hL4lSk_Bt2C2wXA6ttD6jC56xvFVyPK_KoGLuobazNay6SAyZvH4QUS5gpW-gq9GcmcfE192xg8RjkzZGr6o2MnuCVAMp3C9y51NPlqJmArqT1PfWBDF4vJ4iX5pY2gBv3ayBLdJv-M10OaqM_UDixq9OWZXi4PKj-mpr_BaDNn6SP3ehENPyt3_kPbYYhm5mCxRcig7Ow61_Bf7t5AEIul5e4QQxXh"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 12 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Artisanal Savory Crepes</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$16</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">60 SAR / 58 AED • 480 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Brittany style buckwheat galette stuffed with smoked farm turkey, aged Emmental, or fresh spinach with lemon ricotta.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-crepes', 'Artisanal Savory Crepes', 16)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Gourmet Appetizers & Dips Board -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="tahini dip, garlic toumeya, spiced hummus, olive oil, pomegranate" data-tags="vegetarian halal" data-title="gourmet appetizers and dips board">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegantly plated Middle Eastern dips board with swirl of creamy spiced hummus topped with virgin olive oil, fluffy white Toumeya garlic spread, and roasted sesame tahini with pomegranate seeds." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB80ctKYCBYj_tVP-3BnFncB2fYefalIAokz-7MqfjnwD7k3Exik6qWdOw1kLGS4hjfLQZVm9VpBuoCvABg70UBXmMHSxfZsoYledSWPXuQc-3dCCWSTUH66ECc26FtMkev1xDl8v_NameLV92ytfRBKErewT5Sv8KX0A_3LxutGNqmDcdHvRsSa2e39VQD2fHW9LaUqDGjt0YiCI8XxFIHR0Vm6wzOqtDLYrAHX5V6"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 10 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Appetizers &amp; Dips Board</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$14</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">52 SAR / 51 AED • 410 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Silky chickpea hummus with cold-pressed Palestinian olive oil, authentic airy garlic Toumeya, and heirloom sesame tahini.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-dips', 'Appetizers &amp; Dips Board', 14)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Burrata & Mediterranean Fattoush -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="burrata, cucumber, heirloom tomatoes, sumac pita, pomegranate molasses" data-tags="vegetarian halal" data-title="fresh garden burrata salad mediterranean fattoush">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artfully arranged salad bowl with a whole creamy Puglia burrata cheese sphere surrounded by crisp Lebanese fattoush greens, ruby pomegranate seeds, crispy sumac flatbread chips, and tangy molasses dressing." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBb5ng6Pdv5kKPDJ3VQin2VGyjTVBvKRfZ6bSmz6-FuEnWZ11GYpYcoxHFO7uDTm2O90Abt0y4nHMtXTKtKRgap50yeQwA_KvtiHHpRbDsRIjnxjW-r8tRHsFBazV1BmPaL2o0FHOD0fgeEo3zkKr5xE5McCAUJBQOMtjrW9SwLvqRimwde0BG5A6kxEPUYOtKxam6H6ggHdvDprhLmAnTs_NYBAD1HePjUp7FpG4-X"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 10 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Burrata &amp; Fattoush Salad</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$15</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">56 SAR / 55 AED • 390 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Pugliese cream-filled burrata, market purslane, heirloom cherry tomatoes, roasted sumac pita chips, and pomegranate vinaigrette.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-burrata', 'Burrata &amp; Fattoush Salad', 15)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Bakery & Bread Basket -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-burgers" data-ingredients="kaiser buns, shami pita bread, herbed garlic focaccia, cultured butter" data-tags="vegetarian halal" data-title="bakery bread basket">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Linen-lined bread basket containing warm sliced rosemary focaccia bread, puffed warm Shami pita, crusty Kaiser rolls, alongside whipped salted butter and herb-infused olive oil." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGgZvsOgplTftiGQJam-BcxWpzwGA5MV0TS-eWYOlhQLaauGdBi01MuZFOjSW4rUjgGEhuqxKrP1NFkZglWYOPTOUOZP988ZkUpjwELZW1PYBeUndbo7OIvV-vzuPGAHKc--ck7rQ5ziOEMdDY0I0BqXGIO2z3rt_dixonJMJFfMa1lewc6IZbRNhHhkF6I7PSDPGMjZY8CgjV49TpvNMh-6uDBG59AVdw86EZllKu"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 5 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Bakery &amp; Bread Basket</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$9</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">34 SAR / 33 AED • 310 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Straight from our hearth: warm golden Kaiser buns, puffed Shami flatbread, and rosemary garlic focaccia with cultured butter.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-bread', 'Bakery &amp; Bread Basket', 9)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 3: PIZZA                           -->
+<!-- ========================================== -->
+<section class="menu-category-section flex flex-col gap-space-md" data-category-id="sec-pizza" id="sec-pizza">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-widest">Section 03</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Pizza</h2>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant" dir="rtl">بيتزا إيطالية مخبوزة على الحجر الطبيعي</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Classic Margherita D.O.P. -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-pizza" data-ingredients="san marzano tomatoes, fresh buffalo mozzarella, fresh basil, olive oil" data-tags="vegetarian halal" data-title="classic margherita dop">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal wood-fired Neapolitan Margherita pizza with leopard-spotted charred crust, melted white mozzarella di bufala, crushed San Marzano tomato base, and fresh bright basil leaves on a marble slab." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6rUKEDtFQ3bsdwzT_NDWjKaOUyxs2mBZeYlAq0xz7h2hPv5ZtYVYj4mdKJ1Vs1biV2eFfgqU8ePJE4aJW3RwKKRhkE27iv3gv0_XIS2gDwg50i_zcOPmoAdph3BwWPYrNlcNos29Yw-qA3210BeHIFbwswVcGD0jwJ7SfoAveKHStNsLpYL8e5iruqUz_yq9wUT7mV-NPO57M-8QUTz9Pltft6xXCed8qaveRWWek"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 12 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Margherita D.O.P.</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$19</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">71 SAR / 70 AED • 620 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                48-hour fermented sourdough crust topped with San Marzano tomatoes, Campania buffalo mozzarella, and fragrant Genovese basil.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-margherita', 'Margherita D.O.P.', 19)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Tartufata & Wild Mushroom -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-pizza" data-ingredients="fior di latte, white truffle oil, porcini, cremini mushrooms, thyme" data-tags="chef vegetarian halal" data-title="tartufata wild mushroom pizza">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet white pizza bianca topped with roasted porcini and wild cremini mushrooms, stringy fior di latte cheese, fresh thyme, and shimmering drizzle of Italian white truffle oil." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDdJvMVXS6aIDKkPULGnIQvbcxhxBQuE_17OF4cXdoKjfVRkqTXJFQIyvuVBpXQLMZbKqAKphJheRS99nHM3fvEo7Fw3NqsH910JxO9v82M9feu_r41Mb1lcD3CJWPbSP-g0ItbaNhTim10qmTCxh8P4hi18dsGXpPbIrrNT8LjDq3WaihHXMieEjrDarDXcZOCu1fdMLolG4mfs26OUx2dewHnFIwXMFNR_mojgsvk"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-0.5 rounded-full bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary">star</span> CHEF'S PICK
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 14 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Tartufata &amp; Wild Mushroom</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$25</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">94 SAR / 92 AED • 690 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Earthy wild forest porcini, creamy fior di latte cheese, roasted garlic paste, and aromatic Piedmont white truffle oil infusion.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-tartufata', 'Tartufata &amp; Wild Mushroom', 25)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Smoked Bresaola & Arugula Flatbread -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-pizza" data-ingredients="bresaola, wild arugula, shaved parmesan, balsamic glaze, fior di latte" data-tags="halal" data-title="smoked bresaola arugula gourmet flatbread pizza">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crisp oval artisan gourmet flatbread pizza draped with delicate ribbons of ruby smoked cured beef bresaola, peppery fresh arugula rocket leaves, thick shaved aged parmesan, and aged Modena balsamic drizzle." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAP5cvMldp2JdgKvx9gmVZhi_0QDNca8Y6efAdKRIbWfEnK3tvxIA4E3c_nU-xzAV1EkqUHKHVdnklogLwqY1hBjBihsVSF8x-cVBoOF8u_kIMS8YVtNeJtKKDTSf8Ud-8JAx7lOdr4Smh_TRqtsGu6tt7biCADIcAx8TSLQtAyQzY0raNQIEOB9Q7hGtdQ2d50d0AEWU6-n66GJ2oT5u0R8wLDRls_sYFVCWCP2JgT"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 13 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Smoked Bresaola &amp; Arugula</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$26</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">97 SAR / 95 AED • 640 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Hand-cured Halal beef bresaola, mountain wild rocket, shaved 24-month Grana Padano, and 12-year barrel aged balsamic reduction.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-bresaola', 'Smoked Bresaola Pizza', 26)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 4: DESSERTS & WAFFLES              -->
+<!-- ========================================== -->
+<section class="menu-category-section flex flex-col gap-space-md" data-category-id="sec-desserts" id="sec-desserts">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-widest">Section 04</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Desserts &amp; Waffles</h2>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant" dir="rtl">حلويات غربية وشرقية محضرة بشغف شيف المعجنات</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Belgian Golden Waffle -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-desserts" data-ingredients="pistachio sauce, roasted nuts, madagascar vanilla gelato, waffle" data-tags="chef vegetarian halal" data-title="belgian golden waffle with pistachio sauce">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Crispy golden Belgian waffle squares smothered in rich silk green pistachio cream sauce, crushed Bronte pistachios, and a quenelle of Madagascar vanilla bean gelato." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCS_UREaXx4ss-79q6ydzp8Tqh0a4u9j4qx-Wr7tzjNPZuQDi4CkbEXXLWqMXyY9RgnSGEYBy9N5gfaakTMl-hRL5txZ2k3rdNVdBM1VmnVJFQs7BBnP94UO0nA2sDttQj5JMuEDg6Fuy5W9yd2FaQBlBJe55oBKQk83tt5PpFEP1H2ETbEHj8NTaT2eftoEAnmoFE94LKM_icZWcL-V4wgFTLeTgUnDie0mJhRxIHw"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">
+                TOP DESSERT
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 10 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Belgian Pistachio Waffle</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$15</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">56 SAR / 55 AED • 540 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Pearl-sugar Liège waffle, roasted Sicilian pistachio sauce, slivered toasted almonds, and organic Madagascar vanilla gelato.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-waffle', 'Belgian Pistachio Waffle', 15)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Molten Valrhona Chocolate Sphere -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-desserts" data-ingredients="dark chocolate, salted caramel drizzle, brownie crumble, hazelnut" data-tags="chef vegetarian halal" data-title="molten valrhona chocolate sphere">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Dark Valrhona chocolate dessert sphere being melted open by a pour of warm golden salted caramel sauce to reveal hazelnut praline mousse and brownie core on an elegant dark ceramic plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAn29JYANvIj32rJYuCnsrnxbgXpBWJUtZSHwO_2uZDpFeGCW6Gd7R0ciVgl490UKcaxAh9J9iXt0iBWjsJoRNAdDliMezucJnK4FXs_ZzQbs7c6RP954RizWHx2GzFDLDL6sjg9WQ9MmhMwWNLJyhRAvjKG9RNthNQCTHOPJ-qw-Cli1QVdWRxb1cLxWlmYbrnrGR7IqmK3Pneik9D8XA-YG5EWOkrnU3B0DT7hVQ2"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 12 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Valrhona Chocolate Sphere</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$16</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">60 SAR / 58 AED • 610 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                70% Guanaja chocolate orb filled with hazelnut praline crunch, melted table-side with warm French fleur de sel caramel.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-sphere', 'Valrhona Chocolate Sphere', 16)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Saffron & Cardamom Milk Cake -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-desserts" data-ingredients="saffron milk, whipped cream, cardamom sponge, edible gold, pistachios" data-tags="vegetarian halal" data-title="saffron cardamom milk cake tres leches">
+<div class="relative h-60 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Square slice of airy saffron milk cake soaked in golden cardamom infused evaporated milk, topped with cloud-like whipped cream, saffron threads, and crushed green pistachios." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5WnPipW2QesVIEnR9ssFLauq2LwXjbm5lv4ualZkfvBS9BvoBSIlShdgIXcVi3Vqk0jMdYPeItEo1lyqmvbb54xaeKKFQyoMTKqIpkUyhVxU8DkGw5do9oBtcYw-Uz3MjchKXC8Z78sEoU-ioGYkRNWdREDRGIbYyW_xFB8EqwrESO4VVLWwNX1Z9z89-z1rqNqrZm-mnuceVp85HdkjLNEmYIoVj0F8jbHWbNBdQ"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 5 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Saffron &amp; Cardamom Cake</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$14</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">52 SAR / 51 AED • 460 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Levantine tres leches soaked in Persian saffron and green cardamom condensed milk, crowned with light chantilly cream.
+              </p>
+</div>
+<button class="w-full h-11 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-lg text-label-lg transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-saffroncake', 'Saffron Cardamom Cake', 14)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- SECTION 5: BEVERAGES & DAIRY               -->
+<!-- ========================================== -->
+<section class="menu-category-section flex flex-col gap-space-md" data-category-id="sec-beverages" id="sec-beverages">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-xs pb-space-xs">
+<div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="font-label-md text-label-md text-secondary uppercase font-bold tracking-widest">Section 05</span>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-surface font-bold">Beverages &amp; Dairy</h2>
+</div>
+<p class="font-label-lg text-label-lg text-on-surface-variant" dir="rtl">قهوة مختصة، مشروبات الحليب الساخنة والموكتيلات المنعشة</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
+<!-- Cold Brew & Spanish Latte -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-beverages" data-ingredients="ethiopia yirgacheffe, sweetened condensed milk, whole milk, espresso" data-tags="chef vegetarian halal" data-title="signature cold brew iced spanish latte">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Layered glass of Iced Spanish Latte showing cascading espresso blending into chilled condensed whole milk and clear ice cubes, condensation on ribbed glassware in a café setting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC_rbPAiYCV2p5sB4Q5Cwf0g802UkbTgWWxpbeHyVTu2qWs1t-rsi12HdaeelC4RFtVKmPvRvFckLweQt_Qk_JngG2qA_30iujADIeX4pytgI8UpQ31m5ye4AZphyOp4GGm9mYR7y3Ycs_UhjmWhpV6p3-Lnkyn4FsyMuEMa9MdVk-vtm3XmmKy1F864z9F1aLKT47oRCUz8u-dMLzgtMsjhfc3pcumKa0_m3mursdT"/>
+<div class="absolute top-3 left-3">
+<span class="px-2.5 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">
+                ROASTERY HIT
+              </span>
+</div>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 4 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Cold Brew &amp; Spanish Latte</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$8</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">30 SAR / 29 AED • 180 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Single-origin Ethiopian Yirgacheffe slow-steeped for 18 hours or pulled espresso over organic sweet cream and crystal ice.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-latte', 'Iced Spanish Latte', 8)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Handcrafted Hot Specialty Coffees -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-beverages" data-ingredients="colombia geisha, textured microfoam, ground turkish coffee, mastic" data-tags="vegetarian halal" data-title="handcrafted hot specialty coffees cortado flat white turkish sand coffee">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Barista pouring delicate swan latte art into a ceramic cup of Cortado coffee, with a traditional copper cezve pot bubbling in hot golden sand beside it." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAR7s3G7fPeEo-4dQUJdvOR_Gy3u2-divHU6R6uNXohwCddEtuNm3Wf2bzBnt-vhjXo4p1bDv-pNMo1NnlDVOBb8XE9IOas9Hy8MLwF9RDfqTaOX-xa6yPQCPF-wfWHG0EcuUXwbdnjroXTtm9-cZDCV9IbbjnAo9BbeWFLjAN9nYkofuONQm0yMHslDuyGgiD3A3VU0trhwYKo0lGylXxczL3hncRoXQ9oYd7Jj5M5"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 5 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Hot Specialty Coffees</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$7</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">26 SAR / 25 AED • 95 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Silky Flat White, balanced Cortado, or authentic slow-brewed Turkish Sand Coffee with hints of wild Lebanese mastic.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-hotcoffee', 'Specialty Hot Coffee', 7)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Cold & Hot Milk Specialties -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-beverages" data-ingredients="turmeric, lavender blossom, highland raw honey, oat milk, pistachio milk" data-tags="vegetarian halal" data-title="cold and hot milk specialties warm golden turmeric lavender honey iced pistachio milk">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Trio of artisanal milk drinks: golden yellow turmeric steamer with cinnamon dusting, pale lilac lavender honey milk, and emerald iced pistachio milk in clean designer glassware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKmc8nPi8hqOvNcO1NWk5f1dI91M_5Wfy8pePg9M_fwVEE0YV0QNe-joAQ9owoLoUm2Px5t_SHEBUjwDPi3sXvkv2MzFDunXgpAgdTMBZEYjz4IBa4K9_voJF0k_mpNHLYGwUbBymPybmC-80JEXn8kYLkr4qj7FB54V3xPxa6JN_IZeJ3YvQkKHmIpcoLNgAxUKe1-6bmt9luD1izdR1iiUEp_73QvXwgK2HbFCew"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 5 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Specialty Milk Creations</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$8</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">30 SAR / 29 AED • 150 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Warm Golden Turmeric Elixir, French Lavender Honey Steamer, or chilled handcrafted Sicilian Pistachio whole milk.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-milk', 'Specialty Milk Creation', 8)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+<!-- Mocktails & Refreshers -->
+<article class="menu-item-card flex flex-col bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group" data-category="sec-beverages" data-ingredients="passion fruit, mint, blood orange, san pellegrino, fresh juice" data-tags="vegetarian halal" data-title="artisanal fresh mocktails san pellegrino mineral water fresh juices">
+<div class="relative h-52 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Vibrant tropical passionfruit and mint mocktail in a tall faceted glass with fresh crushed ice, alongside an ice-cold bottle of San Pellegrino sparkling mineral water." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLWMqZjwAGXJoPoedrXdMdQRg8tOLNFNUVYHt78FqgAEhMPTaTZJ9qOUmbLZa0rJVIqhuXXQdRLrcFM5ww3mDOPJu8hH90txgb_j9s35zJF3myZb8qkUv2FVJ1hxxE60HpTNxXu_l0-988s2rrs8EEtHbXxLc3yhryYHZos-GRiT84FqFFcgbQ3OLp23v8Cuq_JApdionAy9zgc71pLvzAZ_5EgeKgIGxrkCTzWuUo"/>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded bg-surface-container-lowest/90 backdrop-blur-md font-label-sm text-label-sm text-on-surface font-medium flex items-center gap-1 shadow-sm">
+<span class="material-symbols-outlined text-xs text-secondary">timer</span> 3 mins
+            </div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div class="flex flex-col gap-1">
+<div class="flex items-start justify-between gap-2">
+<h3 class="font-title-lg text-title-lg font-bold text-on-surface leading-tight">Artisanal Mocktails &amp; Water</h3>
+<span class="font-title-lg text-title-lg font-bold text-secondary shrink-0">$6</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant font-medium">23 SAR / 22 AED • 110 kcal</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+                Sparkling Passionfruit &amp; Yuzu mojito, fresh cold-pressed blood orange juice, or chilled 750ml San Pellegrino sparkling water.
+              </p>
+</div>
+<button class="w-full h-10 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md transition-colors flex items-center justify-center gap-2 group-hover:bg-primary group-hover:text-on-primary" onclick="window.addToCart('item-mocktail', 'Artisanal Mocktail', 6)">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add to Order</span>
+</button>
+</div>
+</article>
+</div>
+</section>
+<!-- Culinary Sourcing & Dietary Philosophy Inset Callout -->
+<div class="p-space-lg bg-surface-container rounded-xl flex flex-col md:flex-row items-center justify-between gap-space-md shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-2xl">verified_user</span>
+</div>
+<div class="flex flex-col">
+<h4 class="font-title-lg text-title-lg font-bold text-on-surface">Dietary &amp; Allergen Accommodations</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-xl">
+            All meat offerings are 100% Halal Certified. Gluten-free pizza dough and dairy-free milk alternatives (Oat, Almond, Coconut) are gladly prepared upon table request.
+          </p>
+</div>
+</div>
+<a class="px-5 py-2.5 rounded bg-primary text-on-primary font-label-md text-label-md hover:bg-secondary transition-colors shrink-0 flex items-center gap-2" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+<span>Reserve a Dining Table</span>
+</a>
+</div>
+</div>
+<!-- Toast Notification when item is added -->
+<div class="fixed bottom-24 right-6 z-50 transform translate-y-24 opacity-0 transition-all duration-300 pointer-events-none" id="cart-toast">
+<div class="flex items-center gap-2 bg-primary text-on-primary px-4 py-3 rounded-lg shadow-xl border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+<span class="font-label-md text-label-md font-semibold">Dish added to your order</span>
+</div>
+</div>
+<!-- Floating Quick Order Drawer Bar (Bottom Right) -->
+<aside class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+<!-- Collapsible Mini Modal for Detailed Breakdown -->
+<div class="hidden mb-3 w-80 sm:w-96 bg-surface-container-lowest/95 backdrop-blur-2xl rounded-xl shadow-2xl p-space-md flex flex-col gap-space-sm border border-outline-variant/20" id="cart-expanded-view">
+<div class="flex items-center justify-between pb-2 border-b border-outline-variant/30">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">shopping_bag</span>
+<span class="font-title-lg text-title-lg font-bold text-on-surface">Order Summary</span>
+</div>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" onclick="window.toggleDrawerExpand()">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Scrollable List of Cart Items -->
+<div class="max-h-56 overflow-y-auto divide-y divide-outline-variant/20 pr-1" id="drawer-items-list">
+<!-- Rendered via JS -->
+</div>
+<div class="pt-2 border-t border-outline-variant/30 flex flex-col gap-2">
+<div class="flex justify-between items-center font-label-md text-label-md text-on-surface-variant">
+<span>VAT (15%) Included</span>
+<span class="text-secondary font-bold">Chef Delivery: Ready in 30m</span>
+</div>
+<a class="w-full h-11 rounded-lg bg-secondary text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 hover:bg-primary transition-colors shadow-md" data-path="cart-checkout" href="../view_restaurant_online_ordering_cart/code.html">
+<span>Proceed to Checkout</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- The Primary Drawer Pill Button -->
+<button class="h-14 px-5 bg-primary hover:bg-surface-container-highest text-on-primary hover:text-on-surface rounded-full shadow-2xl flex items-center gap-3.5 transition-all duration-300 transform hover:scale-105 active:scale-95 group" onclick="window.toggleDrawerExpand()">
+<div class="relative w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-on-secondary font-bold">
+<span class="material-symbols-outlined text-lg">restaurant_menu</span>
+</div>
+<div class="flex flex-col items-start text-left">
+<span class="font-label-sm text-label-sm font-bold uppercase tracking-wider text-secondary" id="drawer-item-count">3 items</span>
+<span class="font-title-lg text-title-lg font-bold leading-tight" id="drawer-subtotal">$72.00 / 270 SAR</span>
+</div>
+<span class="material-symbols-outlined text-base opacity-70 group-hover:translate-x-0.5 transition-transform">expand_less</span>
+</button>
+</aside>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface mt-space-xl"><div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter items-start"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="View Restaurant &amp; Café Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold">VIEW RESTAURANT &amp; CAFÉ</span><span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Immersive fine dining paired with artisanal specialty roasts. Architectural views, elevated culinary craft, and refined hospitality nestled in the skyline.</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="YouTube" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://youtube.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">smart_display</span></a><a aria-label="Instagram" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://instagram.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">photo_camera</span></a><a aria-label="X Twitter" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://x.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">tag</span></a><a aria-label="Facebook" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://facebook.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">public</span></a></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Hours &amp; Location</h4><div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">location_on</span><span>Skyline Promenade, Tower 4, Level 52<br/>Downtown Boulevard, Dubai &amp; Riyadh</span></div><div class="flex items-start gap-2 mt-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">schedule</span><div><p class="font-semibold text-on-surface">Weekdays: 08:00 AM – 12:00 AM</p><p class="font-semibold text-on-surface">Weekends: 08:00 AM – 02:00 AM</p><p class="text-xs text-on-surface-variant">Specialty Pour-over Bar open all day</p></div></div><div class="flex items-center gap-2 mt-2"><span class="material-symbols-outlined text-sm text-secondary">call</span><span>+966 (0) 11 490 8820 / +971 4 800 VIEW</span></div></div></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Quick Navigation</h4><ul class="flex flex-col gap-2 font-label-md text-label-md"><li data-active-classes="text-secondary font-bold"><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Gastronomy &amp; Coffee</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Table Reservation</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Delivery &amp; Pickup</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="terms-and-conditions" href="#">Policies &amp; Dietary Notes</a></li><li><a class="text-secondary hover:underline flex items-center gap-1 font-semibold" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-xs">verified_user</span>Staff &amp; Admin Access</a></li></ul></div><div class="lg:col-span-3 bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col items-center text-center gap-space-sm"><div class="w-24 h-24 bg-surface-container-lowest p-2 rounded-lg shadow-sm flex items-center justify-center"><span class="material-symbols-outlined text-5xl text-on-surface">qr_code_2</span></div><div><h5 class="font-title-lg text-title-lg text-on-surface font-semibold">Digital Experience</h5><p class="font-body-sm text-body-sm text-on-surface-variant">Scan to unlock touchless mobile ordering, cellar reserve, and barista profiles.</p></div><div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider"><span class="material-symbols-outlined text-sm">smartphone</span><span>Instant Table Menu</span></div></div></div><div class="mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant"><p>© 2025 View Restaurant &amp; Café (مطعم وكافيه فيو). All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Terms of Service</a><a class="hover:text-secondary transition-colors" data-path="admin-portal" href="../view_restaurant_admin_control_portal/code.html">Admin Console</a><a class="hover:text-secondary transition-colors" data-path="employee-hub" href="../view_restaurant_employee_operational_hub/code.html">Employee Hub</a></div></div></div></footer></body></html>
+
+

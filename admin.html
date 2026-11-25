@@ -1,0 +1,1866 @@
+﻿<!DOCTYPE html>
+
+<html lang="ar" dir="rtl"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/>
+<title>لوحة الإدارة والتحكم | The View Cafe &amp; Restaurant</title>
+<link rel="icon" type="image/jpeg" href="./the-view-logo.jpg" />
+<link rel="apple-touch-icon" href="./the-view-logo.jpg" />
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="./js/firebase-config.js"></script>
+<script defer src="./js/app.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#bb7336","surface-bright":"#fbf9f6","background":"#fbf9f6","on-error":"#ffffff","tertiary-container":"#2f1400","tertiary-fixed-dim":"#ffb780","surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f0","on-secondary-container":"#6c2400","error":"#ba1a1a","error-container":"#ffdad6","primary-container":"#1c1b1b","on-surface":"#1b1c1a","on-error-container":"#93000a","inverse-on-surface":"#f2f0ed","on-surface-variant":"#444748","primary-fixed":"#e5e2e1","surface-container-highest":"#e4e2df","surface-tint":"#5f5e5e","surface-dim":"#dbdad7","inverse-primary":"#c8c6c5","on-primary-fixed-variant":"#474746","on-primary-container":"#858383","on-primary":"#ffffff","outline-variant":"#c4c7c7","surface-container":"#efeeeb","outline":"#747878","primary-fixed-dim":"#c8c6c5","on-tertiary-fixed":"#2f1400","on-background":"#1b1c1a","on-secondary-fixed-variant":"#7f2b00","on-secondary":"#ffffff","secondary-container":"#fe8450","secondary-fixed":"#ffdbce","secondary":"#a23f0f","on-tertiary":"#ffffff","surface-container-high":"#eae8e5","surface":"#fbf9f6","inverse-surface":"#30312f","tertiary":"#000000","tertiary-fixed":"#ffdcc4","surface-variant":"#e4e2df","on-primary-fixed":"#1c1b1b","secondary-fixed-dim":"#ffb598","on-tertiary-fixed-variant":"#6f3800","primary":"#000000","on-secondary-fixed":"#370e00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"3rem","gutter":"1.5rem","margin-tablet":"2rem"},"fontFamily":{"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"display-hero":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script><link rel="stylesheet" href="./css/style.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed right-0 top-0 h-full w-64 bg-surface-container-low shadow-[-2px_0_12px_rgba(0,0,0,0.03)] z-50 flex flex-col justify-between pt-6 pb-6"><div class="flex flex-col"><div class="px-6 mb-8 flex items-center gap-space-sm"><img alt="The View Cafe &amp; Restaurant Logo" class="h-10 w-auto object-cover rounded shadow-sm border border-outline-variant/30" src="./the-view-logo.jpg"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold">The View</span><span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">الإدارة والتشغيل</span></div></div><div class="px-6 mb-3"><span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant font-bold">لوحة التحكم الإدارية</span></div><nav class="flex flex-col gap-1.5 px-4" data-active-classes="bg-primary text-on-primary font-semibold shadow-sm"><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg transition-colors bg-primary text-on-primary font-semibold shadow-sm" data-path="admin-portal" href="admin.html"><span class="material-symbols-outlined text-lg">analytics</span><span>لوحة التحكم الرئيسية</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="delivery-hub" href="delivery.html"><span class="material-symbols-outlined text-lg text-secondary">moped</span><span>منظومة التوصيل والمناديب</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="live-orders" href="employee.html"><span class="material-symbols-outlined text-lg">soup_kitchen</span><span>شاشة المطبخ (KDS)</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="reservation-management" href="admin.html#reservations"><span class="material-symbols-outlined text-lg">table_restaurant</span><span>إدارة الحجوزات</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="menu-catalog-manager" href="admin.html#menu"><span class="material-symbols-outlined text-lg">restaurant_menu</span><span>إدارة أصناف المنيو</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="employee-hub" href="employee.html"><span class="material-symbols-outlined text-lg">badge</span><span>الموظفين والورديات</span></a></nav></div><div class="px-4 flex flex-col gap-2"><a class="flex items-center justify-between px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" data-path="home" href="index.html"><span>الموقع الرئيسي (الزبائن)</span><span class="material-symbols-outlined text-sm">open_in_new</span></a><div class="p-3 bg-surface-container-high rounded-xl flex items-center gap-space-sm"><img alt="Profile" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">مدير التشغيل</span><span class="font-label-sm text-label-sm text-secondary truncate">صلاحية تنفيذية</span></div></div></div></aside><div class="pr-64"><header class="fixed top-0 right-64 left-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-8"><div class="flex items-center gap-3"><span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase font-bold tracking-wider">خدمة حية</span><span class="text-on-surface-variant font-body-sm text-body-sm hidden md:inline">The View Cafe &amp; Restaurant (أسوان) — المنظومة التشغيلية المتكاملة</span></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-high rounded-full px-3 py-1 text-on-surface font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span><span>إشغال الصالة: 92%</span></div><a class="relative p-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface" data-path="live-orders" href="employee.html"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Command & Status Ribbon -->
+<div class="px-8 py-5 flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-4">
+<div class="p-2.5 rounded-xl bg-surface-container-lowest shadow-sm flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">admin_panel_settings</span>
+</div>
+<div>
+<div class="flex items-center gap-2.5">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">لوحة الإدارة والتشغيل الرئيسية</span>
+<span class="px-2.5 py-0.5 rounded-full bg-secondary/10 text-secondary font-label-sm text-label-sm uppercase font-bold tracking-wider">صلاحيات المدير نشطة</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">مركز التحكم الشامل: مطبخ The View، الحجوزات، الموظفين، وأصناف المنيو</p>
+</div>
+</div>
+<div class="flex items-center flex-wrap gap-2.5">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 shadow-sm font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>متصل بالسحاب Firebase: view-restaurant-and-coffe</span>
+</div>
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm font-label-md text-label-md text-on-surface-variant">
+<span class="material-symbols-outlined text-sm text-secondary">sync</span>
+<span id="sync-status-time">مزامنة حية</span>
+</div>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-all" onclick="window.ViewApp?.openQRModal()">
+<span class="material-symbols-outlined text-lg text-secondary">qr_code_2</span>
+<span>منيو QR Code</span>
+</button>
+<button class="flex items-center gap-2 px-3.5 py-2 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-all" onclick="openMessagesCenterModal()">
+<span class="material-symbols-outlined text-lg text-secondary">mail</span>
+<span>مركز المراسلات</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-secondary text-on-secondary font-label-md text-label-md shadow-sm hover:bg-secondary/90 transition-all" onclick="document.getElementById('add-menu-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-lg">add_circle</span>
+<span>+ إضافة طبق جديد</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary text-on-primary font-label-md text-label-md shadow-sm hover:opacity-90 transition-all" onclick="document.getElementById('create-staff-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-lg">person_add</span>
+<span>+ تسجيل موظف جديد</span>
+</button>
+</div>
+</div>
+<div class="p-8 flex flex-col gap-8 max-w-[1700px] w-full mx-auto">
+<!-- Row 1: Executive KPI Metrics Bento -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- KPI 1 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="absolute -right-4 -bottom-4 w-28 h-28 rounded-full bg-secondary/5 pointer-events-none"></div>
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">إجمالي مبيعات اليوم</span>
+<div class="w-9 h-9 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-xl">payments</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">48,250 ج.م</span>
+<span class="inline-flex items-center text-xs font-semibold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+<span class="material-symbols-outlined text-xs ml-0.5">trending_up</span>+14.2%
+            </span>
+</div>
+<div class="mt-2 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>داخل الصالة: 34,500 ج.م</span>
+<span>أونلاين وسفري: 13,750 ج.م</span>
+</div>
+</div>
+<!-- Micro Sparkline SVG -->
+<div class="mt-4 pt-3 border-t border-surface-container">
+<svg class="w-full h-8 overflow-visible" preserveaspectratio="none" viewbox="0 0 100 24">
+<path class="text-secondary" d="M0,20 Q15,18 28,12 T55,14 T75,6 T100,2" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"></path>
+<path class="text-secondary/10" d="M0,20 Q15,18 28,12 T55,14 T75,6 T100,2 L100,24 L0,24 Z" fill="currentColor"></path>
+</svg>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">الطلبات النشطة الآن</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-xl">soup_kitchen</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-3">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">18</span>
+<span class="inline-flex items-center text-xs font-semibold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-full">
+              4 طلبات عاجلة
+            </span>
+</div>
+<div class="mt-2 flex items-center gap-4 text-on-surface-variant font-body-sm text-body-sm">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> 9 قيد التحضير</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-sky-500"></span> 5 قيد التوصيل</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span>متوسط وقت الطهي: 14.8 دقيقة</span>
+<span class="text-secondary font-semibold">المستهدف: &lt;18 د</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">حجوزات الصالة (اليوم)</span>
+<div class="w-9 h-9 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed">
+<span class="material-symbols-outlined text-xl">table_restaurant</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">42</span>
+<span class="text-on-surface-variant font-body-md text-body-md">طاولة</span>
+<span class="text-on-surface font-semibold font-body-md text-body-md mr-auto">158 ضيفاً</span>
+</div>
+<div class="mt-2 text-on-surface-variant font-body-sm text-body-sm">
+            فترة الذروة: 07:30 م — 09:00 م (100% إشغال)
+          </div>
+</div>
+<div class="mt-4 pt-3 flex items-center gap-2 border-t border-surface-container">
+<div class="w-full bg-surface-container h-2 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 88%"></div>
+</div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface">88%</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="p-6 rounded-2xl bg-surface-container-lowest shadow-sm flex flex-col justify-between relative overflow-hidden group hover:shadow-md transition-shadow">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">أصناف المنيو والمشروبات</span>
+<div class="w-9 h-9 rounded-xl bg-surface-container-high flex items-center justify-center text-on-surface">
+<span class="material-symbols-outlined text-xl">restaurant_menu</span>
+</div>
+</div>
+<div class="mt-4">
+<div class="flex items-baseline gap-2">
+<span class="font-headline-lg text-headline-lg text-on-surface font-bold tracking-tight">48</span>
+<span class="text-emerald-600 font-label-md text-label-md font-semibold">طبق ومشروب نشط</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-on-surface-variant font-body-sm text-body-sm">
+<span>مشويات 12 • برجر 14 • بيتزا 6 • حلا 7 • مشروبات 9</span>
+<span class="text-emerald-600 font-semibold">جميعها متوفرة</span>
+</div>
+</div>
+<div class="mt-4 pt-3 flex items-center justify-between border-t border-surface-container text-on-surface-variant font-label-sm text-label-sm">
+<span>المنيو الرقمي: معرب بالكامل</span>
+<button onclick="window.ViewApp?.openQRModal()" class="font-bold text-secondary hover:underline flex items-center gap-1 cursor-pointer"><span class="material-symbols-outlined text-xs">qr_code_2</span><span>فتح منيو QR Code</span></button>
+</div>
+</div>
+</div>
+<!-- Row 2: Customer Orders Management Module -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col gap-6">
+<div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">local_mall</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">إدارة ومتابعة طلبات الزبائن الحية</h2>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">متابعة طلبات المطبخ، مناديب التوصيل، وسجل الفواتير المكتملة.</p>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<!-- Live Search: Customer Name, Order Number, Dish Name -->
+<div class="relative min-w-[300px] flex-1 max-w-md">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-lg">search</span>
+<input class="w-full pr-9 pl-9 py-2 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:outline-none focus:bg-surface-container-lowest focus:ring-2 focus:ring-secondary/50 shadow-inner text-right" id="order-search-input" oninput="filterAdminOrders(this.value)" placeholder="ابحث باسم الزبون، رقم الطلب، أو الصنف..." type="text" autocomplete="off"/>
+<button id="clear-order-search-btn" onclick="clearOrderSearch()" style="display: none;" class="absolute left-2.5 top-2.5 w-5 h-5 rounded-full bg-surface-container-high text-on-surface-variant hover:text-on-surface flex items-center justify-center text-xs font-bold transition-all" title="إلغاء البحث">✕</button>
+</div>
+<!-- Order Tabs Filter -->
+<div class="flex items-center bg-surface-container p-1 rounded-xl gap-1">
+<button class="order-tab px-3.5 py-1.5 rounded-lg bg-surface-container-lowest shadow-sm font-label-sm text-label-sm font-bold text-on-surface transition-all" data-filter="all">الكل (<span id="tab-count-all">4</span>)</button>
+<button class="order-tab px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" data-filter="preparing">قيد التحضير (<span id="tab-count-prep">2</span>)</button>
+<button class="order-tab px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" data-filter="delivery">في الطريق للتوصيل (<span id="tab-count-deliv">1</span>)</button>
+<button class="order-tab px-3.5 py-1.5 rounded-lg font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface transition-all" data-filter="completed">طلبات مكتملة (<span id="tab-count-comp">1</span>)</button>
+</div>
+</div>
+</div>
+<!-- Orders Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3.5 px-4 rounded-r-xl">رقم الطلب</th>
+<th class="py-3.5 px-4">بيانات العميل</th>
+<th class="py-3.5 px-4">تفاصيل الطلب</th>
+<th class="py-3.5 px-4">المبلغ الإجمالي</th>
+<th class="py-3.5 px-4">حالة التنفيذ</th>
+<th class="py-3.5 px-4">الوقت</th>
+<th class="py-3.5 px-4 text-left rounded-l-xl">إجراء سريع</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container" id="orders-table-body">
+<!-- Order 1 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">#ORD-9481</span>
+<span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-surface-container-high text-on-surface">داخل الصالة</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">طاولة 06 • التراس</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">أحمد عبد الله</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant dir-ltr text-right">+20 11 01774545</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium">3 أصناف</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-xs">ريب آي واجيو، سلطة بوراتا، كولد برو إثيوبي</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-title-lg text-title-lg font-bold text-secondary">640.00 ج.م</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">فيزا • مدفوع</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-amber-700 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+                  قيد التحضير
+                </span>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">
+                منذ 11 دقيقة
+              </td>
+<td class="py-4 px-4 text-left">
+<div class="flex items-center justify-start gap-1.5">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary transition-colors" title="جاهز للتقديم">
+<span class="material-symbols-outlined text-lg">done</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" title="طباعة بون المطبخ">
+<span class="material-symbols-outlined text-lg">print</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Order 2 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">#ORD-9480</span>
+<span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-secondary-fixed text-on-secondary-fixed">توصيل سريع</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">مندوب التوصيل: كابتن محمد #14</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">ليلى محمود</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant dir-ltr text-right">+20 10 98765432</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium">4 أصناف</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-xs">2x سبانيش لاتيه، وافل فستق، برجر ترافل</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-title-lg text-title-lg font-bold text-secondary">601.00 ج.م</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">فودافون كاش</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-sky-50 text-sky-700 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                  في الطريق للعميل
+                </span>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">
+                منذ 24 دقيقة
+              </td>
+<td class="py-4 px-4 text-left">
+<div class="flex items-center justify-start gap-1.5">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" title="متابعة موقع المندوب">
+<span class="material-symbols-outlined text-lg">moped</span>
+</button>
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" title="تفاصيل الفاتورة">
+<span class="material-symbols-outlined text-lg">receipt_long</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Order 3 -->
+<tr class="hover:bg-surface-container-low/60 transition-colors group">
+<td class="py-4 px-4">
+<div class="flex items-center gap-2">
+<span class="font-title-lg text-title-lg font-bold text-on-surface">#ORD-9479</span>
+<span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-surface-container-high text-on-surface">داخل الصالة</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">الصالون الخاص VIP</span>
+</td>
+<td class="py-4 px-4">
+<div class="font-label-lg text-label-lg text-on-surface font-semibold">د. طارق المنصور</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">حجز عشاء عمل</div>
+</td>
+<td class="py-4 px-4">
+<div class="font-body-md text-body-md text-on-surface font-medium">8 أصناف</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant truncate max-w-xs">وجبات مشويات عائلية، سلطات متنوعة، قهوة على الرمل</div>
+</td>
+<td class="py-4 px-4">
+<span class="font-title-lg text-title-lg font-bold text-secondary">1,850.00 ج.م</span>
+<span class="block font-label-sm text-label-sm text-on-surface-variant">دفع كاش</span>
+</td>
+<td class="py-4 px-4">
+<span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+                  مكتمل
+                </span>
+</td>
+<td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant">
+                منذ 52 دقيقة
+              </td>
+<td class="py-4 px-4 text-left">
+<div class="flex items-center justify-start gap-1.5">
+<button class="p-2 rounded-lg bg-surface-container hover:bg-surface-container-high transition-colors" title="إعادة طباعة الفاتورة">
+<span class="material-symbols-outlined text-lg">receipt</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Row 3: Split Row - Table Reservations Admin Privilege + Customer Inbox -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8" id="reservations">
+<!-- Table Reservations Section (8 Cols) -->
+<div class="xl:col-span-8 bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col gap-6">
+<div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-error-container/40 flex items-center justify-center text-error">
+<span class="material-symbols-outlined text-xl">security</span>
+</div>
+<div>
+<div class="flex items-center gap-2">
+<h3 class="font-headline-sm text-headline-sm text-on-surface">إدارة وتنسيق حجوزات الطاولات</h3>
+<span id="liveReservationsCount" class="px-2.5 py-0.5 rounded-full bg-secondary/15 text-secondary font-mono font-bold text-xs">3 حجز مؤكد</span>
+<span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 font-label-sm text-label-sm uppercase font-bold tracking-wider flex items-center gap-1">
+  <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+  <span>مزامنة فورية مباشرة</span>
+</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">تحكم كامل: إعادة تعيين الطاولات، تعديل الحالة، وإلغاء أو حذف الحجز نهائياً.</p>
+</div>
+</div>
+<div class="relative min-w-[220px]">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-lg">search</span>
+<input id="reservationSearchInput" oninput="filterAdminReservations(this.value)" class="w-full pr-9 pl-3 py-2 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="تصفية وبحث في الحجوزات بالاسم أو الرقم..." type="text"/>
+</div>
+</div>
+<!-- Table Reservations Data Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-right">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-3 px-4 rounded-r-xl">رقم الحجز</th>
+<th class="py-3 px-4">اسم الضيف وبيانات التواصل</th>
+<th class="py-3 px-4">الموعد والتاريخ</th>
+<th class="py-3 px-4">منطقة الجلوس والطاولة</th>
+<th class="py-3 px-4">الأفراد</th>
+<th class="py-3 px-4 text-left rounded-l-xl">الإجراء الإداري</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container" id="reservation-rows">
+<!-- Res 1 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-on-surface">#RES-2091</td>
+<td class="py-3.5 px-4">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface">حجز عائلي VIP (د. حمدان)</div>
+<span class="text-xs text-secondary font-medium">فئة VIP • مناسبة سنوية خاصة</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">الليلة، 08:30 م</span>
+<span class="text-xs text-on-surface-variant">مؤكد منذ ساعتين</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm text-secondary">balcony</span> كابينة التراس T-04
+</span>
+</td>
+<td class="py-3.5 px-4 font-body-md text-body-md font-semibold text-on-surface">6 ضيوف</td>
+<td class="py-3.5 px-4 text-left">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all font-label-sm text-label-sm font-bold shadow-sm group" onclick="confirmDeleteReservation('#RES-2091')" title="يتطلب صلاحية مدير لحذف الحجز">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+<span>إلغاء الحجز</span>
+</button>
+</td>
+</tr>
+<!-- Res 2 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-on-surface">#RES-2094</td>
+<td class="py-3.5 px-4">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface">نوف العتيبي</div>
+<span class="text-xs text-on-surface-variant">جلسة قهوة وحلويات</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">الليلة، 09:15 م</span>
+<span class="text-xs text-on-surface-variant">حجز عبر التطبيق</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm text-secondary">coffee</span> اللاونج الفاخر L-12
+</span>
+</td>
+<td class="py-3.5 px-4 font-body-md text-body-md font-semibold text-on-surface">ضيفان (2)</td>
+<td class="py-3.5 px-4 text-left">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all font-label-sm text-label-sm font-bold shadow-sm" onclick="confirmDeleteReservation('#RES-2094')" title="يتطلب صلاحية مدير لحذف الحجز">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+<span>إلغاء الحجز</span>
+</button>
+</td>
+</tr>
+<!-- Res 3 -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="py-3.5 px-4 font-mono font-bold text-on-surface">#RES-2098</td>
+<td class="py-3.5 px-4">
+<div class="font-label-lg text-label-lg font-semibold text-on-surface">ماركوس ستيرلينغ</div>
+<span class="text-xs text-on-surface-variant">وفد سياحي • عشاء عمل</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="font-label-md text-label-md text-on-surface font-semibold block">غداً، 01:00 م</span>
+<span class="text-xs text-on-surface-variant">طلب كونسيرج الفندق</span>
+</td>
+<td class="py-3.5 px-4">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+<span class="material-symbols-outlined text-sm text-secondary">chair</span> الصالة الملكية A-01
+</span>
+</td>
+<td class="py-3.5 px-4 font-body-md text-body-md font-semibold text-on-surface">4 ضيوف</td>
+<td class="py-3.5 px-4 text-left">
+<button class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all font-label-sm text-label-sm font-bold shadow-sm" onclick="confirmDeleteReservation('#RES-2098')" title="يتطلب صلاحية مدير لحذف الحجز">
+<span class="material-symbols-outlined text-sm">delete_forever</span>
+<span>إلغاء الحجز</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Customer Messages Inbox Preview Module (4 Cols) -->
+<div class="xl:col-span-4 bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">inbox</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">صندوق رسائل واستفسارات الضيوف</h3>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold">4 غير مقروءة</span>
+</div>
+<div class="relative mb-4">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-sm">search</span>
+<input class="w-full pr-8 pl-3 py-1.5 rounded-lg bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="بحث في الاستفسارات والضيوف..." type="text"/>
+</div>
+<!-- Message Previews List -->
+<div class="flex flex-col gap-3">
+<div class="p-3 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">سلطان الدوسري</span>
+<span class="text-[11px] text-on-surface-variant">منذ 14 دقيقة</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+"استفسار: هل يمكن تجهيز مدفأة التراس الخارجي لحجز الليلة المتأخر لـ 8 أشخاص بمناسبة عائلية؟"
+</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">إيلينا روستوفا (سائحة)</span>
+<span class="text-[11px] text-on-surface-variant">منذ ساعة</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+"أحببنا جداً جلسة القهوة المقطرة والمنظر! هل يتوفر شراء عبوة بن جيشا 1 كجم حبوب كاملة سفري؟"
+</p>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-low/70 hover:bg-surface-container-high transition-colors cursor-pointer">
+<div class="flex items-center justify-between">
+<span class="font-label-md text-label-md font-bold text-on-surface">طلب حجز فعاليات شركات</span>
+<span class="text-[11px] text-on-surface-variant">منذ 3 ساعات</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">
+"طلب تسعيرة عشاء عمل خاص لوفد سياحي الخميس القادم لـ 65 فرداً مع بوفيه القهوة والحلويات."
+</p>
+</div>
+</div>
+</div>
+<button class="mt-4 w-full py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center justify-center gap-1.5" onclick="openMessagesCenterModal()">
+<span>فتح مركز المراسلات الكامل</span>
+<span class="material-symbols-outlined text-sm rotate-180">arrow_forward</span>
+</button>
+</div>
+</div>
+<!-- Row 4: Culinary Catalog & Dish Management Module -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col gap-6" id="menu">
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+<div>
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">restaurant</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">كتالوج قائمة الطعام والقهوة المختصة</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">البحث، تعديل الأسعار بالجنيه، إدارة توفر الأصناف، أو إيقاف الأطباق الموسمية.</p>
+</div>
+<div class="flex items-center gap-3">
+<div class="relative min-w-[280px]">
+<span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-lg">search</span>
+<input id="menu-dish-search-input" oninput="filterAdminMenu(this.value)" class="w-full pr-9 pl-4 py-2 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none focus:ring-2 focus:ring-secondary/50 text-right" placeholder="بحث باسم الطبق، المكونات، أو نوع البن..." type="text"/>
+</div>
+<button class="px-4 py-2 rounded-xl bg-primary text-on-primary font-label-md text-label-md flex items-center gap-1.5 shadow-sm hover:opacity-90" onclick="document.getElementById('add-menu-modal').classList.remove('hidden')">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>+ إضافة صنف جديد</span>
+</button>
+</div>
+</div>
+<!-- Menu Grid Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-5">
+<!-- Dish 1 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between group hover:shadow-md transition-all">
+<div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="فيليه واغيو فاخر بصلصة الكمأة والبطاطا المدخنة" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDa-e-LwWOFJtmcV-mhKOrWbAEmzO9jf20q3wr8AYBeCgf5kT6GtVrd75PJnq21vXbOAmWbcPeSaG_KdAdEBEldM6qDn5hdqq6qf1AocI5_oupBN5VIjZWp2aivJ-iWeH9Oxu0QGXQUxSE0BbDUV3iT1UqOHMJjFmm3ww6wYxG9FZo2MW_sRvUfkbQlwfD5QnfB4mOc7qX8BEXKyWYGxhML4p2Km7igADC4i7Z19idz"/>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-bold">أطباق رئيسية</span>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-500 text-white font-label-sm text-label-sm font-bold">متاح للطلب</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">ستيك تندرلوين واغيو بالكمأة</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Truffle Glazed Wagyu</p>
+</div>
+<span class="font-title-lg text-title-lg text-secondary font-bold">420 ج.م</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+فيليه واغيو تندرلوين مشوي، صوص شالوت مكرمل، كمأة صيفية سوداء مع بوريه البطاطا المدخنة.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU: DISH-082</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصنف" onclick="alert('تعديل الصنف ستيك واغيو')">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error" title="حذف الصنف" onclick="alert('تم إيقاف توفر الصنف مؤقتاً')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish 2 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between group hover:shadow-md transition-all">
+<div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="قهوة مقطرة فاخرة من بن الجيشا البنمي تحميص محلي" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANa80ZOvRIotX-jzRxWbdLGUiSoormSFURsVjwjSFssyI0KgsvStETqS5ms05tOWDa8Xx5ok9llk23L2ZRlUsYq5I8rGLxz6s3l3pNI5FY7dcuA-Ny3B2E-5qXa-yW-_mZSt6zGcmcMmsSRRgCzypSzzZu03Nj4EG1Sf_dPJhR9fDV_uxZ4qM2Mp7leEhVe1IPoRakkVcz3fTNZFBuqWlwlXwCHIpb5RvAM-grKkrm"/>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-bold">محمصة القهوة</span>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-500 text-white font-label-sm text-label-sm font-bold">متاح للطلب</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">بن جيشا بنمي مقطر V60</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Panama Geisha Natural</p>
+</div>
+<span class="font-title-lg text-title-lg text-secondary font-bold">135 ج.م</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+إيحاءات أزهار الياسمين والخوخ والبرغموت مع حموضة الماندرين المنعشة. تحميص طازج أسبوعياً.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU: RST-014</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصنف" onclick="alert('تعديل بن جيشا')">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error" title="حذف الصنف" onclick="alert('تم إيقاف توفر الصنف مؤقتاً')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish 3 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between group hover:shadow-md transition-all">
+<div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="فوندان شوكولاتة فالرونا البلجيكية الفاخرة مع آيسكريم الفانيليا" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcF70BWXxJnuIg8YkENRVfr1tA6m-HNR9tSgxqUidMtQR_T0GK373DzYOFCPmSyk46oibwWK36Aqgh8Y7vCNglvzruycQael6DWtFBYYAxJU-w7UUWKneMebhnHnGmpDEmBq_H9w3FUtCzNY2tDJM4_QU14aIkNtFCh_Zpl7KDGcevV2k31nc4olR5Hgsf8HjRbY-r8oWQEL8rVDST4kaz_FTXySLcR0WpLQ7zSToU"/>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-bold">حلويات ومخبوزات</span>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-emerald-500 text-white font-label-sm text-label-sm font-bold">متاح للطلب</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">فوندان شوكولاتة فالرونا لافا</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Valrhona Lava Dome</p>
+</div>
+<span class="font-title-lg text-title-lg text-secondary font-bold">115 ج.م</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+شوكولاتة فالرونا 70%، قلب الكراميل والجلاب، كرانشي الفستق الحلبي مع جيلاتو فانيليا مدغشقر.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU: PTS-039</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصنف" onclick="alert('تعديل فوندان الشوكولاتة')">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error" title="حذف الصنف" onclick="alert('تم إيقاف توفر الصنف مؤقتاً')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish 4 -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col justify-between group hover:shadow-md transition-all">
+<div>
+<div class="relative w-full h-44 rounded-lg overflow-hidden mb-3">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" data-alt="جبنة بوراتا إيطالية مدخنة مع طماطم سان مارزانو وزيت الريحان" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9OAzqkdqXlOF-Usfm4IJrjdHJbMGwkBSpjC3cuFXAx_Z_-i3N8u0QwjTpHn-FiCDJknrpZUa8zT6gMS4LngUkyB2byF_m20NUR-s6Pqt8YrGHm3jKPf0udUxKo2_XaeGRc-rmy50HMOIl2RzUoE8Ybji5JMSEEGJG6MhW-HoO9FoV37mfZDntKkPVqjb_eax01IFsvpP0wF5h864333GnJySXn7gxgXFLWIrT8SE5"/>
+<span class="absolute top-2.5 right-2.5 px-2 py-0.5 rounded bg-surface/90 backdrop-blur text-on-surface font-label-sm text-label-sm font-bold">مقبلات وسلطات</span>
+<span class="absolute top-2.5 left-2.5 px-2 py-0.5 rounded bg-amber-600 text-white font-label-sm text-label-sm font-bold">كمية محدودة</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">بوراتا إيطالية مدخنة بالأرز</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-mono">Heirloom Smoked Burrata</p>
+</div>
+<span class="font-title-lg text-title-lg text-secondary font-bold">160 ج.م</span>
+</div>
+<p class="mt-2 font-body-sm text-body-sm text-on-surface-variant line-clamp-2">
+جبنة بوراتا بوليسية طازجة، تبخير بخشب الأرز، طماطم سان مارزانو كونفيت، ولآلئ البلسميك المعتق.
+</p>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-mono">SKU: ANT-004</span>
+<div class="flex items-center gap-1">
+<button class="p-1.5 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="تعديل الصنف" onclick="alert('تعديل البوراتا')">
+<span class="material-symbols-outlined text-lg">edit</span>
+</button>
+<button class="p-1.5 rounded hover:bg-error-container text-on-surface-variant hover:text-error" title="حذف الصنف" onclick="alert('تم إيقاف توفر الصنف مؤقتاً')">
+<span class="material-symbols-outlined text-lg">delete</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Row 5: Multi-Module Operations Grid (Employees, Customers & Security, Terms) -->
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 mb-8">
+<!-- Module 9 & 11: Employee Hub & RBAC Provisioning -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">badge</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">فريق العمل وصلاحيات الدخول</h3>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold" onclick="document.getElementById('create-staff-modal').classList.remove('hidden')">
++ موظف جديد
+</button>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-4">
+18 موظفاً عبر المطبخ، صالة الضيوف، وركن تحضير القهوة والحلويات.
+</p>
+<div class="flex flex-col gap-2.5">
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs">
+زم
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">زيد منصور</span>
+<span class="text-xs text-on-surface-variant">رئيس قسم الباريستا • وردية أ</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">في الوردية</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xs">
+سح
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">سارة الحسن</span>
+<span class="text-xs text-on-surface-variant">مشرفة صالة • قسم VIP والتراس</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">في الوردية</span>
+</div>
+<div class="p-2.5 rounded-xl bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-high text-on-surface flex items-center justify-center font-bold text-xs">
+شك
+</div>
+<div>
+<span class="font-label-md text-label-md text-on-surface font-bold block">شيف كينجي كورودا</span>
+<span class="text-xs text-on-surface-variant">شيف تنفيذي مساعد</span>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface-variant text-[10px] font-bold">وردية 05:00 م</span>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">مستوى الصلاحية: تحكم إداري كامل</span>
+<a class="font-label-sm text-label-sm text-secondary font-bold hover:underline" href="employee.html">دليل الموظفين الكامل ←</a>
+</div>
+</div>
+<!-- Module 10 & 12: Customer Directory & Admin Security Panel -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">lock_person</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">الأمان وحسابات المستخدمين</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-semibold">التحقق الثنائي 2FA نشط</span>
+</div>
+<!-- Admin Password Quick Update Accordion -->
+<div class="p-3.5 rounded-xl bg-surface-container-low mb-4">
+<span class="font-label-md text-label-md font-bold text-on-surface block mb-1">بيانات حساب الإدارة العليا</span>
+<p class="text-xs text-on-surface-variant mb-2.5">تحديث وتدوير مفتاح التشفير ورمز PIN للتشغيل.</p>
+<div class="flex gap-2">
+<input class="w-full px-3 py-1.5 rounded-lg bg-surface-container-lowest font-body-sm text-body-sm text-on-surface border-none" readonly="" type="password" value="••••••••••••"/>
+<button class="px-3 py-1.5 rounded-lg bg-surface-container-high hover:bg-surface-container text-on-surface font-label-sm text-label-sm font-bold whitespace-nowrap" onclick="alert('تم إرسال طلب تدوير كلمة المرور إلى جهاز المشرف المعتمد.')">
+تغيير الرمز
+</button>
+</div>
+</div>
+<div class="flex flex-col gap-2">
+<span class="font-label-sm text-label-sm uppercase tracking-wider font-bold text-on-surface-variant">أحدث إجراءات حسابات العملاء</span>
+<div class="flex items-center justify-between text-xs py-1.5 border-b border-surface-container">
+<div>
+<span class="font-semibold text-on-surface">فهد قاسم</span>
+<span class="text-on-surface-variant block">fahad.q@example.com</span>
+</div>
+<button class="px-2 py-1 rounded text-error bg-error-container/40 hover:bg-error hover:text-white transition-colors text-[10px] font-bold" onclick="confirmDeleteUser('فهد قاسم')">
+حذف الحساب
+</button>
+</div>
+<div class="flex items-center justify-between text-xs py-1.5">
+<div>
+<span class="font-semibold text-on-surface">مريم الناصر</span>
+<span class="text-on-surface-variant block">m.nasser@cloud.sa</span>
+</div>
+<button class="px-2 py-1 rounded text-error bg-error-container/40 hover:bg-error hover:text-white transition-colors text-[10px] font-bold" onclick="confirmDeleteUser('مريم الناصر')">
+حذف الحساب
+</button>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant">العملاء النشطون: 3,420</span>
+<span class="text-xs text-emerald-600 font-semibold">+18 هذا الأسبوع</span>
+</div>
+</div>
+<!-- Module 13 & 14: Terms & Site Governance + Blank Template Quick Creator -->
+<div class="bg-surface-container-lowest rounded-2xl shadow-sm p-6 flex flex-col justify-between">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">gavel</span>
+<h3 class="font-title-lg text-title-lg text-on-surface">الشروط والسياسات المعتمدة</h3>
+</div>
+<span class="text-xs text-on-surface-variant">الإصدار 3.4 معتمد</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+إدارة بنود عربون الحجز، تنبيهات حساسية الطعام، وسياسات استرجاع وتعديل الطلبات.
+</p>
+<div class="flex flex-col gap-2 mb-4">
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface block">رسوم إلغاء الحجز المتأخر (50 ج.م/للضيف)</span>
+<span class="text-[11px] text-on-surface-variant">تطبق إذا تم الإلغاء قبل أقل من ساعتين من الموعد</span>
+</div>
+<span class="material-symbols-outlined text-emerald-600 text-lg">check_circle</span>
+</div>
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div>
+<span class="font-label-sm text-label-sm font-bold text-on-surface block">إشعار مسببات الحساسية ثنائي اللغة (EN/AR)</span>
+<span class="text-[11px] text-on-surface-variant">يظهر على جميع قوائم QR الرقمية على الطاولات</span>
+</div>
+<span class="material-symbols-outlined text-emerald-600 text-lg">check_circle</span>
+</div>
+</div>
+<div class="p-3 rounded-xl bg-surface-container-high/60 flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-on-surface-variant text-lg">web</span>
+<span class="font-label-sm text-label-sm text-on-surface font-semibold">نموذج صفحة مخصصة جديدة</span>
+</div>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-label-sm text-label-sm font-bold shadow-sm hover:bg-surface" onclick="alert('تم إنشاء قالب صفحة جديد.')">
+إنشاء
+</button>
+</div>
+</div>
+<div class="mt-4 pt-3 border-t border-surface-container flex items-center justify-between">
+<button onclick="window.ViewApp?.openTermsModal()" class="font-label-sm text-label-sm text-secondary font-bold hover:underline flex items-center gap-1">
+  <span class="material-symbols-outlined text-sm">visibility</span>
+  <span>معاينة وثيقة الشروط والسياسات</span>
+</button>
+<div class="flex items-center gap-2">
+  <button class="font-label-sm text-label-sm text-on-surface-variant hover:text-on-surface font-semibold" onclick="openPolicyManagerModal()">إدارة</button>
+  <button class="font-label-sm text-label-sm text-secondary font-bold hover:underline px-2 py-1 rounded bg-secondary/10" onclick="openAddPolicyModal()">+ بند جديد</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Interactive Modal: Add Menu Item (Hidden by default) -->
+<div class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" id="add-menu-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-2xl w-full p-8 flex flex-col gap-6 relative max-h-[921px] overflow-y-auto">
+<button class="absolute top-6 left-6 p-2 rounded-full hover:bg-surface-container text-on-surface-variant" onclick="document.getElementById('add-menu-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-wider">إدارة المطبخ والمنيو</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">إضافة طبق أو مشروب جديد للمنيو</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">تظهر الأصناف الجديدة فوراً على قوائم QR الرقمية وشاشات الكاشير.</p>
+</div>
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault(); alert('تم حفظ الصنف بنجاح في كتالوج المنيو المباشر.'); document.getElementById('add-menu-modal').classList.add('hidden');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">اسم الصنف (بالعربية)</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" dir="rtl" placeholder="مثال: بابكا الزعفران والفستق" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">اسم الصنف بالإنجليزية (Item Title)</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="e.g. Saffron Pistachio Babka" required="" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">التصنيف</label>
+<select class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none">
+<option>قهوة مختصة ومشروبات</option>
+<option>مشويات وأطباق رئيسية</option>
+<option>حلويات ومخبوزات</option>
+<option>مقبلات وسلطات</option>
+<option>بيتزا وباستا إيطالية</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">السعر (ج.م EGP)</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="85.00" required="" step="1" type="number"/>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">مدة التحضير المقدرة</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="15 دقيقة" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">صورة الصنف عالية الجودة</label>
+<div class="p-6 rounded-xl bg-surface-container-low border border-dashed border-outline-variant flex flex-col items-center justify-center text-center cursor-pointer hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-3xl text-secondary mb-1">add_photo_alternate</span>
+<span class="font-label-md text-label-md text-on-surface font-semibold">اسحب وأفلت صورة الطبق عالية الدقة هنا أو تصفح الملفات</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">يدعم PNG, JPG, أو WEBP حتى 8 ميجابايت (يفضل أبعاد 4:3)</span>
+</div>
+</div>
+<div class="flex items-center justify-end gap-3 mt-4">
+<button class="px-5 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-on-surface font-semibold" onclick="document.getElementById('add-menu-modal').classList.add('hidden')" type="button">
+إلغاء
+</button>
+<button class="px-6 py-2.5 rounded-xl bg-secondary text-on-secondary font-label-md text-label-md font-bold shadow-md hover:bg-secondary/90" type="submit">
+نشر في المنيو المباشر
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Interactive Modal: Create Staff Account -->
+<div class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4" id="create-staff-modal">
+<div class="bg-surface-container-lowest rounded-2xl shadow-2xl max-w-lg w-full p-8 flex flex-col gap-6 relative">
+<button class="absolute top-6 left-6 p-2 rounded-full hover:bg-surface-container text-on-surface-variant" onclick="document.getElementById('create-staff-modal').classList.add('hidden')">
+<span class="material-symbols-outlined">close</span>
+</button>
+<div>
+<span class="font-label-sm text-label-sm uppercase font-bold text-secondary tracking-wider">إدارة صلاحيات الوصول</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">تسجيل حساب موظف جديد</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">تحديد الدور الوظيفي، رمز PIN لجهاز الكاشير، وصلاحيات الصالة.</p>
+</div>
+<form class="flex flex-col gap-4" onsubmit="event.preventDefault(); alert('تم إنشاء حساب الموظف وتفعيل بيانات تسجيل الدخول بنجاح.'); document.getElementById('create-staff-modal').classList.add('hidden');">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">الاسم الكامل للموظف</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="مثال: عمر خالد" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">المسمى الوظيفي والمسؤولية</label>
+<select class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none">
+<option>شيف مطبخ / قسم الطهي الساخن</option>
+<option>باريستا رئيسي / قسم القهوة</option>
+<option>مشرف صالة / كابتن خدمة الضيوف</option>
+<option>مساعد مدير تشغيل</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">رمز PIN للشاشة (4 أرقام)</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none font-mono" maxlength="4" placeholder="8421" required="" type="text"/>
+</div>
+</div>
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold">اسم المستخدم للنظام</label>
+<input class="p-2.5 rounded-xl bg-surface-container-low font-body-sm text-body-sm text-on-surface focus:outline-none" placeholder="omar.khalid@theview.eg" required="" type="text"/>
+</div>
+<div class="flex items-center justify-end gap-3 mt-4">
+<button class="px-5 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high font-label-md text-label-md text-on-surface font-semibold" onclick="document.getElementById('create-staff-modal').classList.add('hidden')" type="button">
+إلغاء
+</button>
+<button class="px-6 py-2.5 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold shadow-md hover:opacity-90" type="submit">
+إنشاء الحساب وتفعيل الصلاحية
+</button>
+</div>
+</form>
+</div>
+</div>
+<!-- Inline Micro-interactions Script -->
+<script>
+        // =========================================================================
+    // LIVE RESERVATIONS CONTROLLER (SYNCED WITH BOOK-A-TABLE & FIREBASE)
+    // =========================================================================
+    const RESERVATIONS_STORAGE_KEY = 'view_restaurant_reservations';
+
+    const DEFAULT_RESERVATIONS = [
+      {
+        referenceId: 'RES-2091',
+        name: 'حجز عائلي VIP (د. حمدان)',
+        phone: '011 01774545',
+        occasion: 'فئة VIP • مناسبة سنوية خاصة',
+        date: 'اليوم، 16 أكتوبر',
+        time: '08:30 م',
+        zone: 'كابينة التراس',
+        tableAssigned: 'T-04',
+        guests: '6 ضيوف',
+        status: 'مؤكد ومحجوز ✅'
+      },
+      {
+        referenceId: 'RES-2094',
+        name: 'نوف العتيبي',
+        phone: '010 98765432',
+        occasion: 'جلسة قهوة وحلويات',
+        date: 'اليوم، 16 أكتوبر',
+        time: '09:15 م',
+        zone: 'اللاونج الفاخر',
+        tableAssigned: 'L-12',
+        guests: 'ضيفان (2)',
+        status: 'مؤكد ومحجوز ✅'
+      },
+      {
+        referenceId: 'RES-2098',
+        name: 'ماركوس ستيرلينغ',
+        phone: '012 34567890',
+        occasion: 'وفد سياحي • عشاء عمل',
+        date: 'غداً، 17 أكتوبر',
+        time: '01:00 م',
+        zone: 'الصالة الملكية',
+        tableAssigned: 'A-01',
+        guests: '4 ضيوف',
+        status: 'مؤكد ومحجوز ✅'
+      }
+    ];
+
+    function getStoredReservations() {
+      try {
+        const raw = localStorage.getItem(RESERVATIONS_STORAGE_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return parsed;
+          }
+        }
+      } catch (e) {
+        console.warn('Error reading stored reservations:', e);
+      }
+      return [...DEFAULT_RESERVATIONS];
+    }
+
+    function saveStoredReservations(list) {
+      try {
+        localStorage.setItem(RESERVATIONS_STORAGE_KEY, JSON.stringify(list));
+      } catch (e) {
+        console.warn('Error saving reservations:', e);
+      }
+    }
+
+    function renderReservationsTable(highlightId = null) {
+      const tbody = document.getElementById('reservation-rows');
+      if (!tbody) return;
+
+      if (!highlightId && window.location.hash) {
+        const h = window.location.hash;
+        if (h.startsWith('#row-')) {
+          highlightId = h.replace('#row-', '');
+        } else if (h.startsWith('#VW-') || h.startsWith('#RES-')) {
+          highlightId = h.replace('#', '');
+        }
+      }
+
+      const reservations = getStoredReservations();
+      const countBadge = document.getElementById('liveReservationsCount');
+      if (countBadge) {
+        countBadge.textContent = `${reservations.length} حجز مؤكد`;
+      }
+
+      if (reservations.length === 0) {
+        tbody.innerHTML = `
+          <tr>
+            <td colspan="6" class="py-8 text-center text-on-surface-variant font-body-md">
+              <div class="flex flex-col items-center gap-2">
+                <span class="material-symbols-outlined text-4xl text-on-surface-variant/40">event_busy</span>
+                <span>لا توجد حجوزات حالية. يمكنك حجز طاولة جديدة من صفحة حجز الطاولات.</span>
+                <a href="book-a-table.html" class="mt-2 text-xs font-bold text-secondary hover:underline">انتقل لصفحة حجز طاولة &larr;</a>
+              </div>
+            </td>
+          </tr>
+        `;
+        return;
+      }
+
+      tbody.innerHTML = reservations.map(r => {
+        const ref = (r.referenceId || r.id || 'RES-' + Math.floor(1000 + Math.random() * 9000)).toString().replace('#', '').trim();
+        const isNew = highlightId && (ref.toLowerCase() === highlightId.replace('#', '').trim().toLowerCase());
+        const rowClass = isNew 
+          ? 'bg-secondary/20 ring-4 ring-secondary shadow-lg transition-all duration-700' 
+          : 'hover:bg-surface-container-low/40 transition-colors';
+
+        const cleanPhone = (r.phone || '').replace(/[^0-9]/g, '');
+        const waMsg = encodeURIComponent(`مرحباً ${r.name || 'ضيفنا الكريم'}، نؤكد لكم حجز طاولتكم #${r.tableAssigned || 'المحددة'} في The View Cafe & Restaurant أسوان يوم ${r.date || 'المحدد'} الساعة ${r.time || ''}. رقم الحجز: #${ref}. نتشرف باستقبالكم بميدان المحطة مول سينما الصداقة!`);
+        const waUrl = cleanPhone ? `https://wa.me/${cleanPhone.startsWith('2') ? cleanPhone : '2' + cleanPhone}?text=${waMsg}` : `https://wa.me/201101774545?text=${waMsg}`;
+        const smsMsg = encodeURIComponent(`The View أسوان: مرحباً ${r.name || 'ضيفنا'}، تم تأكيد حجز طاولتك #${r.tableAssigned || ''} (${r.zone || ''}) لـ ${r.guests || ''} يوم ${r.date || ''} الساعة ${r.time || ''}. كود الحجز: #${ref}. هاتف: 01101774545`);
+        const smsUrl = cleanPhone ? `sms:${r.phone}?body=${smsMsg}` : `sms:01101774545?body=${smsMsg}`;
+
+        const currentStatus = r.status || 'مؤكد ومحجوز ✅';
+
+        return `
+          <tr id="row-${ref}" class="${rowClass}">
+            <td class="py-3.5 px-4 font-mono font-bold text-on-surface">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 ${isNew ? 'animate-ping' : 'animate-pulse'}"></span>
+                <span class="text-secondary font-bold font-mono">#${ref}</span>
+                ${isNew ? '<span class="px-2 py-0.5 rounded-full bg-secondary text-on-secondary text-[10px] font-bold shadow-sm animate-bounce">حجزك الآن ✨</span>' : ''}
+              </div>
+            </td>
+            <td class="py-3.5 px-4">
+              <div class="font-label-lg text-label-lg font-semibold text-on-surface flex items-center gap-1.5">
+                <span>${r.name || 'ضيف مميز VIP'}</span>
+                ${r.email ? `<span class="text-[11px] text-on-surface-variant/60 hidden sm:inline" title="${r.email}">(${r.email})</span>` : ''}
+              </div>
+              <div class="flex flex-wrap items-center gap-2 text-xs font-medium mt-1">
+                ${r.phone ? `
+                  <a href="${waUrl}" target="_blank" class="hover:underline flex items-center gap-0.5 text-emerald-600 font-bold" title="محادثة واتساب مباشرة">
+                    <span class="material-symbols-outlined text-[13px]">chat</span>
+                    <span>${r.phone}</span>
+                  </a>
+                ` : ''}
+                <span class="text-outline-variant">•</span>
+                <span class="text-on-surface-variant">${r.occasion || 'حجز إلكتروني'}</span>
+              </div>
+              ${r.notes ? `<div class="text-[11px] text-on-surface-variant/85 mt-1 italic bg-surface-container/50 px-2 py-1 rounded max-w-xs truncate" title="${r.notes}">📝 ${r.notes}</div>` : ''}
+            </td>
+            <td class="py-3.5 px-4">
+              <span class="font-label-md text-label-md text-on-surface font-semibold block">${r.date || 'اليوم'}، ${r.time || '07:30 م'}</span>
+              <div class="mt-1">
+                <select onchange="updateReservationStatus('${ref}', this.value)" class="text-[11px] font-bold rounded-lg py-1 px-2 border border-outline-variant/30 outline-none cursor-pointer ${
+                  currentStatus.includes('مؤكد') ? 'bg-emerald-500/10 text-emerald-700' :
+                  currentStatus.includes('حاضر') ? 'bg-blue-500/10 text-blue-700' :
+                  currentStatus.includes('مكتمل') ? 'bg-purple-500/10 text-purple-700' : 'bg-red-500/10 text-red-700'
+                }">
+                  <option value="مؤكد ومحجوز ✅" ${currentStatus.includes('مؤكد') ? 'selected' : ''}>مؤكد ومحجوز ✅</option>
+                  <option value="الضيف حاضر 🍽️" ${currentStatus.includes('حاضر') ? 'selected' : ''}>الضيف حاضر 🍽️</option>
+                  <option value="مكتمل بنجاح 🎉" ${currentStatus.includes('مكتمل') ? 'selected' : ''}>مكتمل بنجاح 🎉</option>
+                  <option value="ملغي من الإدارة ❌" ${currentStatus.includes('ملغي') ? 'selected' : ''}>ملغي ❌</option>
+                </select>
+              </div>
+            </td>
+            <td class="py-3.5 px-4">
+              <div class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-semibold">
+                <span class="material-symbols-outlined text-sm text-secondary">chair</span>
+                <span>${r.zone || 'التراس'}</span>
+                ${r.tableAssigned ? `<span class="bg-secondary/15 text-secondary px-1.5 py-0.5 rounded text-xs font-mono font-bold">${r.tableAssigned}</span>` : ''}
+              </div>
+            </td>
+            <td class="py-3.5 px-4 font-body-md text-body-md font-semibold text-on-surface">
+              ${r.guests || 'ضيفان'}
+            </td>
+            <td class="py-3.5 px-4 text-left">
+              <div class="flex items-center justify-end gap-1.5">
+                <!-- WhatsApp Quick Action -->
+                <a href="${waUrl}" target="_blank" class="p-1.5 rounded-lg bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#128C7E] transition-colors flex items-center gap-1 font-bold text-xs" title="إرسال تأكيد فوري عبر الواتساب">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.599 2.679-.702c.971.558 1.996.882 3.125.882 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-6.112-5.772zm3.393 8.169c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.147-.527-1.745-.723-2.884-2.493-2.971-2.608-.088-.116-.708-.941-.708-1.793 0-.852.448-1.271.607-1.444.159-.175.348-.219.463-.219.116 0 .232.001.333.007.106.005.249-.04.39.298.144.347.491 1.2.535 1.288.043.088.072.19.014.305-.058.116-.087.188-.173.289l-.26.305c-.087.086-.18.18-.077.355.101.174.45 1.056 1.411 1.479.289.127.534.144.694.093.193-.061.607-.708.769-.95.162-.242.325-.203.548-.121.223.082 1.416.668 1.662.791.246.123.409.183.468.286.061.103.061.597-.083 1.002z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 22l4.986-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.632 0-3.15-.472-4.436-1.285l-.318-.202-2.955.775.789-2.88-.221-.352A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+                  <span class="hidden md:inline">واتساب</span>
+                </a>
+                <!-- SMS Quick Action -->
+                <a href="${smsUrl}" class="p-1.5 rounded-lg bg-blue-500/15 hover:bg-blue-500/25 text-blue-600 transition-colors flex items-center gap-1 font-bold text-xs" title="إرسال رسالة SMS">
+                  <span class="material-symbols-outlined text-sm">sms</span>
+                  <span class="hidden md:inline">SMS</span>
+                </a>
+                <!-- Modal Details Action -->
+                <button onclick="viewReservationModal('${ref}')" class="p-1.5 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center gap-1 font-semibold text-xs" title="معاينة تفاصيل الحجز وتذكرة الدخول">
+                  <span class="material-symbols-outlined text-sm">visibility</span>
+                  <span class="hidden md:inline">معاينة</span>
+                </button>
+                <!-- Delete Action -->
+                <button class="inline-flex items-center gap-1 p-1.5 rounded-lg bg-error-container text-on-error-container hover:bg-error hover:text-on-error transition-all font-label-sm text-xs font-bold shadow-sm" onclick="confirmDeleteReservation('${ref}')" title="إلغاء وحذف الحجز نهائياً">
+                  <span class="material-symbols-outlined text-sm">delete_forever</span>
+                </button>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+
+      if (highlightId) {
+        setTimeout(() => {
+          const clean = highlightId.replace('#row-', '').replace('#', '').trim();
+          const el = document.getElementById(`row-${clean}`);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('ring-4', 'ring-secondary', 'bg-secondary/20');
+            playNotificationTone();
+            if (window.ViewApp?.showToast) {
+              window.ViewApp.showToast(`✨ تم فتح وتحديد الحجز #${clean} بنجاح في لوحة التحكم!`);
+            }
+          }
+        }, 250);
+      }
+    }
+
+    async function updateReservationStatus(refId, newStatus) {
+      const cleanId = refId.replace('#', '').trim();
+      let currentList = getStoredReservations();
+      currentList = currentList.map(item => {
+        const itemRef = (item.referenceId || item.id || '').toString().replace('#', '').trim();
+        if (itemRef === cleanId) {
+          return { ...item, status: newStatus };
+        }
+        return item;
+      });
+      saveStoredReservations(currentList);
+
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`تم تحديث حالة الحجز #${cleanId} إلى: ${newStatus}`);
+      }
+    }
+
+    function viewReservationModal(refId) {
+      const cleanId = refId.replace('#', '').trim();
+      const reservations = getStoredReservations();
+      const r = reservations.find(item => {
+        const itemRef = (item.referenceId || item.id || '').toString().replace('#', '').trim();
+        return itemRef === cleanId;
+      });
+      if (!r) {
+        alert('لم يتم العثور على بيانات الحجز المطلوب.');
+        return;
+      }
+
+      const old = document.getElementById('admin-res-detail-modal');
+      if (old) old.remove();
+
+      const cleanPhone = (r.phone || '').replace(/[^0-9]/g, '');
+      const waMsg = encodeURIComponent(`مرحباً ${r.name || 'ضيفنا الكريم'}، نؤكد لكم حجز طاولتكم #${r.tableAssigned || 'المحددة'} في The View Cafe & Restaurant أسوان يوم ${r.date || 'المحدد'} الساعة ${r.time || ''}. رقم الحجز: #${cleanId}. نتشرف باستقبالكم!`);
+      const waUrl = cleanPhone ? `https://wa.me/${cleanPhone.startsWith('2') ? cleanPhone : '2' + cleanPhone}?text=${waMsg}` : `https://wa.me/201101774545?text=${waMsg}`;
+      const smsMsg = encodeURIComponent(`The View أسوان: مرحباً ${r.name || 'ضيفنا'}، تم تأكيد حجز طاولتك #${cleanId} في موعدك ${r.date} ${r.time}. نتشرف بكم!`);
+      const smsUrl = cleanPhone ? `sms:${r.phone}?body=${smsMsg}` : `sms:01101774545?body=${smsMsg}`;
+
+      const modalHtml = `
+        <div id="admin-res-detail-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div class="bg-surface-container-lowest text-on-surface rounded-2xl max-w-lg w-full p-6 shadow-2xl flex flex-col gap-4 border border-outline-variant/30 animate-scale-up">
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+              <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-secondary text-2xl">table_restaurant</span>
+                <div>
+                  <h3 class="font-title-lg text-title-lg font-bold">بطاقة وتفاصيل حجز الطاولة</h3>
+                  <span class="font-mono text-xs text-secondary font-bold">#${cleanId}</span>
+                </div>
+              </div>
+              <button onclick="document.getElementById('admin-res-detail-modal').remove()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+              </button>
+            </div>
+
+            <div class="bg-surface-container-low rounded-xl p-4 grid grid-cols-2 gap-3 text-sm">
+              <div>
+                <span class="text-xs text-on-surface-variant block">اسم الضيف:</span>
+                <strong class="font-bold text-on-surface">${r.name || 'ضيف مميز VIP'}</strong>
+              </div>
+              <div>
+                <span class="text-xs text-on-surface-variant block">رقم الهاتف:</span>
+                <strong class="font-mono text-secondary">${r.phone || 'غير مسجل'}</strong>
+              </div>
+              <div>
+                <span class="text-xs text-on-surface-variant block">التاريخ والموعد:</span>
+                <strong class="text-on-surface">${r.date || 'اليوم'} (${r.time || '07:30 م'})</strong>
+              </div>
+              <div>
+                <span class="text-xs text-on-surface-variant block">القسم والطاولة:</span>
+                <strong class="text-secondary font-bold">${r.zone || 'التراس'} • ${r.tableAssigned || 'T-04'}</strong>
+              </div>
+              <div>
+                <span class="text-xs text-on-surface-variant block">عدد الضيوف:</span>
+                <strong class="text-on-surface">${r.guests || 'ضيفان'}</strong>
+              </div>
+              <div>
+                <span class="text-xs text-on-surface-variant block">الحالة:</span>
+                <strong class="text-emerald-600 font-bold">${r.status || 'مؤكد ومحجوز ✅'}</strong>
+              </div>
+              <div class="col-span-2">
+                <span class="text-xs text-on-surface-variant block">المناسبة والطلبات الخاصة:</span>
+                <p class="text-xs text-on-surface italic mt-0.5">${r.occasion || 'زيارة عادية'} ${r.notes ? `• ${r.notes}` : ''}</p>
+              </div>
+            </div>
+
+            <!-- Instant Actions inside Modal -->
+            <div class="grid grid-cols-2 gap-2 pt-2">
+              <a href="${waUrl}" target="_blank" class="px-4 py-2.5 rounded-xl bg-[#25D366] hover:bg-[#20ba59] text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm">
+                <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.599 2.679-.702c.971.558 1.996.882 3.125.882 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-6.112-5.772zm3.393 8.169c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.147-.527-1.745-.723-2.884-2.493-2.971-2.608-.088-.116-.708-.941-.708-1.793 0-.852.448-1.271.607-1.444.159-.175.348-.219.463-.219.116 0 .232.001.333.007.106.005.249-.04.39.298.144.347.491 1.2.535 1.288.043.088.072.19.014.305-.058.116-.087.188-.173.289l-.26.305c-.087.086-.18.18-.077.355.101.174.45 1.056 1.411 1.479.289.127.534.144.694.093.193-.061.607-.708.769-.95.162-.242.325-.203.548-.121.223.082 1.416.668 1.662.791.246.123.409.183.468.286.061.103.061.597-.083 1.002z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 22l4.986-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.632 0-3.15-.472-4.436-1.285l-.318-.202-2.955.775.789-2.88-.221-.352A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+                <span>تأكيد واتساب للعميل</span>
+              </a>
+              <a href="${smsUrl}" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm">
+                <span class="material-symbols-outlined text-sm">sms</span>
+                <span>إرسال SMS للعميل</span>
+              </a>
+            </div>
+
+            <div class="flex items-center justify-between pt-2 border-t border-outline-variant/30">
+              <button onclick="window.print()" class="px-4 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-semibold text-xs flex items-center gap-1.5 transition-colors">
+                <span class="material-symbols-outlined text-sm">print</span>
+                <span>طباعة تذكرة الحجز</span>
+              </button>
+              <button onclick="document.getElementById('admin-res-detail-modal').remove()" class="px-4 py-2 rounded-lg bg-surface-container-low hover:bg-surface-container text-on-surface-variant font-semibold text-xs transition-colors">
+                إغلاق
+              </button>
+            </div>
+          </div>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', modalHtml);
+    }
+
+    async function confirmDeleteReservation(resId) {
+      const cleanId = resId.replace('#', '').trim();
+      if (!confirm(`تأكيد الإجراء الإداري: هل أنت متأكد من رغبتك في إلغاء وحذف الحجز #${cleanId} نهائياً؟ سيتم تحرير الطاولة تلقائياً وتحديث السجل.`)) {
+        return;
+      }
+
+      if (window.ViewFirebase?.deleteReservation) {
+        try {
+          await window.ViewFirebase.deleteReservation(cleanId);
+        } catch (e) {
+          console.warn('Firebase delete error:', e);
+        }
+      }
+
+      const currentList = getStoredReservations();
+      const updatedList = currentList.filter(item => {
+        const itemRef = (item.referenceId || item.id || '').toString().replace('#', '').trim();
+        return itemRef !== cleanId;
+      });
+      saveStoredReservations(updatedList);
+      renderReservationsTable();
+
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`تم إلغاء الحجز #${cleanId} بنجاح وتحرير الطاولة.`);
+      } else {
+        alert(`تم إلغاء وحذف الحجز #${cleanId} بنجاح من قاعدة البيانات.`);
+      }
+    }
+
+    function filterAdminReservations(keyword) {
+      const q = (keyword || '').trim().toLowerCase();
+      const rows = document.querySelectorAll('#reservation-rows tr');
+      rows.forEach(row => {
+        const text = row.innerText.toLowerCase();
+        row.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function playNotificationTone() {
+      try {
+        const ctx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+        osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
+        gain.gain.setValueAtTime(0.1, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start();
+        osc.stop(ctx.currentTime + 0.35);
+      } catch (e) {}
+    }
+
+    // Storage and BroadcastChannel listeners for instant cross-tab live updates
+    window.addEventListener('storage', (e) => {
+      if (e.key === RESERVATIONS_STORAGE_KEY) {
+        renderReservationsTable();
+        playNotificationTone();
+      }
+    });
+
+    try {
+      const bc = new BroadcastChannel('view_reservations_channel');
+      bc.onmessage = (event) => {
+        if (event.data?.type === 'NEW_RESERVATION') {
+          const newRes = event.data.data;
+          renderReservationsTable(newRes.referenceId);
+          playNotificationTone();
+          if (window.ViewApp?.showToast) {
+            window.ViewApp.showToast(`🔔 حجز طاولة جديد: ${newRes.name} (${newRes.referenceId})`);
+          }
+        }
+      };
+    } catch(e) {}
+
+    // Realtime Orders Broadcast Channel (Delivery Hub Sync)
+    try {
+      const ordersBc = new BroadcastChannel('view_orders_channel');
+      ordersBc.onmessage = (event) => {
+        if (event.data?.type === 'ORDER_STATUS_UPDATED') {
+          allAdminOrders = getAdminOrders();
+          updateOrderTabCounts();
+          const searchVal = document.getElementById('order-search-input')?.value;
+          if (searchVal) {
+            filterAdminOrders(searchVal);
+          } else {
+            const activeTab = document.querySelector('.order-tab.font-bold')?.getAttribute('data-filter') || 'all';
+            applyOrderTabFilter(activeTab);
+          }
+          if (event.data.step === 4) {
+            playNotificationTone();
+            if (window.ViewApp?.showToast) {
+              window.ViewApp.showToast(`🎉 تم تسليم الأوردر (${event.data.orderId}) للعميل بنجاح!`);
+            }
+          } else if (event.data.step === 3) {
+            if (window.ViewApp?.showToast) {
+              window.ViewApp.showToast(`🛵 الأوردر (${event.data.orderId}) مع المندوب الآن في الطريق للتوصيل!`);
+            }
+          }
+        }
+      };
+    } catch(e) {}
+
+    // Dynamic Live Reservations Rendering from LocalStorage & Firebase
+    function initFirebaseReservations() {
+      // 1. Initial render immediately
+      const initialHighlight = window.location.hash ? window.location.hash.replace('#row-', '').replace('#', '') : null;
+      renderReservationsTable(initialHighlight);
+
+      if (window.location.hash === '#reservations') {
+        const resEl = document.getElementById('reservations');
+        if (resEl) resEl.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // 2. Subscribe to Firebase if available
+      if (window.ViewFirebase?.subscribeReservations) {
+        window.ViewFirebase.subscribeReservations((cloudReservations) => {
+          if (Array.isArray(cloudReservations) && cloudReservations.length > 0) {
+            const local = getStoredReservations();
+            const map = new Map();
+            cloudReservations.forEach(r => {
+              const k = (r.referenceId || r.id || '').toString().replace('#', '').trim();
+              if (k) map.set(k, r);
+            });
+            local.forEach(r => {
+              const k = (r.referenceId || r.id || '').toString().replace('#', '').trim();
+              if (k && !map.has(k)) map.set(k, r);
+            });
+            const merged = Array.from(map.values());
+            saveStoredReservations(merged);
+            renderReservationsTable();
+          }
+        });
+      }
+    }
+
+    function adminShareOrderToCourierWhatsApp(orderId) {
+      const o = allAdminOrders.find(item => item.orderNumber === orderId || item.id === orderId || (item.orderNumber && item.orderNumber.replace('#','') === String(orderId).replace('#','')));
+      if (!o) return;
+
+      const itemsText = (o.items || []).map(i => `• ${i.qty || 1}x ${i.name} (${i.price ? i.price + ' ج.م' : ''})`).join('%0A');
+      const total = encodeURIComponent(o.total || (o.totalNumeric ? o.totalNumeric + ' ج.م' : ''));
+      const pay = encodeURIComponent(o.paymentMethod || 'كاش عند الاستلام');
+      const cust = encodeURIComponent(o.customerName || 'عميل The View');
+      const phone = encodeURIComponent(o.customerPhone || '011 01774545');
+      const dest = encodeURIComponent(o.destination || 'ميدان المحطة - أسوان');
+      const notes = o.notes ? encodeURIComponent(o.notes) : '';
+      const num = encodeURIComponent(o.orderNumber || orderId);
+
+      const rawPhone = String(o.customerPhone || '011 01774545');
+      const cleanPhone = rawPhone.replace(/[^0-9]/g, '');
+      const waPhone = cleanPhone.startsWith('0') ? cleanPhone.substring(1) : cleanPhone;
+      const trackUrl = encodeURIComponent(`${window.location.origin}${window.location.pathname.replace('admin.html', 'online-order.html')}`);
+
+      let text = `*🛵 أوردر جديد للتوصيل - مطعم The View أسوان*%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `📌 *رقم الطلب:* ${num}%0A` +
+        `👤 *اسم العميل:* ${cust}%0A` +
+        `📞 *هاتف العميل للاتصال:* ${phone}%0A` +
+        `💬 *واتساب العميل بلمسة واحدة:* https://wa.me/20${waPhone}%0A` +
+        `📍 *العنوان:* ${dest}%0A`;
+      if (notes) text += `📝 *ملاحظات:* ${notes}%0A`;
+      text += `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `🍽️ *الوجبات:*%0A${itemsText}%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `💰 *المطلوب تحصيله:* ${total}%0A` +
+        `💳 *الدفع:* ${pay}%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `📍 *استلام الطلب من المطعم:* مول سينما الصداقة أعلى محل آش وان - ميدان المحطة%0A` +
+        `✅ *رابط تتبع وإثبات التسليم:* ${trackUrl}`;
+
+      window.open(`https://wa.me/?text=${text}`, '_blank');
+    }
+
+    async function adminAdvanceOrderStatus(orderId, newStatus, step) {
+      if (window.ViewFirebase?.updateOrderStatus) {
+        await window.ViewFirebase.updateOrderStatus(orderId, newStatus, step);
+      }
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`تم تحديث حالة الطلب (${orderId}) إلى: ${newStatus}`);
+      }
+    }
+
+    // =========================================================================
+    // ORDERS & MENU SEARCH CONTROLLER (INSTANT LIVE SEARCH)
+    // =========================================================================
+    const DEFAULT_ADMIN_ORDERS = [
+      {
+        id: 'ORD-9481',
+        orderNumber: '#ORD-9481',
+        customerName: 'أحمد عبد الله',
+        customerPhone: '+20 11 01774545',
+        destination: 'طاولة 06 • التراس (داخل الصالة)',
+        mode: 'داخل الصالة',
+        items: [
+          { name: 'ريب آي واجيو فاخر', qty: 1, price: 420 },
+          { name: 'سلطة بوراتا إيطالية', qty: 1, price: 145 },
+          { name: 'كولد برو إثيوبي', qty: 1, price: 75 }
+        ],
+        total: '640.00 ج.م',
+        totalNumeric: 640,
+        paymentMethod: 'فيزا • مدفوع',
+        status: 'قيد التحضير والتجميع بالمطبخ 🍳',
+        statusStep: 2,
+        timeFormatted: 'منذ 11 دقيقة',
+        createdAt: new Date(Date.now() - 11 * 60000).toISOString()
+      },
+      {
+        id: 'ORD-9480',
+        orderNumber: '#ORD-9480',
+        customerName: 'ليلى محمود',
+        customerPhone: '+20 10 98765432',
+        destination: 'توصيل سريع • شارع كورنيش النيل أسوان',
+        mode: 'توصيل سريع (كابتن محمد #14)',
+        items: [
+          { name: 'سبانيش لاتيه بارد', qty: 2, price: 75 },
+          { name: 'وافل بلجيكي بالفستق والبلوبيري', qty: 1, price: 165 },
+          { name: 'برجر ترافل أنجوس فاخر', qty: 1, price: 286 }
+        ],
+        total: '601.00 ج.م',
+        totalNumeric: 601,
+        paymentMethod: 'فودافون كاش',
+        status: 'مع المندوب للتوصيل 🛵',
+        statusStep: 3,
+        timeFormatted: 'منذ 24 دقيقة',
+        createdAt: new Date(Date.now() - 24 * 60000).toISOString()
+      },
+      {
+        id: 'ORD-9479',
+        orderNumber: '#ORD-9479',
+        customerName: 'د. طارق المنصور',
+        customerPhone: '+20 12 88776655',
+        destination: 'الصالون الخاص VIP • حجز عشاء عمل',
+        mode: 'داخل الصالة',
+        items: [
+          { name: 'وجبات مشويات عائلية رويال', qty: 2, price: 650 },
+          { name: 'سلطات ومقبلات شرقية متنوعة', qty: 3, price: 95 },
+          { name: 'قهوة مختصة على الرمل', qty: 4, price: 65 }
+        ],
+        total: '1,850.00 ج.م',
+        totalNumeric: 1850,
+        paymentMethod: 'دفع كاش',
+        status: 'تم التسليم والاستلام ✅',
+        statusStep: 4,
+        timeFormatted: 'منذ 52 دقيقة',
+        createdAt: new Date(Date.now() - 52 * 60000).toISOString()
+      },
+      {
+        id: 'ORD-9475',
+        orderNumber: '#ORD-9475',
+        customerName: 'سارة القاضي',
+        customerPhone: '+20 12 34567890',
+        destination: 'طاولة 02 • إطلالة النيل البانورامية',
+        mode: 'داخل الصالة',
+        items: [
+          { name: 'سمك سلمون نرويجي مشوي بالأعشاب', qty: 1, price: 340 },
+          { name: 'كابتشينو لوز عضوي', qty: 1, price: 65 },
+          { name: 'كيكة الفستق بالزعفران والآيس كريم', qty: 1, price: 90 }
+        ],
+        total: '495.00 ج.م',
+        totalNumeric: 495,
+        paymentMethod: 'بطاقة مدى / فيزا',
+        status: 'قيد التحضير والتجميع بالمطبخ 🍳',
+        statusStep: 2,
+        timeFormatted: 'منذ ساعة',
+        createdAt: new Date(Date.now() - 65 * 60000).toISOString()
+      }
+    ];
+
+    let allAdminOrders = [];
+
+    function getAdminOrders() {
+      let list = [];
+      try {
+        const raw = localStorage.getItem('view_restaurant_orders');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            list = parsed;
+          }
+        }
+      } catch (e) {}
+
+      const map = new Map();
+      list.forEach(o => {
+        const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+        if (k) map.set(k, o);
+      });
+      DEFAULT_ADMIN_ORDERS.forEach(o => {
+        const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+        if (k && !map.has(k)) map.set(k, o);
+      });
+      return Array.from(map.values());
+    }
+
+    function updateOrderTabCounts() {
+      const allCount = allAdminOrders.length;
+      const prepCount = allAdminOrders.filter(o => {
+        const step = o.statusStep || 2;
+        return step <= 2 && !o.status?.includes('ملغي');
+      }).length;
+      const delivCount = allAdminOrders.filter(o => o.statusStep === 3 || o.status?.includes('توصيل')).length;
+      const compCount = allAdminOrders.filter(o => o.statusStep === 4 || o.status?.includes('تم التسليم') || o.status?.includes('استلام')).length;
+
+      const elAll = document.getElementById('tab-count-all');
+      const elPrep = document.getElementById('tab-count-prep');
+      const elDeliv = document.getElementById('tab-count-deliv');
+      const elComp = document.getElementById('tab-count-comp');
+
+      if (elAll) elAll.textContent = allCount;
+      if (elPrep) elPrep.textContent = prepCount;
+      if (elDeliv) elDeliv.textContent = delivCount;
+      if (elComp) elComp.textContent = compCount;
+    }
+
+    function renderAdminOrdersTable(ordersToRender, query = '') {
+      const tbody = document.getElementById('orders-table-body');
+      if (!tbody) return;
+
+      if (!ordersToRender || ordersToRender.length === 0) {
+        if (query) {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" class="py-12 text-center text-on-surface-variant">
+                <div class="flex flex-col items-center justify-center gap-3">
+                  <span class="material-symbols-outlined text-5xl text-secondary animate-bounce">search_off</span>
+                  <div>
+                    <p class="font-bold text-base text-on-surface">لا توجد طلبات تطابق: "${query}"</p>
+                    <p class="text-xs text-on-surface-variant mt-1">تأكد من كتابة اسم الزبون، رقم الطلب، أو اسم الصنف (مثل: واجيو، بوراتا، سلمون، لاتيه) بدقة.</p>
+                  </div>
+                  <button onclick="clearOrderSearch()" class="px-4 py-2 bg-secondary text-white rounded-xl text-xs font-bold hover:opacity-90 shadow-sm flex items-center gap-1.5 transition-all">
+                    <span class="material-symbols-outlined text-sm">refresh</span>
+                    <span>إلغاء تصفية البحث وإظهار جميع الطلبات</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          `;
+        } else {
+          tbody.innerHTML = `
+            <tr>
+              <td colspan="7" class="py-12 text-center text-on-surface-variant text-sm">
+                لا توجد طلبات مسجلة حالياً
+              </td>
+            </tr>
+          `;
+        }
+        return;
+      }
+
+      tbody.innerHTML = ordersToRender.map(o => {
+        const step = o.statusStep || (
+          o.status?.includes('توصيل') ? 3 :
+          (o.status?.includes('تم التسليم') || o.status?.includes('استلام')) ? 4 :
+          o.status?.includes('ملغي') ? 0 : 2
+        );
+
+        let statusBadge = '';
+        let quickAction = '';
+
+        if (step === 0 || o.status?.includes('ملغي')) {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-red-100 text-red-800 font-label-sm text-xs font-bold">
+              <span class="material-symbols-outlined text-xs">cancel</span>
+              ملغي
+            </span>`;
+          quickAction = `<span class="text-xs text-on-surface-variant">تم الإلغاء</span>`;
+        } else if (step <= 2) {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-900 font-label-sm text-xs font-bold border border-amber-300">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"></span>
+              قيد التحضير والتجميع 🍳
+            </span>`;
+          quickAction = `
+            <button onclick="adminAdvanceOrderStatus('${o.orderNumber || o.id}', 'مع المندوب للتوصيل 🛵', 3)" class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-800 hover:bg-blue-600 hover:text-white text-xs font-bold border border-blue-200 transition-colors flex items-center gap-1 shadow-sm" title="تسليم للمندوب للتوصيل">
+              <span class="material-symbols-outlined text-xs">moped</span>
+              <span>تسليم للمندوب</span>
+            </button>`;
+        } else if (step === 3) {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-100 text-blue-900 font-label-sm text-xs font-bold border border-blue-300">
+              <span class="material-symbols-outlined text-xs animate-bounce">moped</span>
+              مع المندوب للتوصيل 🛵
+            </span>`;
+          quickAction = `
+            <button onclick="adminAdvanceOrderStatus('${o.orderNumber || o.id}', 'تم التسليم والاستلام ✅', 4)" class="px-2.5 py-1 rounded-lg bg-emerald-50 text-emerald-800 hover:bg-emerald-600 hover:text-white text-xs font-bold border border-emerald-200 transition-colors flex items-center gap-1 shadow-sm" title="تأكيد تسليم العميل">
+              <span class="material-symbols-outlined text-xs">check_circle</span>
+              <span>تأكيد التسليم</span>
+            </button>`;
+        } else if (step === 4) {
+          statusBadge = `
+            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100 text-emerald-900 font-label-sm text-xs font-bold border border-emerald-300">
+              <span class="material-symbols-outlined text-xs">task_alt</span>
+              تم التسليم والاستلام ✅
+            </span>`;
+          quickAction = `
+            <span class="text-xs text-emerald-700 font-bold flex items-center gap-1">
+              <span class="material-symbols-outlined text-xs">done_all</span>
+              مكتمل
+            </span>`;
+        }
+
+        const itemsList = Array.isArray(o.items) ? o.items : [];
+        const itemsText = itemsList.length > 0 
+          ? itemsList.map(i => `${i.name} (x${i.qty || 1})`).join('، ') 
+          : (o.itemsText || 'تشكيلة أطباق ومشروبات مختارة');
+
+        return `
+          <tr class="hover:bg-secondary/5 transition-colors border-b border-surface-container group">
+            <td class="py-4 px-4">
+              <div class="flex items-center gap-2">
+                <span class="font-title-lg text-title-lg font-bold text-secondary font-mono">${o.orderNumber || o.id || '#ORD-LIVE'}</span>
+                <span class="px-2 py-0.5 rounded text-[10px] uppercase font-bold tracking-wider bg-emerald-100 text-emerald-800">نشط</span>
+              </div>
+              <span class="font-body-sm text-body-sm text-on-surface-variant block mt-0.5">${o.destination || o.mode || 'خدمة الطاولات'}</span>
+            </td>
+            <td class="py-4 px-4">
+              <div class="font-label-lg text-label-lg text-on-surface font-semibold flex items-center gap-1.5">
+                <span class="material-symbols-outlined text-base text-secondary">person</span>
+                <span>${o.customerName || 'عميل The View'}</span>
+              </div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant dir-ltr text-right font-mono mt-0.5">
+                ${o.customerPhone || '011 01774545'}
+              </div>
+            </td>
+            <td class="py-4 px-4">
+              <div class="font-body-md text-body-md text-on-surface font-bold flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-secondary">lunch_dining</span>
+                <span>${itemsList.length > 0 ? itemsList.length + ' أصناف' : 'تشكيلة مختارة'}</span>
+              </div>
+              <div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 max-w-xs mt-0.5" title="${itemsText}">${itemsText}</div>
+            </td>
+            <td class="py-4 px-4">
+              <span class="font-title-lg text-title-lg font-bold text-secondary block">${o.total || (o.totalNumeric ? o.totalNumeric + ' ج.م' : '285.00 ج.م')}</span>
+              <span class="block font-label-sm text-label-sm text-on-surface-variant">${o.paymentMethod || 'كاش عند الاستلام'}</span>
+            </td>
+            <td class="py-4 px-4">
+              ${statusBadge}
+            </td>
+            <td class="py-4 px-4 font-body-sm text-body-sm text-on-surface-variant font-mono">
+              ${o.timeFormatted || 'اليوم'}
+            </td>
+            <td class="py-4 px-4 text-left">
+              <div class="flex items-center gap-1.5 justify-end">
+                <a href="delivery.html?order=${encodeURIComponent((o.orderNumber || o.id || '').replace('#',''))}" class="p-2 inline-flex items-center rounded-lg bg-orange-50 text-secondary hover:bg-secondary hover:text-white border border-secondary/20 transition-colors shadow-sm" title="فتح بوابة التوصيل ومتابعة المندوب والتسليم">
+                  <span class="material-symbols-outlined text-base">moped</span>
+                </a>
+                <button onclick="adminShareOrderToCourierWhatsApp('${o.orderNumber || o.id}')" class="p-2 inline-flex items-center rounded-lg bg-green-50 text-green-700 hover:bg-green-600 hover:text-white border border-green-200 transition-colors shadow-sm" title="إرسال بيانات الأوردر للمندوب عبر واتساب">
+                  <span class="material-symbols-outlined text-base">send_to_mobile</span>
+                </button>
+                ${quickAction}
+                <a href="employee.html" class="p-2 inline-flex items-center rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors shadow-sm" title="فتح شاشة المطبخ (KDS)">
+                  <span class="material-symbols-outlined text-base">soup_kitchen</span>
+                </a>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    function filterAdminOrders(keyword) {
+      const query = (keyword || '').trim().toLowerCase();
+      const clearBtn = document.getElementById('clear-order-search-btn');
+      if (clearBtn) {
+        clearBtn.style.display = query ? 'flex' : 'none';
+      }
+
+      if (!query) {
+        const activeTab = document.querySelector('.order-tab.font-bold')?.getAttribute('data-filter') || 'all';
+        applyOrderTabFilter(activeTab);
+        return;
+      }
+
+      const filtered = allAdminOrders.filter(o => {
+        const num = (o.orderNumber || o.id || '').toLowerCase();
+        const cleanNum = num.replace(/[^0-9]/g, '');
+        const name = (o.customerName || '').toLowerCase();
+        const phone = (o.customerPhone || '').toLowerCase();
+        const dest = (o.destination || '').toLowerCase();
+        const mode = (o.mode || '').toLowerCase();
+        const notes = (o.notes || '').toLowerCase();
+
+        // Check dish names inside items array
+        let hasDish = false;
+        if (Array.isArray(o.items)) {
+          hasDish = o.items.some(i => (i.name || '').toLowerCase().includes(query));
+        }
+
+        return num.includes(query) ||
+               cleanNum.includes(query) ||
+               name.includes(query) ||
+               phone.includes(query) ||
+               dest.includes(query) ||
+               mode.includes(query) ||
+               notes.includes(query) ||
+               hasDish;
+      });
+
+      renderAdminOrdersTable(filtered, query);
+    }
+
+    function clearOrderSearch() {
+      const input = document.getElementById('order-search-input');
+      if (input) input.value = '';
+      const clearBtn = document.getElementById('clear-order-search-btn');
+      if (clearBtn) clearBtn.style.display = 'none';
+      const activeTab = document.querySelector('.order-tab.font-bold')?.getAttribute('data-filter') || 'all';
+      applyOrderTabFilter(activeTab);
+    }
+
+    function applyOrderTabFilter(filter) {
+      if (filter === 'all') {
+        renderAdminOrdersTable(allAdminOrders);
+      } else if (filter === 'preparing') {
+        renderAdminOrdersTable(allAdminOrders.filter(o => {
+          const step = o.statusStep || 2;
+          return step <= 2 && !o.status?.includes('ملغي');
+        }));
+      } else if (filter === 'delivery') {
+        renderAdminOrdersTable(allAdminOrders.filter(o => o.statusStep === 3 || o.status?.includes('توصيل')));
+      } else if (filter === 'completed') {
+        renderAdminOrdersTable(allAdminOrders.filter(o => o.statusStep === 4 || o.status?.includes('تم التسليم') || o.status?.includes('استلام')));
+      }
+    }
+
+    function filterAdminMenu(keyword) {
+      const q = (keyword || '').trim().toLowerCase();
+      const cards = document.querySelectorAll('#menu .grid > div');
+      cards.forEach(card => {
+        const text = card.innerText.toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+    }
+
+    function initFirebaseOrders() {
+      allAdminOrders = getAdminOrders();
+      updateOrderTabCounts();
+      renderAdminOrdersTable(allAdminOrders);
+
+      // Storage event listener for cross-tab sync
+      window.addEventListener('storage', (e) => {
+        if (e.key === 'view_restaurant_orders') {
+          allAdminOrders = getAdminOrders();
+          updateOrderTabCounts();
+          const searchVal = document.getElementById('order-search-input')?.value;
+          if (searchVal) {
+            filterAdminOrders(searchVal);
+          } else {
+            const activeTab = document.querySelector('.order-tab.font-bold')?.getAttribute('data-filter') || 'all';
+            applyOrderTabFilter(activeTab);
+          }
+          playNotificationTone();
+        }
+      });
+
+      // Filter tabs handler
+      document.querySelectorAll('.order-tab').forEach(tab => {
+        tab.addEventListener('click', function() {
+          document.querySelectorAll('.order-tab').forEach(t => {
+            t.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'font-bold', 'shadow-sm');
+            t.classList.add('text-on-surface-variant');
+          });
+          this.classList.add('bg-surface-container-lowest', 'text-on-surface', 'font-bold', 'shadow-sm');
+          this.classList.remove('text-on-surface-variant');
+
+          const filter = this.getAttribute('data-filter');
+          const searchVal = document.getElementById('order-search-input')?.value;
+          if (searchVal) {
+            filterAdminOrders(searchVal);
+          } else {
+            applyOrderTabFilter(filter);
+          }
+        });
+      });
+
+      // Subscribe to Firebase Firestore orders
+      if (window.ViewFirebase?.subscribeOrders) {
+        window.ViewFirebase.subscribeOrders((orders) => {
+          if (!orders) return;
+          const map = new Map();
+          orders.forEach(o => {
+            const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+            if (k) map.set(k, o);
+          });
+          allAdminOrders.forEach(o => {
+            const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+            if (k && !map.has(k)) map.set(k, o);
+          });
+          allAdminOrders = Array.from(map.values());
+          updateOrderTabCounts();
+          const searchVal = document.getElementById('order-search-input')?.value;
+          if (searchVal) {
+            filterAdminOrders(searchVal);
+          } else {
+            const activeTab = document.querySelector('.order-tab.font-bold')?.getAttribute('data-filter') || 'all';
+            applyOrderTabFilter(activeTab);
+          }
+        });
+      }
+    }
+
+    // =========================================================================
+    // INITIALIZATION ON PAGE LOAD
+    // =========================================================================
+    function initAdminDashboard() {
+      initFirebaseReservations();
+      initFirebaseOrders();
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initAdminDashboard);
+    } else {
+      initAdminDashboard();
+    }
+
+    window.addEventListener('hashchange', () => {
+      const h = window.location.hash;
+      if (h.startsWith('#row-') || h.startsWith('#VW-') || h.startsWith('#RES-')) {
+        const clean = h.replace('#row-', '').replace('#', '').trim();
+        renderReservationsTable(clean);
+      } else if (h === '#reservations') {
+        const el = document.getElementById('reservations');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  </script>
+</div>
+</main>
+</div>
+</body>
+</html>
+
+    

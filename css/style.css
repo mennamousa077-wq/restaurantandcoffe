@@ -1,0 +1,96 @@
+/* View Restaurant & Café - Custom Enhancements & Animations */
+
+:root {
+  --primary-color: #000000;
+  --secondary-color: #a23f0f;
+  --bg-color: #fbf9f6;
+  --font-hero: 'Plus Jakarta Sans', sans-serif;
+  --font-arabic: 'Noto Kufi Arabic', sans-serif;
+}
+
+[lang="ar"] {
+  direction: rtl;
+  font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;
+}
+
+[lang="ar"] .font-title-lg,
+[lang="ar"] .font-headline-lg,
+[lang="ar"] .font-headline-md,
+[lang="ar"] .font-display-hero {
+  font-family: 'Noto Kufi Arabic', sans-serif;
+}
+
+/* Smooth Transitions & Glows */
+.smooth-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.amber-glow {
+  box-shadow: 0 8px 32px -4px rgba(162, 63, 15, 0.18);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f3f0;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c4c7c7;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a23f0f;
+}
+
+/* Direction & Print Helper */
+.dir-ltr {
+  direction: ltr !important;
+  display: inline-block;
+}
+
+@keyframes scaleUp {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s ease-out forwards;
+}
+
+@keyframes gentlePulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(162, 63, 15, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(162, 63, 15, 0);
+  }
+}
+
+.pulse-highlight {
+  animation: gentlePulse 2s infinite;
+}
+
+@media print {
+  header, footer, #view-floating-whatsapp, nav, #stepperNav, #quickDateChips, .cal-day, #tablesContainer, #occasionChips, #primaryCtaBtn, .lg\:col-span-4 {
+    display: none !important;
+  }
+  #stepPanel4 {
+    display: flex !important;
+  }
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+}

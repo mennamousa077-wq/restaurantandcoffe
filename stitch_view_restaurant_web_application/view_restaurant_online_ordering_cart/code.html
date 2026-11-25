@@ -1,0 +1,674 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="../../js/firebase-config.js"></script>
+<script defer src="../../js/app.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#bb7336","surface-bright":"#fbf9f6","background":"#fbf9f6","on-error":"#ffffff","tertiary-container":"#2f1400","tertiary-fixed-dim":"#ffb780","surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f0","on-secondary-container":"#6c2400","error":"#ba1a1a","error-container":"#ffdad6","primary-container":"#1c1b1b","on-surface":"#1b1c1a","on-error-container":"#93000a","inverse-on-surface":"#f2f0ed","on-surface-variant":"#444748","primary-fixed":"#e5e2e1","surface-container-highest":"#e4e2df","surface-tint":"#5f5e5e","surface-dim":"#dbdad7","inverse-primary":"#c8c6c5","on-primary-fixed-variant":"#474746","on-primary-container":"#858383","on-primary":"#ffffff","outline-variant":"#c4c7c7","surface-container":"#efeeeb","outline":"#747878","primary-fixed-dim":"#c8c6c5","on-tertiary-fixed":"#2f1400","on-background":"#1b1c1a","on-secondary-fixed-variant":"#7f2b00","on-secondary":"#ffffff","secondary-container":"#fe8450","secondary-fixed":"#ffdbce","secondary":"#a23f0f","on-tertiary":"#ffffff","surface-container-high":"#eae8e5","surface":"#fbf9f6","inverse-surface":"#30312f","tertiary":"#000000","tertiary-fixed":"#ffdcc4","surface-variant":"#e4e2df","on-primary-fixed":"#1c1b1b","secondary-fixed-dim":"#ffb598","on-tertiary-fixed-variant":"#6f3800","primary":"#000000","on-secondary-fixed":"#370e00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"3rem","gutter":"1.5rem","margin-tablet":"2rem"},"fontFamily":{"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"display-hero":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script><link rel="stylesheet" href="../../css/style.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_-2px_rgba(26,26,26,0.06)]"><div class="h-20 w-full px-margin-mobile md:px-margin-tablet xl:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="home" href="../view_restaurant_caf_home/code.html"><img alt="View Restaurant &amp; Café Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold leading-tight">VIEW</span><span class="font-label-sm text-label-sm tracking-widest text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-secondary font-semibold border-b-2 border-secondary"><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="home" href="../view_restaurant_caf_home/code.html">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Menu</a><a aria-current="page" class="transition-colors py-space-xs text-secondary font-semibold border-b-2 border-secondary" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Online Order</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Book a Table</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="contact" href="#">Contact</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="terms-and-conditions" href="#">Terms &amp; Conditions</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center bg-surface-container-high rounded-full p-1 shadow-inner"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm" type="button">EN</button><button class="px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button"><span>العربية</span><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span></button></div><a class="relative p-2.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors flex items-center justify-center" data-path="cart-checkout" href="../view_restaurant_online_ordering_cart/code.html"><span class="material-symbols-outlined text-xl">shopping_bag</span><span class="absolute -top-1 -right-1 bg-secondary text-on-secondary font-label-sm text-label-sm px-1.5 py-0.5 rounded-full leading-none font-bold shadow-sm">3</span></a><a class="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-sm text-secondary">swap_horiz</span><span>Portals</span></a><div class="flex items-center gap-space-sm pl-space-xs"><a class="flex items-center gap-space-sm p-1 rounded-full hover:bg-surface-container transition-colors group" data-path="user-account" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary/30 group-hover:ring-secondary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/><span class="hidden lg:inline font-label-md text-label-md text-on-surface font-medium pr-1">My Table</span></a></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Dining Mode & Location Sub-Bar -->
+<section class="w-full bg-surface-container-low px-margin-mobile md:px-margin-tablet xl:px-margin py-space-sm shadow-sm">
+<div class="flex flex-col lg:flex-row items-center justify-between gap-space-sm">
+<!-- Fulfillment Mode Switcher -->
+<div class="flex items-center p-1 bg-surface-container rounded-full w-full sm:w-auto shadow-inner">
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all" id="mode-delivery" type="button">
+<span class="material-symbols-outlined text-base text-secondary">moped</span>
+<span>Delivery</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">(35-45m)</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" id="mode-pickup" type="button">
+<span class="material-symbols-outlined text-base">storefront</span>
+<span>Curbside Pickup</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant/80 font-medium">(15-20m)</span>
+</button>
+<button class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all" id="mode-dinein" type="button">
+<span class="material-symbols-outlined text-base">table_restaurant</span>
+<span>Dine-In QR Table</span>
+</button>
+</div>
+<!-- Address / Location Selector -->
+<div class="flex items-center gap-space-sm w-full lg:w-auto justify-between lg:justify-end">
+<div class="flex items-center gap-2 px-3.5 py-2 bg-surface-container-lowest rounded-xl shadow-sm text-on-surface flex-1 sm:flex-initial">
+<span class="material-symbols-outlined text-secondary text-lg">near_me</span>
+<div class="flex flex-col text-left">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Delivering to</span>
+<div class="flex items-center gap-1">
+<span class="font-label-md text-label-md font-semibold text-on-surface truncate max-w-[220px]">Downtown Blvd, Suite 402</span>
+<span class="material-symbols-outlined text-xs text-on-surface-variant">expand_more</span>
+</div>
+</div>
+</div>
+<!-- Kitchen Status Indicator Badge -->
+<div class="flex items-center gap-2 px-3 py-2 bg-surface-container rounded-xl text-on-surface">
+<div class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-secondary"></span>
+</div>
+<span class="font-label-md text-label-md font-medium">Kitchen Live</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Online Ordering Workspace -->
+<div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-md grid grid-cols-1 xl:grid-cols-12 gap-gutter items-start">
+<!-- LEFT & CENTER: Filtering, Categories & Menu Grid (Col 1-8) -->
+<div class="xl:col-span-8 flex flex-col gap-space-md">
+<!-- Live Filter & Search Toolbar -->
+<div class="flex flex-col gap-space-sm bg-surface-container-lowest p-space-md rounded-xl shadow-sm">
+<div class="flex flex-col sm:flex-row items-center gap-space-sm">
+<!-- Live Search Bar -->
+<div class="relative w-full sm:flex-1">
+<span class="material-symbols-outlined absolute left-3.5 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg">search</span>
+<input class="w-full h-11 pl-10 pr-4 bg-surface-container-low rounded-lg text-on-surface placeholder:text-on-surface-variant/70 font-body-md text-body-md focus:outline-none focus:ring-2 focus:ring-secondary/40 transition-all" placeholder="Search craft roasts, burgers, pasta, desserts..." type="text"/>
+</div>
+<!-- Allergen Quick Filter Toggles -->
+<div class="flex items-center gap-1.5 overflow-x-auto w-full sm:w-auto pb-1 sm:pb-0 scrollbar-none">
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-sm text-secondary">spa</span>
+<span>Gluten-Free</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-sm text-secondary">grain</span>
+<span>Nut-Free</span>
+</button>
+<button class="px-3 py-1.5 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md flex items-center gap-1 transition-colors whitespace-nowrap" type="button">
+<span class="material-symbols-outlined text-sm text-secondary">water_drop</span>
+<span>Dairy-Free</span>
+</button>
+</div>
+<!-- Sort Menu Dropdown -->
+<div class="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-2 bg-surface-container-low px-3 py-2 rounded-lg">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Sort:</span>
+<select class="bg-transparent font-label-md text-label-md text-on-surface focus:outline-none font-semibold cursor-pointer">
+<option>Popular Favorites</option>
+<option>Price: Low to High</option>
+<option>Price: High to Low</option>
+<option>Fastest Prep Time</option>
+</select>
+</div>
+</div>
+<!-- Category Horizontal Pills -->
+<div class="flex items-center gap-2 overflow-x-auto pt-space-xs scrollbar-none border-t border-surface-container-high/40">
+<button class="px-4 py-2 rounded-full bg-secondary text-on-secondary font-label-md text-label-md shadow-sm whitespace-nowrap font-semibold" type="button">
+            All Creations (28)
+          </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+            Artisanal Burgers
+          </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+            Handmade Pastas
+          </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+            Specialty Pour-Overs &amp; Coffee
+          </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+            Pastries &amp; Waffles
+          </button>
+<button class="px-4 py-2 rounded-full bg-surface-container-low hover:bg-surface-container text-on-surface font-label-md text-label-md whitespace-nowrap transition-colors" type="button">
+            Cold Pressed &amp; Elixirs
+          </button>
+</div>
+</div>
+<!-- Menu Catalog Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-space-md">
+<!-- Dish 1: Wagyu Truffle Burger (In Cart) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A gourmet artisanal Wagyu truffle burger with melted aged gruyere cheese, caramelized balsamic onions, and shaved black truffles on a glossy toasted brioche bun, presented on a stone surface with warm ambient restaurant lighting in dark amber and charcoal tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBQT1RvuoXeCsxF3b71KwrocJekpCcseCSg5RnQ5XMmH3Uof9fj1IFIkMpr_ynE3WVX2DcGTqx_33M5dOJDZuyvoVIbcSm-nmNgBSKzw7w3F91akadyMgQaqUsxnKhywCcZ7eDzZFxc-E7F7cgsHfeifStKlJGZvR1xxzOiwTHG_1GlGljzHjdt0mlanV70gZAiYbprOhY3Z3tXeeiwHKvAChr9TTwSCsBqO7gZtS45"/>
+<span class="absolute top-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full uppercase tracking-wider">Chef's Signature</span>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$28.00</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Wagyu Truffle Burger</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">420 kcal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">200g A5 Wagyu patty, shaved black summer truffle, fontina melt, smoked garlic aioli on freshly baked milk brioche.</p>
+<!-- Dietary Badges -->
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">Nut-Free</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Halal Prime</span>
+</div>
+</div>
+<!-- Action Row with Stepper -->
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Customize Add-ons</span>
+</button>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="stepCount(this, -1)" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-label-md text-label-md font-semibold item-qty">1</span>
+<button class="w-8 h-8 rounded bg-secondary text-on-secondary hover:bg-on-secondary-container flex items-center justify-center transition-colors" onclick="stepCount(this, 1)" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dish 2: Chicken Supreme Pasta (In Cart) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Elegant bowl of artisan pasta topped with roasted chicken supreme, sautéed porcini wild mushrooms, Parmigiano Reggiano crisps, and fresh micro basil in a delicate roasted garlic velouté sauce, styled under warm café mood lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD75CP3UXZuADs00bPf9nd_LqjB08Pg5vlzEx3Eqkae0QY38g1WJtar9-xfNt36SN-OkWvPFtErWcuQlZzWwuJl1rvMUjZnEiPNsLn0bvX55DozaUqWs4G3lxv6cov3PiXBL1QK3x8jbCdhSbcer_PSHHhCJ7v2MjUbob-PnHHwraZd0Hd6X9zqFQ8CMm7Fi3On6HNV-IXoqBP3aYNLHtjrEcb2CU8Z0Klgm_juXWyG"/>
+<span class="absolute top-3 left-3 bg-secondary text-on-secondary font-label-sm text-label-sm px-2.5 py-1 rounded-full uppercase tracking-wider">Bestseller</span>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$26.00</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Chicken Supreme Pasta</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">510 kcal</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Slow-braised corn-fed chicken breast, organic pappardelle, chanterelles, white truffle essence &amp; micro chervil.</p>
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">GF Option</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Fresh Handmade</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Customize Add-ons</span>
+</button>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="stepCount(this, -1)" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-label-md text-label-md font-semibold item-qty">1</span>
+<button class="w-8 h-8 rounded bg-secondary text-on-secondary hover:bg-on-secondary-container flex items-center justify-center transition-colors" onclick="stepCount(this, 1)" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Drink 3: Iced Spanish Latte (In Cart) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Two crystal glasses of iced layered Spanish latte with dark espresso floating over condensed milk and creamy oat milk, condensation beads running down the glass, styled with scattered single origin Ethiopian coffee beans on a marble tabletop." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDiVqD4c7eOXAuCOxeCE-E9_9rP9odB8G-lzcndmH8xWkI42hl7d1EdXCSh6SUcVGHAR-ZJ9B9ifNr5NzDKSV8IbgAaUNFSZd1sRMpSALuDweB2OxgcgbVjffWtBnugBigMRg9rrWtbRqEi0J0YXpFTaFvFYgcOK2w584O8kdEPoXeCGe-YS3i2QfuBbl-Eogmhj8YKpkhxytYXX3iHlmy0ZnelJM98V1fPv5LrF4SP"/>
+<span class="absolute top-3 left-3 bg-surface-container-highest text-on-surface font-label-sm text-label-sm px-2.5 py-1 rounded-full uppercase tracking-wider">Roastery Reserve</span>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$8.00 ea</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Iced Spanish Latte</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Double Shot</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Double ristretto of heirloom Ethiopian Yirgacheffe, sweetened condensed elixir, and choice of creamy milk.</p>
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">Dairy-Free Alt</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">House Roast</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Milk &amp; Sweetness</span>
+</button>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="stepCount(this, -1)" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-label-md text-label-md font-semibold item-qty">2</span>
+<button class="w-8 h-8 rounded bg-secondary text-on-secondary hover:bg-on-secondary-container flex items-center justify-center transition-colors" onclick="stepCount(this, 1)" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dessert 4: Belgian Pistachio Waffle (In Cart) -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A golden crisp Belgian waffle generously drizzled with rich emerald pistachio cream, white chocolate drizzle, crushed Sicilian pistachios, and a scoop of artisanal vanilla bean gelato served in a shallow stoneware plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOaPCSe5aHCdDEG1wMPG-QEJsViUA4vJ8c-868SbCx9kfeKAJ_RQpsX4nBOVkr1qleZxWC2K_rq3IPkhpwKY3sOnygQOt_5RxjdqhHxAH5P0cJ2fnYTssoN0Nlu2olRGt4WHqju7_WAktCCVzMS6Dddn-ltXhXirifbNMi8CIzLniztN-vT1TvNSi5x6WdQpNObyE-jXo7OcbRK6gtzpQCPOaiSxogyLL-fNB6XsaC"/>
+<span class="absolute top-3 left-3 bg-primary/80 backdrop-blur-md text-on-primary font-label-sm text-label-sm px-2.5 py-1 rounded-full uppercase tracking-wider">Pastry Bar</span>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$15.00</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Belgian Pistachio Waffle</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Dessert</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Light malted yeast waffle, Bronte pistachio butter drizzle, Madagascar bean gelato &amp; edible gold leaf flake.</p>
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Freshly Baked</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">Vegetarian</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Sauces &amp; Scoops</span>
+</button>
+<div class="flex items-center bg-surface-container-low rounded-lg p-1">
+<button class="w-8 h-8 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-on-surface transition-colors" onclick="stepCount(this, -1)" type="button">
+<span class="material-symbols-outlined text-sm">remove</span>
+</button>
+<span class="w-8 text-center font-label-md text-label-md font-semibold item-qty">1</span>
+<button class="w-8 h-8 rounded bg-secondary text-on-secondary hover:bg-on-secondary-container flex items-center justify-center transition-colors" onclick="stepCount(this, 1)" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Dish 5: Truffle Burrata Salad -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Plated fresh Italian Burrata cheese resting on heirloom rainbow tomatoes, wild arugula, pine nuts, and drizzled with aged Modena balsamic glaze and virgin olive oil on handcrafted dark ceramic tableware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCVXOCu0ga4byMl1hn6cGLzli3pBxUAIiUhMYhmdrU6xpZI9vuoB11xFi0G3GHDy8mlwWdlix_OhitMH5ioEMnuDYIjEDd-K_6NG1c3IRvBgNLtiU0PubSKUNA3EKb9QkXf264qu7JfYotX8pHxbxJdjO7yiBk5RGK52tUL4DYhDz4vl6tksSrTrK-ukanwA2MGGQVgv40UEbVF1lwE-2hX77gWVSwA-TiQcMtWv7tG"/>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$22.00</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Heirloom Burrata Caprese</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Cold Plate</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">250g artisanal Puglia burrata, colorful vine tomatoes, basil pesto drizzle, toasted pine kernels, grilled sourdough.</p>
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">Vegetarian</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Organic</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Customize Add-ons</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish 6: Cold Brew Reserve Nitro -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden shadow-sm flex flex-col group hover:shadow-md transition-all">
+<div class="relative h-48 w-full overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A tall tapered glass of nitro cold brew coffee with a thick velvety cascading microfoam head cascading downward like a dark stout beer, placed next to roasted single origin coffee beans and an amber glass flask." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdYjkuqiSyvd5Rr93hYTL12RCjG2zcPU1rNfTnig1SH8TgEB3ZqJWtWceC8xg4_4WhsakDLq8fYyEHtuNTTUHng4M2t4XBGQVnMyYzC49H6V4c0wq-1JDd0LClb40v5qXj7THgnxQixaW_fi71V0TaBX5ZiWCSdLCrtSLz8tJ4cca4ofr1AGeZ-8dLXcjixGJ1bJtFhV021fM4SJRKDObEUCMzSMrTmdR7Drcoq3Wx"/>
+<span class="absolute bottom-3 right-3 bg-surface-container-lowest/90 backdrop-blur-md text-secondary font-title-lg text-title-lg px-2.5 py-0.5 rounded-lg shadow-sm font-bold">$9.00</span>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-space-sm">
+<div>
+<div class="flex items-center justify-between gap-2">
+<h3 class="font-title-lg text-title-lg text-on-surface font-semibold">Nitro Draft Cold Brew</h3>
+<span class="text-xs font-semibold px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Single Origin</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">24-hour slow steeped Colombian Geisha, infused with pure nitrogen for a velvety stout-like crema and floral honey notes.</p>
+<div class="flex items-center gap-1.5 mt-2.5">
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-semibold">Dairy-Free</span>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container text-on-surface-variant">Zero Sugar</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-space-xs mt-2 border-t border-surface-container-high/40">
+<button class="text-secondary hover:text-on-secondary-container font-label-md text-label-md flex items-center gap-1 font-semibold" type="button">
+<span class="material-symbols-outlined text-sm">tune</span>
+<span>Select Beans</span>
+</button>
+<button class="px-4 py-2 rounded-lg bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold transition-colors flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-sm">add</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT: Comprehensive Slide-Over Shopping Cart Panel (Col 9-12) -->
+<div class="xl:col-span-4 w-full sticky top-24">
+<aside class="w-full bg-surface-container-lowest rounded-2xl shadow-xl flex flex-col overflow-hidden">
+<!-- Cart Header -->
+<div class="p-space-md bg-surface-container-low border-b border-surface-container-high/60 flex items-center justify-between">
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<h2 class="font-title-lg text-title-lg text-on-surface font-bold">Your Order</h2>
+<span class="bg-secondary text-on-secondary font-label-sm text-label-sm px-2 py-0.5 rounded-full font-bold">4 Items</span>
+</div>
+<div class="flex items-center gap-1 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="material-symbols-outlined text-sm text-secondary">location_on</span>
+<span class="truncate">Downtown Blvd, Suite 402</span>
+</div>
+</div>
+<button class="p-2 rounded-full hover:bg-surface-container text-on-surface-variant hover:text-on-surface transition-colors" title="Clear or minimize" type="button">
+<span class="material-symbols-outlined text-lg">close</span>
+</button>
+</div>
+<!-- Cart Itemized List -->
+<div class="p-space-md flex flex-col gap-space-sm max-h-[380px] overflow-y-auto divide-y divide-surface-container-high/40">
+<!-- Item 1: Wagyu Truffle Burger -->
+<div class="pt-space-xs first:pt-0 flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-secondary">1x</span>
+<span class="font-title-lg text-base font-semibold text-on-surface">Wagyu Truffle Burger</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-5 text-xs">
+                  Medium Rare • Extra Gruyere • Sweet Potato Fries
+                </p>
+</div>
+<span class="font-title-lg text-base font-bold text-on-surface">$28.00</span>
+</div>
+<div class="flex items-center justify-between pl-5">
+<button class="text-xs font-label-md text-secondary hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-xs">edit</span>
+<span>Modify</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">remove</span>
+</button>
+<span class="font-label-sm text-label-sm font-semibold">1</span>
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 2: Chicken Supreme Pasta -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-secondary">1x</span>
+<span class="font-title-lg text-base font-semibold text-on-surface">Chicken Supreme Pasta</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-5 text-xs">
+                  Substitute with Gluten-Free Artisan Pasta
+                </p>
+</div>
+<span class="font-title-lg text-base font-bold text-on-surface">$26.00</span>
+</div>
+<div class="flex items-center justify-between pl-5">
+<button class="text-xs font-label-md text-secondary hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-xs">edit</span>
+<span>Modify</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">remove</span>
+</button>
+<span class="font-label-sm text-label-sm font-semibold">1</span>
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 3: 2x Iced Spanish Latte -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-secondary">2x</span>
+<span class="font-title-lg text-base font-semibold text-on-surface">Iced Spanish Latte</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-5 text-xs">
+                  Organic Oat Milk • Half Sweetness
+                </p>
+</div>
+<span class="font-title-lg text-base font-bold text-on-surface">$16.00</span>
+</div>
+<div class="flex items-center justify-between pl-5">
+<button class="text-xs font-label-md text-secondary hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-xs">edit</span>
+<span>Modify</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">remove</span>
+</button>
+<span class="font-label-sm text-label-sm font-semibold">2</span>
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Item 4: Belgian Pistachio Waffle -->
+<div class="pt-space-sm flex flex-col gap-1.5">
+<div class="flex items-start justify-between gap-2">
+<div class="flex-1">
+<div class="flex items-center gap-2">
+<span class="font-label-md text-label-md font-bold text-secondary">1x</span>
+<span class="font-title-lg text-base font-semibold text-on-surface">Belgian Pistachio Waffle</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pl-5 text-xs">
+                  Extra Sicilian Pistachio drizzle • Warm Gelato side
+                </p>
+</div>
+<span class="font-title-lg text-base font-bold text-on-surface">$15.00</span>
+</div>
+<div class="flex items-center justify-between pl-5">
+<button class="text-xs font-label-md text-secondary hover:underline flex items-center gap-0.5" type="button">
+<span class="material-symbols-outlined text-xs">edit</span>
+<span>Modify</span>
+</button>
+<div class="flex items-center gap-2">
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">remove</span>
+</button>
+<span class="font-label-sm text-label-sm font-semibold">1</span>
+<button class="w-6 h-6 rounded bg-surface-container hover:bg-surface-container-high flex items-center justify-center text-xs" type="button">
+<span class="material-symbols-outlined text-xs">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Kitchen Notes & Eco Cutlery Toggle -->
+<div class="px-space-md py-space-sm bg-surface-container-low/60 flex flex-col gap-2">
+<label class="flex items-center justify-between cursor-pointer group">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-base">eco</span>
+<span class="font-label-md text-label-md text-on-surface group-hover:text-secondary transition-colors">Include biodegradable napkins &amp; cutlery</span>
+</div>
+<input checked="" class="w-4 h-4 rounded text-secondary focus:ring-secondary accent-secondary cursor-pointer" type="checkbox"/>
+</label>
+<div class="flex items-center gap-1.5 text-xs text-on-surface-variant cursor-pointer hover:text-on-surface">
+<span class="material-symbols-outlined text-sm">edit_note</span>
+<span>Add kitchen instructions or contactless door note</span>
+</div>
+</div>
+<!-- Coupon Code Applied Box -->
+<div class="p-space-md border-t border-surface-container-high/40">
+<div class="flex items-center justify-between p-2.5 rounded-lg bg-surface-container-high/40 text-on-surface">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-sm">local_offer</span>
+<span class="font-label-md text-label-md font-bold tracking-wide">VIEWLUXURY</span>
+<span class="font-label-sm text-label-sm text-secondary bg-secondary-fixed px-1.5 py-0.5 rounded font-bold">10% OFF</span>
+</div>
+<button class="text-xs text-on-surface-variant hover:text-error transition-colors" type="button">
+<span class="material-symbols-outlined text-sm">close</span>
+</button>
+</div>
+</div>
+<!-- Pricing Breakdown Details -->
+<div class="px-space-md pb-space-sm flex flex-col gap-1.5 font-body-sm text-body-sm text-on-surface-variant">
+<div class="flex items-center justify-between">
+<span>Subtotal</span>
+<span class="text-on-surface font-semibold">$85.00</span>
+</div>
+<div class="flex items-center justify-between text-secondary">
+<span>Promo Discount (VIEWLUXURY)</span>
+<span class="font-semibold">-$8.50</span>
+</div>
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span>Delivery Fee</span>
+<span class="font-label-sm text-label-sm bg-surface-container px-1 rounded text-on-surface-variant">FREE over $50</span>
+</div>
+<span class="text-on-surface font-semibold">$4.00</span>
+</div>
+<div class="flex items-center justify-between">
+<span>Taxes &amp; Culinary Surcharge (10%)</span>
+<span class="text-on-surface font-semibold">$7.65</span>
+</div>
+<div class="pt-2 border-t border-surface-container-high/60 flex items-center justify-between text-on-surface">
+<span class="font-title-lg text-title-lg font-bold">Total Amount</span>
+<span class="font-title-lg text-2xl font-bold text-secondary">$88.15</span>
+</div>
+</div>
+<!-- Payment Method Quick Selector -->
+<div class="px-space-md pb-space-sm flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Payment Method</span>
+<div class="grid grid-cols-3 gap-2">
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container hover:bg-secondary-fixed/50 border border-secondary transition-all" type="button">
+<span class="material-symbols-outlined text-lg text-on-surface">wallet</span>
+<span class="font-label-sm text-xs font-semibold mt-0.5">Apple Pay</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-lg text-on-surface-variant">credit_card</span>
+<span class="font-label-sm text-xs font-semibold text-on-surface-variant mt-0.5">Card</span>
+</button>
+<button class="flex flex-col items-center justify-center p-2 rounded-lg bg-surface-container-low hover:bg-surface-container transition-all" type="button">
+<span class="material-symbols-outlined text-lg text-on-surface-variant">payments</span>
+<span class="font-label-sm text-xs font-semibold text-on-surface-variant mt-0.5">Cash / Pod</span>
+</button>
+</div>
+</div>
+<!-- Prominent Primary Checkout Button -->
+<div class="p-space-md pt-0">
+<button id="btn-proceed-checkout" onclick="handleCheckoutSubmit()" class="w-full h-14 bg-secondary hover:bg-on-secondary-container text-on-secondary rounded-xl font-label-lg text-label-lg font-bold shadow-md hover:shadow-lg flex items-center justify-between px-space-md transition-all group" type="button">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform">shopping_cart_checkout</span>
+<span>Proceed to Checkout</span>
+</div>
+<div class="flex items-center gap-2">
+<span id="checkout-btn-total" class="text-xl">$88.15</span>
+<span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</button>
+<!-- Delivery ETA Countdown Indicator -->
+<div class="flex items-center justify-center gap-1.5 mt-2.5 text-xs text-on-surface-variant font-label-md">
+<span class="material-symbols-outlined text-sm text-secondary animate-pulse">timer</span>
+<span>Estimated delivery in <strong class="text-on-surface font-semibold">35 - 45 mins</strong> to your suite</span>
+</div>
+</div>
+</aside>
+</div>
+</div>
+
+<!-- Checkout Confirmation Modal -->
+<div id="checkout-success-modal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+  <div class="bg-surface-container-lowest rounded-2xl max-w-lg w-full p-8 shadow-2xl relative border border-outline-variant/30 text-center flex flex-col items-center">
+    <div class="w-16 h-16 rounded-full bg-emerald-500/15 text-emerald-600 flex items-center justify-center mb-4">
+      <span class="material-symbols-outlined text-4xl">check_circle</span>
+    </div>
+    <span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-widest" id="modal-order-number">ORDER #ORD-7291</span>
+    <h3 class="font-headline-sm text-headline-sm font-bold text-on-surface mt-1">Order Placed Successfully!</h3>
+    <p class="font-body-sm text-body-sm text-on-surface-variant mt-2 max-w-sm">
+      Your gourmet order has been transmitted directly to our executive kitchen station.
+    </p>
+
+    <div class="w-full bg-surface-container-low rounded-xl p-4 my-5 text-left flex flex-col gap-2">
+      <div class="flex justify-between text-sm">
+        <span class="text-on-surface-variant">Fulfillment Mode:</span>
+        <span id="modal-order-mode" class="font-bold text-on-surface">Suite Delivery</span>
+      </div>
+      <div class="flex justify-between text-sm">
+        <span class="text-on-surface-variant">Estimated ETA:</span>
+        <span class="font-bold text-secondary">35 - 40 Mins</span>
+      </div>
+      <div class="flex justify-between text-sm pt-2 border-t border-outline-variant/30 font-bold">
+        <span class="text-on-surface">Total Paid:</span>
+        <span id="modal-order-total" class="text-secondary">$88.15</span>
+      </div>
+    </div>
+
+    <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 font-label-sm text-xs font-bold mb-5">
+      <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+      <span>Live Order Saved to Firebase Firestore (view-restaurant-and-coffe)</span>
+    </div>
+
+    <div class="flex flex-col sm:flex-row gap-2.5 w-full">
+      <a href="../view_restaurant_employee_operational_hub/code.html" class="flex-1 py-3 rounded-xl bg-primary text-on-primary font-label-md text-label-md font-bold flex items-center justify-center gap-1.5 shadow-sm hover:opacity-90">
+        <span class="material-symbols-outlined text-sm">soup_kitchen</span>
+        <span>View in Kitchen KDS</span>
+      </a>
+      <button onclick="document.getElementById('checkout-success-modal').classList.add('hidden')" class="flex-1 py-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold">
+        Continue Browsing
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Client-side Interactive Stepper Script -->
+<script>
+    function stepCount(btn, delta) {
+      const container = btn.closest('.flex');
+      const qtySpan = container.querySelector('.item-qty');
+      if (!qtySpan) return;
+      let currentVal = parseInt(qtySpan.textContent) || 0;
+      currentVal = Math.max(0, currentVal + delta);
+      qtySpan.textContent = currentVal;
+    }
+
+    // Toggle fulfillment pills
+    const modeDelivery = document.getElementById('mode-delivery');
+    const modePickup = document.getElementById('mode-pickup');
+    const modeDinein = document.getElementById('mode-dinein');
+    const modes = [modeDelivery, modePickup, modeDinein];
+    let selectedMode = 'Delivery (Skyline Suite)';
+
+    modes.forEach(btn => {
+      if(!btn) return;
+      btn.addEventListener('click', () => {
+        modes.forEach(b => {
+          b.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-all";
+        });
+        btn.className = "flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-4 py-2 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm transition-all";
+        selectedMode = btn.innerText.trim();
+      });
+    });
+
+    async function handleCheckoutSubmit() {
+      const orderId = '#ORD-' + Math.floor(1000 + Math.random() * 9000);
+      const totalText = document.getElementById('checkout-btn-total')?.textContent || '$88.15';
+
+      const orderPayload = {
+        orderNumber: orderId,
+        mode: selectedMode,
+        customerName: 'Suite Resident / Skyline Guest',
+        items: [
+          { name: 'Wagyu Truffle Burger', qty: 1, price: 28.00 },
+          { name: 'Chicken Supreme Pasta', qty: 1, price: 26.00 },
+          { name: 'Ethiopian Geisha Pour-Over', qty: 1, price: 18.00 }
+        ],
+        subtotal: 72.00,
+        total: totalText,
+        status: 'In Prep',
+        destination: selectedMode.includes('Pickup') ? 'Counter Express' : 'Tower 4 - Suite 5202',
+        time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+      };
+
+      // Update Modal
+      const modal = document.getElementById('checkout-success-modal');
+      const numElem = document.getElementById('modal-order-number');
+      const modeElem = document.getElementById('modal-order-mode');
+      const totElem = document.getElementById('modal-order-total');
+
+      if (numElem) numElem.textContent = 'ORDER ' + orderId;
+      if (modeElem) modeElem.textContent = selectedMode;
+      if (totElem) totElem.textContent = totalText;
+
+      // Save to Firebase
+      if (window.ViewFirebase?.saveOrder) {
+        try {
+          await window.ViewFirebase.saveOrder(orderPayload);
+          if (window.ViewApp?.showToast) {
+            window.ViewApp.showToast('Order saved to Firebase and sent to Kitchen KDS!');
+          }
+        } catch (e) {
+          console.error(e);
+        }
+      }
+
+      if (modal) modal.classList.remove('hidden');
+    }
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface mt-space-xl"><div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter items-start"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="View Restaurant &amp; Café Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold">VIEW RESTAURANT &amp; CAFÉ</span><span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Immersive fine dining paired with artisanal specialty roasts. Architectural views, elevated culinary craft, and refined hospitality nestled in the skyline.</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="YouTube" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://youtube.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">smart_display</span></a><a aria-label="Instagram" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://instagram.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">photo_camera</span></a><a aria-label="X Twitter" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://x.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">tag</span></a><a aria-label="Facebook" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://facebook.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">public</span></a></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Hours &amp; Location</h4><div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">location_on</span><span>Skyline Promenade, Tower 4, Level 52<br/>Downtown Boulevard, Dubai &amp; Riyadh</span></div><div class="flex items-start gap-2 mt-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">schedule</span><div><p class="font-semibold text-on-surface">Weekdays: 08:00 AM – 12:00 AM</p><p class="font-semibold text-on-surface">Weekends: 08:00 AM – 02:00 AM</p><p class="text-xs text-on-surface-variant">Specialty Pour-over Bar open all day</p></div></div><div class="flex items-center gap-2 mt-2"><span class="material-symbols-outlined text-sm text-secondary">call</span><span>+966 (0) 11 490 8820 / +971 4 800 VIEW</span></div></div></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Quick Navigation</h4><ul class="flex flex-col gap-2 font-label-md text-label-md"><li data-active-classes="text-secondary font-bold"><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Gastronomy &amp; Coffee</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Table Reservation</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Delivery &amp; Pickup</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="terms-and-conditions" href="#">Policies &amp; Dietary Notes</a></li><li><a class="text-secondary hover:underline flex items-center gap-1 font-semibold" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-xs">verified_user</span>Staff &amp; Admin Access</a></li></ul></div><div class="lg:col-span-3 bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col items-center text-center gap-space-sm"><div class="w-24 h-24 bg-surface-container-lowest p-2 rounded-lg shadow-sm flex items-center justify-center"><span class="material-symbols-outlined text-5xl text-on-surface">qr_code_2</span></div><div><h5 class="font-title-lg text-title-lg text-on-surface font-semibold">Digital Experience</h5><p class="font-body-sm text-body-sm text-on-surface-variant">Scan to unlock touchless mobile ordering, cellar reserve, and barista profiles.</p></div><div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider"><span class="material-symbols-outlined text-sm">smartphone</span><span>Instant Table Menu</span></div></div></div><div class="mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant"><p>© 2025 View Restaurant &amp; Café (مطعم وكافيه فيو). All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Terms of Service</a><a class="hover:text-secondary transition-colors" data-path="admin-portal" href="../view_restaurant_admin_control_portal/code.html">Admin Console</a><a class="hover:text-secondary transition-colors" data-path="employee-hub" href="../view_restaurant_employee_operational_hub/code.html">Employee Hub</a></div></div></div></footer></body></html>
+
+

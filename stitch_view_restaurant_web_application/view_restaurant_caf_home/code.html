@@ -1,0 +1,658 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Noto+Kufi+Arabic:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="../../js/firebase-config.js"></script>
+<script defer src="../../js/app.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#bb7336","surface-bright":"#fbf9f6","background":"#fbf9f6","on-error":"#ffffff","tertiary-container":"#2f1400","tertiary-fixed-dim":"#ffb780","surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f0","on-secondary-container":"#6c2400","error":"#ba1a1a","error-container":"#ffdad6","primary-container":"#1c1b1b","on-surface":"#1b1c1a","on-error-container":"#93000a","inverse-on-surface":"#f2f0ed","on-surface-variant":"#444748","primary-fixed":"#e5e2e1","surface-container-highest":"#e4e2df","surface-tint":"#5f5e5e","surface-dim":"#dbdad7","inverse-primary":"#c8c6c5","on-primary-fixed-variant":"#474746","on-primary-container":"#858383","on-primary":"#ffffff","outline-variant":"#c4c7c7","surface-container":"#efeeeb","outline":"#747878","primary-fixed-dim":"#c8c6c5","on-tertiary-fixed":"#2f1400","on-background":"#1b1c1a","on-secondary-fixed-variant":"#7f2b00","on-secondary":"#ffffff","secondary-container":"#fe8450","secondary-fixed":"#ffdbce","secondary":"#a23f0f","on-tertiary":"#ffffff","surface-container-high":"#eae8e5","surface":"#fbf9f6","inverse-surface":"#30312f","tertiary":"#000000","tertiary-fixed":"#ffdcc4","surface-variant":"#e4e2df","on-primary-fixed":"#1c1b1b","secondary-fixed-dim":"#ffb598","on-tertiary-fixed-variant":"#6f3800","primary":"#000000","on-secondary-fixed":"#370e00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"3rem","gutter":"1.5rem","margin-tablet":"2rem"},"fontFamily":{"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"display-hero":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script><link rel="stylesheet" href="../../css/style.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased selection:bg-secondary-fixed selection:text-on-secondary-fixed"><header class="fixed top-0 left-0 right-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_4px_24px_-2px_rgba(26,26,26,0.06)]"><div class="h-20 w-full px-margin-mobile md:px-margin-tablet xl:px-margin flex items-center justify-between gap-gutter"><div class="flex items-center gap-space-md"><a class="flex items-center gap-space-sm group" data-path="home" href="../view_restaurant_caf_home/code.html"><img alt="View Restaurant &amp; Café Logo" class="h-8 w-auto object-contain transition-transform group-hover:scale-105" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold leading-tight">VIEW</span><span class="font-label-sm text-label-sm tracking-widest text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></a></div><nav class="hidden xl:flex items-center gap-space-lg" data-active-classes="text-secondary font-semibold border-b-2 border-secondary"><a aria-current="page" class="transition-colors py-space-xs text-secondary font-semibold border-b-2 border-secondary" data-path="home" href="../view_restaurant_caf_home/code.html">Home</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Menu</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Online Order</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Book a Table</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="contact" href="#">Contact</a><a class="font-label-lg text-label-lg text-on-surface-variant hover:text-on-surface transition-colors py-space-xs" data-path="terms-and-conditions" href="#">Terms &amp; Conditions</a></nav><div class="flex items-center gap-space-sm"><div class="hidden sm:flex items-center bg-surface-container-high rounded-full p-1 shadow-inner"><button class="px-2.5 py-1 rounded-full bg-surface-container-lowest text-on-surface font-label-md text-label-md shadow-sm" type="button">EN</button><button class="px-2.5 py-1 rounded-full text-on-surface-variant hover:text-on-surface font-label-md text-label-md transition-colors flex items-center gap-1" type="button"><span>العربية</span><span class="w-1.5 h-1.5 rounded-full bg-secondary"></span></button></div><a class="relative p-2.5 rounded-full bg-surface-container-low hover:bg-surface-container-high text-on-surface transition-colors flex items-center justify-center" data-path="cart-checkout" href="../view_restaurant_online_ordering_cart/code.html"><span class="material-symbols-outlined text-xl">shopping_bag</span><span class="absolute -top-1 -right-1 bg-secondary text-on-secondary font-label-sm text-label-sm px-1.5 py-0.5 rounded-full leading-none font-bold shadow-sm">3</span></a><a class="hidden md:flex items-center gap-1.5 px-3.5 py-2 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-sm text-secondary">swap_horiz</span><span>Portals</span></a><div class="flex items-center gap-space-sm pl-space-xs"><a class="flex items-center gap-space-sm p-1 rounded-full hover:bg-surface-container transition-colors group" data-path="user-account" href="#"><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-2 ring-secondary/30 group-hover:ring-secondary transition-all" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/><span class="hidden lg:inline font-label-md text-label-md text-on-surface font-medium pr-1">My Table</span></a></div></div></div></header><main class="w-full pt-20 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Ambient Hero Section Bleeding Under Shell Header -->
+<section class="relative w-full -mt-20 pt-28 pb-20 px-margin-mobile md:px-margin-tablet xl:px-margin overflow-hidden bg-surface-container-low">
+<!-- Ambient Warm Light Orbs -->
+<div class="absolute -top-32 -left-20 w-96 h-96 rounded-full bg-secondary-container/20 blur-3xl pointer-events-none"></div>
+<div class="absolute top-1/2 -right-32 w-[32rem] h-[32rem] rounded-full bg-secondary/10 blur-3xl pointer-events-none"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
+<!-- Left Column: Editorial Content & Badges -->
+<div class="lg:col-span-7 flex flex-col gap-space-md">
+<!-- Bilingual Overline Micro-Badge -->
+<div class="inline-flex items-center gap-space-sm self-start px-3.5 py-1.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-md shadow-sm">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface font-semibold">Modern Gastronomy &amp; Specialty Café</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">مطعم وكافيه فيو</span>
+</div>
+<h1 class="font-display-hero text-display-hero-mobile md:text-display-hero text-on-surface font-bold leading-tight tracking-tight">
+          Where Flavors Meet <span class="text-secondary italic">Architectural</span> Elegance
+        </h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl leading-relaxed">
+          Savor artisanal wood-fired grills, handcrafted sourdough pizzas, specialty single-origin roasts, and exquisite patisserie framed by panoramic skyline vistas.
+        </p>
+<!-- CTA Row -->
+<div class="flex flex-wrap items-center gap-space-sm pt-space-xs">
+<a class="h-12 px-space-lg rounded bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg font-semibold flex items-center gap-2 shadow-md hover:shadow-lg transition-all duration-300" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">restaurant</span>
+<span>Book a Table</span>
+</a>
+<a class="h-12 px-space-lg rounded bg-surface-container-lowest hover:bg-surface-container text-on-surface font-label-lg text-label-lg font-semibold flex items-center gap-2 shadow-sm transition-all duration-300" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Explore Menu</span>
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<!-- Social Proof Metric Pill -->
+<div class="flex items-center gap-space-md pt-space-sm">
+<div class="flex items-center -space-x-2">
+<div class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center font-label-sm text-on-surface font-bold shadow-sm">
+<span class="material-symbols-outlined text-base text-secondary">star</span>
+</div>
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-label-sm text-on-secondary-fixed font-bold shadow-sm">
+              4.9
+            </div>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-base" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant font-medium">4.9/5 Rating from 2,400+ Skyline Guests</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Sensory Cinematic Composition -->
+<div class="lg:col-span-5 relative mt-6 lg:mt-0">
+<div class="relative w-full aspect-[4/5] rounded-xl overflow-hidden shadow-xl bg-surface-container">
+<img class="w-full h-full object-cover" data-alt="Refined luxury restaurant interior during golden hour with floor-to-ceiling glass windows overlooking modern skyline, artisanal wood-fired steak with rosemary garnish in foreground on textured dark ceramic plate, warm ambient amber lighting, fine glassware." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCMl24PbXve96cjRoJlXo1sjMCoG-PmT-EDEAOxLPTXhxxGrVLxi5dpF39hn48xcJKQBP1gLM7WrLLQVLwvmWn_haieqfKood--c0mo1lvykk23mDt-g60hK7KawJwGPis7KV_mqdPQo5KQUsju8TgmBFOwlkJfkJFgt6V0-SQGBKXSeZQpxLJHEh27HpcHt981x0nl225v9_t_mLEAAwfycaeoXnc_-PWtZf2epaqs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent"></div>
+<!-- Floating Interactive Gastronomy Inset -->
+<div class="absolute bottom-6 left-6 right-6 p-4 rounded-lg bg-surface-container-lowest/90 backdrop-blur-md shadow-lg flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
+<span class="material-symbols-outlined text-2xl">local_fire_department</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">Chef's Selection</span>
+<span class="font-title-lg text-title-lg text-on-surface font-semibold leading-tight">Wagyu Wood-Fired Ribeye</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Oak-smoked Maldon salt finish</span>
+</div>
+</div>
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">$48</span>
+</div>
+</div>
+<!-- Overlapping Cafe Roast Mini-Card -->
+<div class="hidden sm:flex absolute -top-4 -left-6 p-4 rounded-lg bg-surface-container-lowest/95 backdrop-blur-md shadow-lg items-center gap-3 max-w-xs">
+<div class="w-10 h-10 rounded-full bg-secondary/15 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-xl">coffee</span>
+</div>
+<div>
+<div class="font-label-md text-label-md text-on-surface font-bold">Ethiopian Geisha Pour-Over</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Bergamot • Jasmine • Honey Crisp</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 1: Culinary Categories Preview -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Curated Gastronomy</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold mt-1">Explore by Culinary Atelier</h2>
+</div>
+<a class="self-start md:self-auto font-label-lg text-label-lg text-secondary hover:text-on-surface flex items-center gap-1 transition-colors font-semibold" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>View All 84 Creations</span>
+<span class="material-symbols-outlined text-base">arrow_forward</span>
+</a>
+</div>
+<!-- 5 Bento Style Category Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-space-md">
+<!-- Category 1 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative w-full h-44 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Succulent wood-fired premium beef cuts resting on custom charcoal grill with smoke swirls, fresh rosemary sprigs, and microgreens on a charcoal slate plate." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9GMr8HBj6XATtyxazKfrVXUkcsCk-k3pkbuPDSk275dzAPuNZusO3djz5fqe3MYINa1JHAVkzEP3btUQz7NfpXjR3Fz8ID81JuUAqeNSnaEJuKycE2e7y2XXu1mxRQL4gl6Ytg2jIjNY5a1lYazeEd2qcg4CIXdkPcbG_Apb4-L44GqixjPW_NXA8Y0q76NKhQG32SyA0_01qtsaXKcAo3KjEtTn7Oc7ilzbhXv56"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface font-label-sm text-label-sm font-semibold">18 Items</span>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-secondary transition-colors">Grills &amp; Mains</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Wood-fired Ribeye, Shawarma platters, aged cuts and ember-roasted sides.</p>
+</div>
+<a class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Order Now</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Category 2 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative w-full h-44 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Gourmet Black Angus beef burger stacked with melted aged cheddar, shaved black truffles, caramelized shallots in a brioche bun alongside crisp poultry tenders." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgl6d0M9xx3kG-0EQyKl8vDGPRoLSLK7PCIAhoL3HzVPNuEvUbtpyPCTfP_e7NTN2W-LH02omrgMNUbuHB70JfQmy821_aGs8cf2bRdEbAa-kgxImn5xEDHiwl3NoifOboXTkK4nD0bJZUVN7Ibf_zE71oOUId0Wc0j5HJ6Ezqohh-SmMGS-OQ270zqk53lO2lVtGxOJembjQQ8FrWidkRLFMi7qxPX_YRWMR8Gy05"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface font-label-sm text-label-sm font-semibold">14 Items</span>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-secondary transition-colors">Burgers &amp; Poultry</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Truffle Angus, Supreme crispy chicken burgers, brioche creations.</p>
+</div>
+<a class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Order Now</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Category 3 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative w-full h-44 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Handcrafted Neapolitan sourdough pizza fresh from stone oven with blistered crust, creamy buffalo mozzarella, San Marzano tomatoes, and fresh basil leaves." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaDWOSrTLDOR-FRSTsPwAFV720mzurpsp4CmWKX-1C0Y6ZK5WiECWeckO7nfeay6WSyVpRC9SskzqLnA52x-P6RrlmzeAZ3L_KZz56GrIbrZk0c93_1cQmu-Ltydtxgmpmy7cKQYwPtX16aTavDBHJiGOhREmaRk2M1SUhLcXDGZAZWGrZrjZ5M_HtAV6_7egW66MlZQeYtTnzd5Jl3C7jGWwVOGoxDNUVw95Oy20v"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface font-label-sm text-label-sm font-semibold">12 Items</span>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-secondary transition-colors">Artisanal Pizza</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Neapolitan Bufala, Truffle Funghi, 72-hour sourdough fermented crust.</p>
+</div>
+<a class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Order Now</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Category 4 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative w-full h-44 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Artisanal Belgian waffle dusted with bronzed pistachio crumble, topped with Madagascar vanilla bean gelato, and rich Valrhona molten chocolate pour." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7XBt9DvmPn-GR4NJI4VS5g6RNVA-p_KlWsOkTUVFrordZUSyUjRx5o5-clBSTrJH2X4YXPdl8C-P3iEqNS-s1UbwM94lsM3aYgsY7t2ABVebEQj42HCDJrD7CJ86gQx7UAPf2farVWi2n5soqFqLZbe0HWxwdNQQnBOkVcGJzAxjuQIhUTIeMITJGFpId3wG4iL-SedMQPifxmeElXCAdh747QuP_9Zz6RzYODXNS"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface font-label-sm text-label-sm font-semibold">16 Items</span>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-secondary transition-colors">Desserts &amp; Waffles</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Belgian Pistachio Waffle, Valrhona Chocolate Fondant, signature crepes.</p>
+</div>
+<a class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Order Now</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+<!-- Category 5 -->
+<div class="group relative rounded-xl overflow-hidden bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+<div class="relative w-full h-44 overflow-hidden bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Specialty pour-over coffee bar setup with copper kettle, Japanese glass dripper pouring clear amber coffee into artisanal ceramic cup, roasted whole beans." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGIup0OHnDDQbTGXrseaC-bJytkY382n2pZy_tANYpQxgkYjgEvPc-tAnSfNfv14zLgtnLbReNEC0ZSx97CX70nVPRgefdeQhW_42OVSxcbkT1R2VHOCIEf-Gm0s8fKbQtfbh51LClzArStxJXjlDA1VlemA8-PH0eTJ0fMMjzIWmULo47K8C-ncZMlDFW6BBse6z5sEM5WmiSeNyWrItN3EK0u1sYftrPaBYivmcQ"/>
+<span class="absolute top-3 left-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/80 backdrop-blur-sm text-on-surface font-label-sm text-label-sm font-semibold">24 Items</span>
+</div>
+<div class="p-4 flex flex-col flex-1 justify-between gap-3">
+<div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold group-hover:text-secondary transition-colors">Specialty Coffee</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant line-clamp-2 mt-1">Spanish Latte, Kyoto Cold Drip, single origin V60, and herbal tisanes.</p>
+</div>
+<a class="font-label-md text-label-md text-secondary font-semibold flex items-center gap-1" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span>Order Now</span>
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 2: Chef's Signature Highlights Grid -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface-container-low">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">The Master’s Table</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold mt-1">Chef’s Signature Highlights</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Prepared to order with hand-selected ingredients, aged meats, and artisanal roasting techniques.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-md">
+<!-- Dish Card 1 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Charcoal-grilled Wagyu Ribeye cut showing tender pink marbling inside, smoked truffle jus reduction drizzle, and charred asparagus spears." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCJmVbFsWkL_-bphJ17dszmiz0OMYbRWJIq64cJmTvCLUBSKYxSVH1-zc6WHleWtMDIY5C1xltdE9uWu78yZkUY1IexxO50CkEe9pi5eEuIeKNisw0tCVQSLAeDSb3s0tBCC6wS8ysv14g1ZnMCcqLZldfctDko_QFbpJXNESHFkCoMtglxpp87Bh8WUZBjmfle8HNYehpCIE_3c_DFW1WW2pf7HKO8wlUrqUZ8JQ5F"/>
+<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">Chef's Choice</span>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap mb-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Halal</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Gluten-Free</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Smoked Wagyu Ribeye</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">A5 Black Wagyu, marrow glaze, ember-roasted shallots.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">$48</span>
+<button class="h-10 px-3 rounded bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 2 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Stone-baked pizza with black summer truffle cream, wild forest funghi, fior di latte mozzarella, and organic cold-pressed olive oil shine." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrQuT3sSPOHOBt43e4P3ODWwe4WmhadArJ8JKFwl2zVaOcN_AYnA6yN19TSwBKvZ250NRjzOck_CakkYQAnRChlDTJhB7t1YDV0I8pZAZzw6QEG-Z_ceIgdkk2C7DyUy4QuO9nxIixQpbppveRWKjBK9w7YYr8fxpNC9RM6O26goldyzvrv_nYxkDm657myVYUZ9-ZgIjAp6T-PD4xqrVeEjS4R1uTZSvXZsKeQfaP"/>
+<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold shadow-sm">Popular</span>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.8</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap mb-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Vegetarian</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Sourdough</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Truffle Funghi Bianca</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Fermented crust, wild porcini, shaved Norcia truffles.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">$32</span>
+<button class="h-10 px-3 rounded bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 3 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Double smash Wagyu beef burger layered with melted Gruyere cheese, smoked garlic aioli, onion jam inside a glossy toasted sesame brioche." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfBfUFnuymXWtPct0sIFif0L3--gld73j_sIkoKqx_xhL20InXNVN9Tzjw88_NSdX2m2y8qR8ve9TrIWd2jlgxDyvcf07BZEz8Plo0T-oG3L6VzXqlSX3jvLbNpyU6ux6FAosSuMMO3OlQMpcKb1NtUv8r_besMsHYvgXNSEHGW9PWUvRVSXHX84pf7OaetkA5wrXmJaPUc70tEed-gpJb0-cYi_G3AKxjQurJhxHs"/>
+<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-surface-container-highest text-on-surface font-label-sm text-label-sm font-bold shadow-sm">House Craving</span>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">4.9</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap mb-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Halal</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Prime Cut</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">The Royal Angus Truffle</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">200g Prime Angus, black truffle fondue, hand-cut russet fries.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">$28</span>
+<button class="h-10 px-3 rounded bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Dish Card 4 -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col overflow-hidden">
+<div class="relative w-full aspect-square bg-surface-container overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Decadent Belgian golden waffle smothered in rich green Bronte pistachio sauce, white chocolate curls, and crushed toasted pistachios." src="https://lh3.googleusercontent.com/aida-public/AB6AXuALlkr5g1ocBvgbh7PJ2BNLzO9NWT90iRISAfg87yWzMyFRr4PXjYYbzI9YYuYvwZa0O3Mt_Z_c5Myz6S4amDiPVdY4AQTzGxwcguq4lIYvYAMKn9j1S2wjidw6Lvy2dCPLoK084lqXTJ21v3Y0uSkg5wPOxse0H2b5-rXpBcbr_aqXJTqCU6kGXlEPlWB_kV0vdSADRMwKKOcuoHfDBXjBmKaD37WS7sz8hxrzUqty"/>
+<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-bold shadow-sm">Patisserie</span>
+<div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-full bg-surface-container-lowest/90 backdrop-blur-sm text-on-surface font-label-sm text-label-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-xs text-secondary" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="font-bold">5.0</span>
+</div>
+</div>
+<div class="p-space-md flex flex-col flex-1 justify-between gap-3">
+<div>
+<div class="flex items-center gap-1.5 flex-wrap mb-1">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Sweet</span>
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-on-surface-variant uppercase font-semibold">Artisanal</span>
+</div>
+<h3 class="font-title-lg text-title-lg text-on-surface font-bold">Bronte Pistachio Waffle</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">Light malted batter, organic Sicilian pistachio cream, gelato.</p>
+</div>
+<div class="flex items-center justify-between pt-2">
+<span class="font-headline-sm text-headline-sm text-secondary font-bold">$24</span>
+<button class="h-10 px-3 rounded bg-surface-container hover:bg-secondary hover:text-on-secondary text-on-surface font-label-md text-label-md font-semibold flex items-center gap-1.5 transition-colors" type="button">
+<span class="material-symbols-outlined text-base">add_shopping_cart</span>
+<span>Add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 3: Interactive Table Booking Widget -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface">
+<div class="max-w-7xl mx-auto rounded-xl bg-surface-container-lowest p-space-lg md:p-space-xl shadow-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<!-- Form Header & Copy -->
+<div class="lg:col-span-4 flex flex-col gap-space-sm">
+<div class="inline-flex items-center gap-2 text-secondary font-label-sm text-label-sm uppercase font-bold tracking-wider">
+<span class="material-symbols-outlined text-base">calendar_month</span>
+<span>Reserve Exclusive Seating</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold">Book a Table &amp; VIP Experience</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Secure your skyline dinner or terrace brunch with our sommelier and culinary hosts.</p>
+<div class="flex items-center gap-4 text-on-surface font-label-md text-label-md mt-2">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+<span>Instant Confirmation</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-secondary text-lg">check_circle</span>
+<span>No Pre-Charge</span>
+</div>
+</div>
+</div>
+<!-- Interactive Quick Form -->
+<div class="lg:col-span-8 bg-surface-container-low p-space-md md:p-space-lg rounded-xl shadow-inner">
+<form class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-space-md" onsubmit="event.preventDefault(); alert('Checking availability for your table at VIEW...');">
+<!-- Guests Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">group</span>
+<span>Guests Count</span>
+</label>
+<select class="h-12 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm transition-all">
+<option value="2">2 Guests (Intimate Dining)</option>
+<option selected="" value="4">4 Guests (Standard Table)</option>
+<option value="6">6 Guests (Terrace Booth)</option>
+<option value="8">8+ Guests (VIP Hall)</option>
+</select>
+</div>
+<!-- Date Selector -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">event</span>
+<span>Select Date</span>
+</label>
+<input class="h-12 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm transition-all" type="date" value="2025-05-18"/>
+</div>
+<!-- Seating Zone -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">deck</span>
+<span>Dining Zone</span>
+</label>
+<select class="h-12 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm transition-all">
+<option value="skyline">Skyline Terrace (Panoramic)</option>
+<option value="vip">VIP Dining Hall (Private)</option>
+<option value="garden">Garden Glasshouse (Quiet)</option>
+</select>
+</div>
+<!-- Time Slot & Special Request -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">schedule</span>
+<span>Preferred Time</span>
+</label>
+<select class="h-12 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm transition-all">
+<option value="18:30">06:30 PM (Sunset Hour)</option>
+<option value="19:30">07:30 PM (Dinner Rush)</option>
+<option selected="" value="20:30">08:30 PM (Prime Evening)</option>
+<option value="21:30">09:30 PM (Late Night Jazz)</option>
+</select>
+</div>
+<div class="flex flex-col gap-1.5 sm:col-span-2">
+<label class="font-label-md text-label-md text-on-surface font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-base text-secondary">volunteer_activism</span>
+<span>Occasion &amp; Dietary Notes</span>
+</label>
+<input class="h-12 px-3 rounded bg-surface-container-lowest text-on-surface font-body-md text-body-md outline-none focus:ring-2 focus:ring-secondary/40 shadow-sm transition-all" placeholder="e.g. Birthday, Anniversary, Gluten-free, Window table requested" type="text"/>
+</div>
+<div class="sm:col-span-3 flex justify-end mt-2">
+<button class="h-12 w-full sm:w-auto px-8 rounded bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all" type="submit">
+<span>Check Availability &amp; Book</span>
+<span class="material-symbols-outlined text-lg">arrow_forward</span>
+</button>
+</div>
+</form>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 4: Authentic Scannable QR Code Showcase Banner -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface-container-low">
+<div class="max-w-7xl mx-auto rounded-xl bg-surface-container-lowest p-space-lg md:p-space-xl shadow-lg relative overflow-hidden">
+<!-- Glow ambient accent -->
+<div class="absolute -bottom-20 -right-20 w-80 h-80 rounded-full bg-secondary-fixed/50 blur-3xl pointer-events-none"></div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center relative z-10">
+<!-- SVG Authentic Styled QR Code Display -->
+<div class="lg:col-span-4 flex flex-col items-center text-center p-6 rounded-xl bg-surface-container shadow-inner">
+<div class="w-48 h-48 bg-surface-container-lowest p-3 rounded-xl shadow-md flex items-center justify-center relative">
+<!-- Inline Detailed QR Code SVG Structure -->
+<svg class="w-full h-full text-on-surface" fill="currentColor" viewbox="0 0 100 100">
+<!-- Corner Finder Pattern Top-Left -->
+<rect fill="currentColor" height="28" rx="4" width="28" x="5" y="5"></rect>
+<rect fill="#FAF8F5" height="20" rx="2" width="20" x="9" y="9"></rect>
+<rect fill="currentColor" height="12" rx="1" width="12" x="13" y="13"></rect>
+<!-- Corner Finder Pattern Top-Right -->
+<rect fill="currentColor" height="28" rx="4" width="28" x="67" y="5"></rect>
+<rect fill="#FAF8F5" height="20" rx="2" width="20" x="71" y="9"></rect>
+<rect fill="currentColor" height="12" rx="1" width="12" x="75" y="13"></rect>
+<!-- Corner Finder Pattern Bottom-Left -->
+<rect fill="currentColor" height="28" rx="4" width="28" x="5" y="67"></rect>
+<rect fill="#FAF8F5" height="20" rx="2" width="20" x="9" y="71"></rect>
+<rect fill="currentColor" height="12" rx="1" width="12" x="13" y="75"></rect>
+<!-- Central Custom Brand Emblem Inset in QR -->
+<circle cx="50" cy="50" fill="#fe8450" r="10"></circle>
+<path d="M 45 46 L 50 55 L 55 46" fill="none" stroke="#FAF8F5" stroke-linecap="round" stroke-width="2.5"></path>
+<!-- Micro QR Data Pixels -->
+<rect height="5" width="5" x="37" y="6"></rect>
+<rect height="5" width="5" x="46" y="6"></rect>
+<rect height="5" width="5" x="55" y="6"></rect>
+<rect height="5" width="5" x="37" y="15"></rect>
+<rect height="5" width="5" x="55" y="15"></rect>
+<rect height="5" width="5" x="37" y="24"></rect>
+<rect height="5" width="5" x="46" y="24"></rect>
+<rect height="5" width="5" x="6" y="37"></rect>
+<rect height="5" width="5" x="15" y="37"></rect>
+<rect height="5" width="5" x="24" y="37"></rect>
+<rect height="5" width="5" x="6" y="46"></rect>
+<rect height="5" width="5" x="24" y="46"></rect>
+<rect height="5" width="5" x="6" y="55"></rect>
+<rect height="5" width="5" x="15" y="55"></rect>
+<rect height="5" width="5" x="37" y="67"></rect>
+<rect height="5" width="5" x="46" y="67"></rect>
+<rect height="5" width="5" x="55" y="67"></rect>
+<rect height="5" width="5" x="37" y="76"></rect>
+<rect height="5" width="5" x="46" y="85"></rect>
+<rect height="5" width="5" x="55" y="85"></rect>
+<rect height="5" width="5" x="67" y="37"></rect>
+<rect height="5" width="5" x="76" y="37"></rect>
+<rect height="5" width="5" x="85" y="37"></rect>
+<rect height="5" width="5" x="67" y="46"></rect>
+<rect height="5" width="5" x="85" y="46"></rect>
+<rect height="5" width="5" x="67" y="55"></rect>
+<rect height="5" width="5" x="76" y="55"></rect>
+<rect height="5" width="5" x="67" y="67"></rect>
+<rect height="5" width="5" x="76" y="76"></rect>
+<rect height="5" width="5" x="85" y="85"></rect>
+</svg>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold uppercase tracking-widest mt-3">Table-Side Fast Access</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Point camera for interactive dining menu</span>
+</div>
+<!-- Banner Content -->
+<div class="lg:col-span-8 flex flex-col gap-space-md">
+<div class="flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">Touchless Digital Concierge</span>
+<h3 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold">Instant Mobile Menu &amp; Contactless Ordering</h3>
+</div>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-xl">
+            Whether seated at our skyline tables or ordering takeaway, scan our digital QR token to browse live kitchen specials, filter dietary preferences, call table service, and settle your bill seamlessly via Apple Pay or Card.
+          </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-1">
+<div class="p-3 rounded-lg bg-surface-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-xl">speed</span>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface text-sm font-bold block">Zero Wait</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">Direct send to kitchen</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-xl">translate</span>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface text-sm font-bold block">Bilingual</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">English &amp; Arabic audio notes</span>
+</div>
+</div>
+<div class="p-3 rounded-lg bg-surface-container flex items-start gap-2.5">
+<span class="material-symbols-outlined text-secondary text-xl">credit_card</span>
+<div>
+<span class="font-title-lg text-title-lg text-on-surface text-sm font-bold block">Split &amp; Pay</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant text-xs">Single-tap group bills</span>
+</div>
+</div>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm pt-2">
+<a class="h-12 px-6 rounded bg-secondary hover:bg-secondary-container text-on-secondary font-label-lg text-label-lg font-bold flex items-center gap-2 shadow-sm transition-all" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">
+<span class="material-symbols-outlined text-lg">phone_iphone</span>
+<span>Launch Table Web App</span>
+</a>
+<button class="h-12 px-6 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-lg text-label-lg font-semibold flex items-center gap-2 transition-all" onclick="alert('Digital Menu PDF downloaded.');" type="button">
+<span class="material-symbols-outlined text-lg">download</span>
+<span>Save Offline PDF Menu</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 5: Guest Testimonials & Instagram Moment Strip -->
+<section class="w-full py-space-xl px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface">
+<div class="max-w-7xl mx-auto flex flex-col gap-space-lg">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-space-sm">
+<div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">Atmosphere &amp; Memories</span>
+<h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg text-on-surface font-bold mt-1">Guest Stories &amp; Social Gallery</h2>
+</div>
+<a class="font-label-lg text-label-lg text-secondary hover:text-on-surface flex items-center gap-1 transition-colors font-semibold" href="https://instagram.com" rel="noopener" target="_blank">
+<span>Follow @viewrestaurantcafe</span>
+<span class="material-symbols-outlined text-base">photo_camera</span>
+</a>
+</div>
+<!-- Testimonial Cards Mosaic -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Testimonial 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">"The view at golden hour combined with their Wagyu Ribeye and house Spanish Latte made for the best dining experience in the city. Unmatched hospitality."</p>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed flex items-center justify-center font-bold text-on-secondary-fixed">
+              SK
+            </div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface text-sm font-semibold">Sultan Al-Kindi</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Skyline Terrace Guest</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">"The Bronte pistachio waffle is pure perfection! Crispy, airy, and drenched in genuine Sicilian pistachio sauce. The pour-over coffee bar is an absolute must-try."</p>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center font-bold text-on-surface">
+              EL
+            </div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface text-sm font-semibold">Elena Rostova</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">Food &amp; Travel Critic</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col justify-between gap-4">
+<div class="flex flex-col gap-2">
+<div class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface italic">"Organized a corporate celebration in the VIP Dining Hall. Seamless touchless ordering, stellar presentation, and the Neapolitan pizza dough is truly world-class."</p>
+</div>
+<div class="flex items-center gap-3 pt-2">
+<div class="w-10 h-10 rounded-full bg-secondary-fixed-dim flex items-center justify-center font-bold text-on-secondary-fixed-variant">
+              MA
+            </div>
+<div>
+<div class="font-title-lg text-title-lg text-on-surface text-sm font-semibold">Mansoor Al-Husseini</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant">VIP Hall Host</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Instagram Photos Strip -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-space-sm pt-2">
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Overhead aesthetic table flatlay with specialty latte art, fresh berry brioche French toast, and brass cutlery on warm cream linen table." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqqf7-DgcBilNlMED5z_3BS0Gxnzhi9tM-XQYHbV-4spmzCkXyZwHfVtkyceSNDzMI-YG5uXDlUH2qAquDIWV81XlqwH3oh3quBCEe5fnpEuaXzECS-vFJD0HmJaxBfgtK4FQfVN25MpkDDundinkaKMXOgSHtWV5p6AUYLHEGBl8DNJHcUCW08fK-HmCDvnfYXpXg_61GO-ai_YXTBmR9SjB4BmjqLHRmetRiewi3"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Evening sunset terrace dining scene with guests holding mocktails against illuminated skyscrapers, modern ambient lamps on marble tables." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrNPCYu7ex0iopFK_4Y3bgIqeVSuyrGkLO1xDHupGgBcMyC_QnVQOZDo_aiKdFS3oc5ed91x9hk8a7upwuJI506EgIOQPM9fyuLceQ4VotpPo3JVpNkra8ts750eP50UwmL7YutV4etKguS-AOG6mtucxJLYvifJ0bPPDPwDX_vCv9gtnNMOmwAKaceH6UUdxWRYWNAZdxkfKzIlFrkygFmAIzpSkY4KIwyt_l6B-M"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Wood-fired oven flame glow with chef sliding artisanal blistered sourdough pizza onto peel, warm sparks and orange embers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBpCLnxV_l8l_7vgPMMTEbM5pUJ0RNIEjHlo9oRLXLk-9eYrXrxK2CMnuQkhWltBiZBvAWD6FnBpwJD3Uk5iO_AfOh2q222xdif3gvtfOdNmpWEr51MoRAKKAo1ly_QWp4WdtqyX6qXuIp2iy45pDyXIJvljzkKIppnzMbdIt7BQR5mcnDzLuL9FewtU75pinsHIawuNxvUuqI83jIyXDkn4CQJhTNUDzFRJSK8mpIs"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+</div>
+<div class="relative aspect-square rounded-xl overflow-hidden group shadow-sm bg-surface-container">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Barista pouring delicate swan latte art into custom terracotta ceramic cup on oak wood counter with fresh espresso beans in glass jar." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC27JiKLE2K3xSHOQb14MvyrJvvG6LICCRyvunkhgwyJwERjQRpHxsUPCL56wVcOjwsfNVqs51aCaD9z03NlXCzhZNudArGqSmDr1Tn7wvnu3rPLIlyhSqtwf-1Sienz8JfHX2dMet3zIOojcH0hCh_i45nR70JMMQzM9-4VCZJwyIPs-junuk2Kpdm-512ayLG7PxAul0QvsNbIFD9eM0uOcS8hJy7oWYyL6-P2x90"/>
+<div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-on-primary">
+<span class="material-symbols-outlined text-2xl">photo_camera</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Section 6: Direct Experience Footer Teaser / Location Prompt -->
+<section class="w-full py-space-lg px-margin-mobile md:px-margin-tablet xl:px-margin bg-surface-container-lowest">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-space-md p-space-md rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-full bg-secondary text-on-secondary flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-2xl">pin_drop</span>
+</div>
+<div>
+<h4 class="font-title-lg text-title-lg text-on-surface font-bold">Experience VIEW in Downtown &amp; Skyline Tower</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Valet service available • Open daily from 08:00 AM until late midnight.</p>
+</div>
+</div>
+<div class="flex items-center gap-space-sm w-full md:w-auto">
+<a class="w-full md:w-auto h-11 px-5 rounded bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors" data-path="contact" href="#">
+<span class="material-symbols-outlined text-base">directions</span>
+<span>Get Directions</span>
+</a>
+<a class="w-full md:w-auto h-11 px-5 rounded bg-secondary hover:bg-secondary-container text-on-secondary font-label-md text-label-md font-semibold flex items-center justify-center gap-1.5 transition-colors" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">
+<span class="material-symbols-outlined text-base">moped</span>
+<span>Online Delivery</span>
+</a>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface mt-space-xl"><div class="w-full px-margin-mobile md:px-margin-tablet xl:px-margin py-space-xl"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-gutter items-start"><div class="lg:col-span-4 flex flex-col gap-space-md"><div class="flex items-center gap-space-sm"><img alt="View Restaurant &amp; Café Logo" class="h-9 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold">VIEW RESTAURANT &amp; CAFÉ</span><span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">مطعم وكافيه فيو</span></div></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Immersive fine dining paired with artisanal specialty roasts. Architectural views, elevated culinary craft, and refined hospitality nestled in the skyline.</p><div class="flex items-center gap-space-sm pt-space-xs"><a aria-label="YouTube" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://youtube.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">smart_display</span></a><a aria-label="Instagram" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://instagram.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">photo_camera</span></a><a aria-label="X Twitter" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://x.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">tag</span></a><a aria-label="Facebook" class="w-10 h-10 rounded-full bg-surface-container flex items-center justify-center text-on-surface hover:bg-secondary hover:text-on-secondary transition-colors" href="https://facebook.com" rel="noopener" target="_blank"><span class="material-symbols-outlined text-lg">public</span></a></div></div><div class="lg:col-span-3 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Hours &amp; Location</h4><div class="flex flex-col gap-1 text-on-surface-variant font-body-sm text-body-sm"><div class="flex items-start gap-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">location_on</span><span>Skyline Promenade, Tower 4, Level 52<br/>Downtown Boulevard, Dubai &amp; Riyadh</span></div><div class="flex items-start gap-2 mt-2"><span class="material-symbols-outlined text-sm mt-0.5 text-secondary">schedule</span><div><p class="font-semibold text-on-surface">Weekdays: 08:00 AM – 12:00 AM</p><p class="font-semibold text-on-surface">Weekends: 08:00 AM – 02:00 AM</p><p class="text-xs text-on-surface-variant">Specialty Pour-over Bar open all day</p></div></div><div class="flex items-center gap-2 mt-2"><span class="material-symbols-outlined text-sm text-secondary">call</span><span>+966 (0) 11 490 8820 / +971 4 800 VIEW</span></div></div></div><div class="lg:col-span-2 flex flex-col gap-space-sm"><h4 class="font-title-lg text-title-lg text-on-surface font-semibold">Quick Navigation</h4><ul class="flex flex-col gap-2 font-label-md text-label-md"><li data-active-classes="text-secondary font-bold"><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="menu" href="../view_restaurant_full_menu_catalog/code.html">Gastronomy &amp; Coffee</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="book-a-table" href="../view_restaurant_book_a_table/code.html">Table Reservation</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="online-order" href="../view_restaurant_online_ordering_cart/code.html">Delivery &amp; Pickup</a></li><li><a class="text-on-surface-variant hover:text-secondary transition-colors" data-path="terms-and-conditions" href="#">Policies &amp; Dietary Notes</a></li><li><a class="text-secondary hover:underline flex items-center gap-1 font-semibold" data-path="portal-gateway" href="#"><span class="material-symbols-outlined text-xs">verified_user</span>Staff &amp; Admin Access</a></li></ul></div><div class="lg:col-span-3 bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col items-center text-center gap-space-sm"><div class="w-24 h-24 bg-surface-container-lowest p-2 rounded-lg shadow-sm flex items-center justify-center"><span class="material-symbols-outlined text-5xl text-on-surface">qr_code_2</span></div><div><h5 class="font-title-lg text-title-lg text-on-surface font-semibold">Digital Experience</h5><p class="font-body-sm text-body-sm text-on-surface-variant">Scan to unlock touchless mobile ordering, cellar reserve, and barista profiles.</p></div><div class="flex items-center gap-1 font-label-sm text-label-sm text-secondary font-semibold uppercase tracking-wider"><span class="material-symbols-outlined text-sm">smartphone</span><span>Instant Table Menu</span></div></div></div><div class="mt-space-xl pt-space-md border-t border-outline-variant/30 flex flex-col sm:flex-row items-center justify-between gap-space-sm font-label-md text-label-md text-on-surface-variant"><p>© 2025 View Restaurant &amp; Café (مطعم وكافيه فيو). All rights reserved.</p><div class="flex items-center gap-space-md"><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Privacy Policy</a><a class="hover:text-on-surface transition-colors" data-path="terms-and-conditions" href="#">Terms of Service</a><a class="hover:text-secondary transition-colors" data-path="admin-portal" href="../view_restaurant_admin_control_portal/code.html">Admin Console</a><a class="hover:text-secondary transition-colors" data-path="employee-hub" href="../view_restaurant_employee_operational_hub/code.html">Employee Hub</a></div></div></div></footer></body></html>
+
+
+

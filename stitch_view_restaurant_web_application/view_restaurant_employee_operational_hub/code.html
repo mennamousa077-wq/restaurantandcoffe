@@ -1,0 +1,919 @@
+﻿<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script>
+<script type="module" src="../../js/firebase-config.js"></script>
+<script defer src="../../js/app.js"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"on-tertiary-container":"#bb7336","surface-bright":"#fbf9f6","background":"#fbf9f6","on-error":"#ffffff","tertiary-container":"#2f1400","tertiary-fixed-dim":"#ffb780","surface-container-lowest":"#ffffff","surface-container-low":"#f5f3f0","on-secondary-container":"#6c2400","error":"#ba1a1a","error-container":"#ffdad6","primary-container":"#1c1b1b","on-surface":"#1b1c1a","on-error-container":"#93000a","inverse-on-surface":"#f2f0ed","on-surface-variant":"#444748","primary-fixed":"#e5e2e1","surface-container-highest":"#e4e2df","surface-tint":"#5f5e5e","surface-dim":"#dbdad7","inverse-primary":"#c8c6c5","on-primary-fixed-variant":"#474746","on-primary-container":"#858383","on-primary":"#ffffff","outline-variant":"#c4c7c7","surface-container":"#efeeeb","outline":"#747878","primary-fixed-dim":"#c8c6c5","on-tertiary-fixed":"#2f1400","on-background":"#1b1c1a","on-secondary-fixed-variant":"#7f2b00","on-secondary":"#ffffff","secondary-container":"#fe8450","secondary-fixed":"#ffdbce","secondary":"#a23f0f","on-tertiary":"#ffffff","surface-container-high":"#eae8e5","surface":"#fbf9f6","inverse-surface":"#30312f","tertiary":"#000000","tertiary-fixed":"#ffdcc4","surface-variant":"#e4e2df","on-primary-fixed":"#1c1b1b","secondary-fixed-dim":"#ffb598","on-tertiary-fixed-variant":"#6f3800","primary":"#000000","on-secondary-fixed":"#370e00"},"borderRadius":{"DEFAULT":"0.25rem","lg":"0.5rem","xl":"0.75rem","full":"9999px"},"spacing":{"space-md":"1rem","margin-mobile":"1.25rem","space-xl":"2.5rem","space-xs":"0.25rem","gutter-mobile":"1rem","space-sm":"0.5rem","space-lg":"1.5rem","margin":"3rem","gutter":"1.5rem","margin-tablet":"2rem"},"fontFamily":{"title-lg":["Plus Jakarta Sans"],"headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"],"display-hero-mobile":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],"body-lg":["Inter"],"label-sm":["Plus Jakarta Sans"],"body-md":["Inter"],"label-md":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],"body-sm":["Inter"],"display-hero":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"]},"fontSize":{"title-lg":["18px",{"lineHeight":"24px","fontWeight":"600"}],"headline-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"headline-lg-mobile":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"display-hero-mobile":["36px",{"lineHeight":"44px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-md":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}],"body-lg":["17px",{"lineHeight":"26px","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.06em","fontWeight":"700"}],"body-md":["15px",{"lineHeight":"22px","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"label-lg":["14px",{"lineHeight":"20px","letterSpacing":"0.02em","fontWeight":"600"}],"body-sm":["13px",{"lineHeight":"18px","fontWeight":"400"}],"display-hero":["56px",{"lineHeight":"64px","letterSpacing":"-0.03em","fontWeight":"700"}],"headline-sm":["22px",{"lineHeight":"28px","fontWeight":"600"}]}}}}</script><link rel="stylesheet" href="../../css/style.css"/></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-full w-64 bg-surface-container-low shadow-[2px_0_12px_rgba(0,0,0,0.03)] z-50 flex flex-col justify-between pt-6 pb-6"><div class="flex flex-col"><div class="px-6 mb-8 flex items-center gap-space-sm"><img alt="View Restaurant &amp; Café Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrB4yJKtAj6l3do19ngsIsaBWBdQnso-BSIustaUtxOKmrqSkyIexYWoLKiBnD4BEU70cHNlbe3QdQtu91KSUg1Ch8iDFgyU3-VnG9Vhih5j0C_bJ33suRVJeTRMYU6I9KB4XEyjhKQjz4kCnTl7oFjcRqkSvFUyq5yIEIHDjhZrbFVao4jAInBOGcV7BabyAUUN7dfvE8oN1_WXbde8vbCTLi9QZNAjSavOX2jMkdFxqQ"/><div class="flex flex-col"><span class="font-title-lg text-title-lg tracking-tight text-on-surface font-bold">VIEW</span><span class="font-label-sm text-label-sm text-secondary uppercase font-semibold">Operations</span></div></div><div class="px-6 mb-3"><span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant font-bold">Management Console</span></div><nav class="flex flex-col gap-1.5 px-4" data-active-classes="bg-primary text-on-primary font-semibold shadow-sm"><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="admin-portal" href="../view_restaurant_admin_control_portal/code.html"><span class="material-symbols-outlined text-lg">analytics</span><span>Executive Dashboard</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="live-orders" href="../view_restaurant_employee_operational_hub/code.html"><span class="material-symbols-outlined text-lg">soup_kitchen</span><span>Kitchen Orders (KDS)</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="reservation-management" href="admin.html#reservations"><span class="material-symbols-outlined text-lg">table_restaurant</span><span>Table Seating</span></a><a class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-colors" data-path="menu-catalog-manager" href="admin.html#menu"><span class="material-symbols-outlined text-lg">restaurant_menu</span><span>Menu &amp; Roasts</span></a><a aria-current="page" class="flex items-center gap-3 px-3.5 py-2.5 rounded-lg transition-colors bg-primary text-on-primary font-semibold shadow-sm" data-path="employee-hub" href="../view_restaurant_employee_operational_hub/code.html"><span class="material-symbols-outlined text-lg">badge</span><span>Staff Shifts &amp; Hub</span></a></nav></div><div class="px-4 flex flex-col gap-2"><a class="flex items-center justify-between px-3.5 py-2 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-label-md text-label-md transition-colors" data-path="home" href="../view_restaurant_caf_home/code.html"><span>Public Storefront</span><span class="material-symbols-outlined text-sm">open_in_new</span></a><div class="p-3 bg-surface-container-high rounded-xl flex items-center gap-space-sm"><img alt="Profile" class="w-9 h-9 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/><div class="flex flex-col min-w-0 flex-1"><span class="font-label-md text-label-md text-on-surface font-semibold truncate">Duty Manager</span><span class="font-label-sm text-label-sm text-secondary truncate">Executive Access</span></div></div></div></aside><div class="pl-64"><header class="fixed top-0 left-64 right-0 h-16 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-8"><div class="flex items-center gap-3"><span class="px-2.5 py-1 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase font-bold tracking-wider">Live Service</span><span class="text-on-surface-variant font-body-sm text-body-sm hidden md:inline">View Dining &amp; Artisan Roastery — Operational Suite</span></div><div class="flex items-center gap-space-md"><div class="flex items-center bg-surface-container-high rounded-full px-3 py-1 text-on-surface font-label-sm text-label-sm"><span class="w-2 h-2 rounded-full bg-emerald-500 mr-2"></span><span>Dining Room: 92% Capacity</span></div><a class="relative p-2 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface" data-path="live-orders" href="../view_restaurant_employee_operational_hub/code.html"><span class="material-symbols-outlined text-lg">notifications</span><span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-secondary"></span></a><img alt="Profile" class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/></div></header><main class="w-full pt-16 bg-surface min-h-screen"><div class="flex flex-col w-full">
+<!-- Top Operational Banner & Shift Telemetry -->
+<section class="w-full px-8 py-6 bg-surface-container-low shadow-sm">
+<div class="max-w-7xl mx-auto flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+<!-- Staff Profile & Active Duty Identity -->
+<div class="flex items-center gap-5">
+<div class="relative">
+<img alt="Sarah Jenkins - Shift Lead" class="w-16 h-16 rounded-xl object-cover shadow-md" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/>
+<span class="absolute -bottom-1 -right-1 w-4 h-4 bg-emerald-500 rounded-full border-2 border-surface-container-low shadow-sm" title="Active on Station"></span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Sarah Jenkins</span>
+<span class="px-2 py-0.5 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase">Shift Lead</span>
+</div>
+<div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-on-surface-variant font-body-sm text-body-sm mt-0.5">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">countertops</span>
+              Station: <strong class="text-on-surface font-semibold">Main Kitchen &amp; Service Counter</strong>
+</span>
+<span class="hidden sm:inline opacity-40">|</span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-sm text-secondary">schedule</span>
+              Shift: <strong class="text-on-surface font-semibold">11:00 AM – 8:00 PM</strong> (4h 15m elapsed)
+            </span>
+</div>
+</div>
+</div>
+<!-- Quick Metrics & Shift Logout -->
+<div class="flex items-center gap-3">
+<div class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-700 shadow-sm font-label-md text-label-md font-semibold">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Firebase Live: view-restaurant-and-coffe</span>
+</div>
+<div class="hidden xl:flex items-center gap-4 px-4 py-2 bg-surface rounded-xl shadow-sm">
+<div class="flex flex-col text-right">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Kitchen Load</span>
+<span class="font-title-lg text-title-lg text-secondary">9 Active Tickets</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">speed</span>
+</div>
+</div>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-surface hover:bg-surface-container text-on-surface font-label-md text-label-md shadow-sm transition-all" id="btn-clock-status">
+<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span>Clocked In: 10:52 AM</span>
+</button>
+<button class="flex items-center gap-2 px-4 py-2.5 rounded-lg bg-primary text-on-primary hover:bg-surface-container-highest hover:text-on-surface font-label-md text-label-md shadow-sm transition-all" id="btn-logout">
+<span class="material-symbols-outlined text-base">logout</span>
+<span>Sign Out</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Main Navigation Tabs Bar -->
+<nav class="w-full px-8 bg-surface shadow-sm sticky top-16 z-30">
+<div class="max-w-7xl mx-auto flex items-center justify-between overflow-x-auto">
+<div class="flex items-center gap-2 py-3" role="tablist">
+<button aria-selected="true" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg font-label-lg text-label-lg transition-all bg-primary text-on-primary shadow-sm" data-tab-target="tab-live-orders" role="tab">
+<span class="material-symbols-outlined text-lg">local_fire_department</span>
+<span>Live Orders Queue</span>
+<span class="ml-1.5 px-2 py-0.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm">3 urgent</span>
+</button>
+<button aria-selected="false" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-tab-target="tab-reservations" role="tab">
+<span class="material-symbols-outlined text-lg">event_seat</span>
+<span>Floor Schedule (Today)</span>
+<span class="ml-1 px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm">Read-Only</span>
+</button>
+<button aria-selected="false" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-tab-target="tab-profile" role="tab">
+<span class="material-symbols-outlined text-lg">badge</span>
+<span>Staff Dossier</span>
+</button>
+<button aria-selected="false" class="tab-btn flex items-center gap-2 px-4 py-2 rounded-lg font-label-lg text-label-lg text-on-surface-variant hover:bg-surface-container hover:text-on-surface transition-all" data-tab-target="tab-security" role="tab">
+<span class="material-symbols-outlined text-lg">encrypted</span>
+<span>Account Security</span>
+</button>
+</div>
+<!-- Station Audio Notification Toggle -->
+<div class="hidden sm:flex items-center gap-2 pl-4 py-3 text-on-surface-variant font-body-sm text-body-sm">
+<span class="material-symbols-outlined text-base text-secondary">volume_up</span>
+<span>Order Chime: <strong>Active</strong></span>
+</div>
+</div>
+</nav>
+<!-- Work Area Panes Container -->
+<div class="w-full px-8 py-8 flex-1">
+<div class="max-w-7xl mx-auto">
+<!-- ========================================== -->
+<!-- TAB 1: LIVE ORDERS QUEUE (ACTIVE DEFAULT)  -->
+<!-- ========================================== -->
+<section class="tab-pane flex flex-col gap-6" id="tab-live-orders">
+<!-- Urgent Queue Banner & Filtering Bar -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-5 rounded-xl bg-surface-container-low shadow-sm">
+<div class="flex items-center gap-3">
+<div class="w-3 h-3 rounded-full bg-secondary animate-ping"></div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface">Kitchen &amp; Assembly Queue — Live Feed</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prioritized by prep ticket threshold. Instant-tap to update expediting status.</span>
+</div>
+</div>
+<div class="flex items-center gap-2 overflow-x-auto pb-1 md:pb-0">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant mr-1">Filter:</span>
+<button class="px-3 py-1.5 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-semibold">All Tickets (3)</button>
+<button class="px-3 py-1.5 rounded-full bg-surface hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors">Hot Kitchen (2)</button>
+<button class="px-3 py-1.5 rounded-full bg-surface hover:bg-surface-container text-on-surface-variant font-label-sm text-label-sm transition-colors">Bakery &amp; Bar (1)</button>
+</div>
+</div>
+<!-- 3 Prominent Kitchen Operational Cards -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6" id="kitchen-orders-container">
+<!-- ORDER CARD #1042 -->
+<article class="flex flex-col justify-between bg-surface-container-lowest rounded-xl shadow-md p-6 transition-all duration-300" id="order-card-1042">
+<div class="flex flex-col gap-4">
+<!-- Header Bar of Ticket -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">#1042</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold uppercase">Online Delivery</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">timer</span> 14 mins elapsed (Due in 6m)
+                  </span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2.5 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-bold tracking-wide uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    Preparing
+                  </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Station 01 (Grill)</span>
+</div>
+</div>
+<!-- Itemized Food Detail -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Prime Ribeye (Medium-Rare)</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 165</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm pl-8">
+                  • Charred broccolini, bone marrow jus glaze
+                </div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Truffle Parmesan Fries</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 38</span>
+</div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Fresh Mint Lemonade</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 26</span>
+</div>
+</div>
+<!-- Chef / Dispatch Special Instructions -->
+<div class="p-3.5 rounded-lg bg-secondary-fixed/50 flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5">priority_high</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-secondary-fixed">Guest Order Special Note:</span>
+<p class="font-body-md text-body-md text-on-surface font-medium">"Extra garlic toumeya on the side, well-sealed lid."</p>
+</div>
+</div>
+</div>
+<!-- Action Button: Mark as Done -->
+<div class="mt-6 pt-4 bg-transparent flex flex-col gap-2">
+<button class="w-full h-12 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2.5 shadow-md active:scale-95 transition-all" onclick="markOrderDone('1042', this)">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+<span>Mark as Done (تم الإنجاز)</span>
+</button>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>Rider: Talabat Express</span>
+<span>Box Type: Thermal Foil #B3</span>
+</div>
+</div>
+</article>
+<!-- ORDER CARD #1043 -->
+<article class="flex flex-col justify-between bg-surface-container-lowest rounded-xl shadow-md p-6 transition-all duration-300" id="order-card-1043">
+<div class="flex flex-col gap-4">
+<!-- Header Bar of Ticket -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">#1043</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold uppercase">Customer Takeaway</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">timer</span> 18 mins elapsed
+                  </span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-700 font-label-sm text-label-sm font-bold tracking-wide uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                    Ready for Pickup
+                  </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Pickup Shelf: B-02</span>
+</div>
+</div>
+<!-- Itemized Detail -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">2x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Chicken Supreme Pasta</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 116</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm pl-8">
+                  • Creamy sundried tomato sauce, wild mushrooms
+                </div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Saffron Milk Cake</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 44</span>
+</div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">2x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Spanish Latte (Cold)</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 56</span>
+</div>
+</div>
+<!-- Instructions -->
+<div class="p-3.5 rounded-lg bg-surface-container flex items-start gap-3">
+<span class="material-symbols-outlined text-on-surface-variant text-lg mt-0.5">takeout_dining</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">Packaging Status:</span>
+<p class="font-body-md text-body-md text-on-surface">Bagged with cutlery, extra napkins &amp; cake fork included.</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-6 pt-4 bg-transparent flex flex-col gap-2">
+<button class="w-full h-12 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2.5 shadow-md active:scale-95 transition-all" onclick="markOrderDone('1043', this)">
+<span class="material-symbols-outlined text-xl">done_all</span>
+<span>Mark as Done (تم Handed Out)</span>
+</button>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>Guest: Tariq Al-Mansoor</span>
+<span>Contact: +971 50 *** 9214</span>
+</div>
+</div>
+</article>
+<!-- ORDER CARD #1044 -->
+<article class="flex flex-col justify-between bg-surface-container-lowest rounded-xl shadow-md p-6 transition-all duration-300" id="order-card-1044">
+<div class="flex flex-col gap-4">
+<!-- Header Bar of Ticket -->
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface tracking-tight">#1044</span>
+<span class="px-2 py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold uppercase">Online Delivery</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span class="material-symbols-outlined text-xs">timer</span> 8 mins elapsed
+                  </span>
+</div>
+<div class="flex flex-col items-end">
+<span class="px-2.5 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-bold tracking-wide uppercase flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    In Oven / Cooking
+                  </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">Station 03 (Bakery/Burger)</span>
+</div>
+</div>
+<!-- Itemized Detail -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2.5">
+<div class="flex items-start justify-between">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">3x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Wagyu Truffle Burgers</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 210</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm pl-8">
+                  • Brioche bun, smoked scamorza, caramelized shallots
+                </div>
+<div class="flex items-start justify-between mt-1">
+<div class="flex items-center gap-2">
+<span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">1x</span>
+<span class="font-title-lg text-title-lg text-on-surface">Waffle with Pistachio</span>
+</div>
+<span class="font-label-md text-label-md text-secondary font-bold">AED 42</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm pl-8">
+                  • Artisan Sicilian cream &amp; crushed roasted nuts
+                </div>
+</div>
+<!-- Instructions -->
+<div class="p-3.5 rounded-lg bg-surface-container flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary text-lg mt-0.5">info</span>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">Roastery &amp; Grill Sync:</span>
+<p class="font-body-md text-body-md text-on-surface">Waffle to be boxed fresh 2 mins prior to driver dispatch.</p>
+</div>
+</div>
+</div>
+<!-- Action Button -->
+<div class="mt-6 pt-4 bg-transparent flex flex-col gap-2">
+<button class="w-full h-12 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2.5 shadow-md active:scale-95 transition-all" onclick="markOrderDone('1044', this)">
+<span class="material-symbols-outlined text-xl">check_circle</span>
+<span>Mark as Done (تم الإنجاز)</span>
+</button>
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm px-1">
+<span>Rider: Deliveroo Direct</span>
+<span>Packaging: Bag #24</span>
+</div>
+</div>
+</article>
+</div>
+</section>
+<!-- ======================================================== -->
+<!-- TAB 2: TABLE RESERVATIONS VIEW (FLOOR SCHEDULE READ-ONLY) -->
+<!-- ======================================================== -->
+<section class="tab-pane hidden flex flex-col gap-6" id="tab-reservations">
+<!-- Floor Header & Context Note -->
+<div class="flex flex-col md:flex-row md:items-center justify-between gap-4 p-6 rounded-xl bg-surface-container-low shadow-sm">
+<div>
+<div class="flex items-center gap-2.5">
+<span class="font-headline-sm text-headline-sm text-on-surface">Today's Dining Room Seating Timeline</span>
+<span class="px-2 py-0.5 rounded bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm uppercase font-bold">Shift Schedule</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mt-1">
+              Synchronized with the front reservation desk. Read-only permissions active for Shift Lead. Modifications handled by Head Hostess.
+            </p>
+</div>
+<!-- Capacity Badge -->
+<div class="flex items-center gap-4 bg-surface px-4 py-2.5 rounded-xl shadow-sm">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tonight's Covers</span>
+<span class="font-title-lg text-title-lg text-secondary">38 Confirmed Guests</span>
+</div>
+<div class="w-10 h-10 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined">deck</span>
+</div>
+</div>
+</div>
+<!-- Chronological Table Seating Grid / Schedule -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md overflow-hidden">
+<div class="px-6 py-4 bg-surface-container-low flex items-center justify-between">
+<span class="font-label-md text-label-md uppercase tracking-wider text-on-surface-variant font-bold">Upcoming Seatings — Evening Service</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-sm text-secondary">lock</span>
+              Strict Read-Only Mode
+            </span>
+</div>
+<div class="divide-y divide-surface-container" id="floor-reservations-list">
+<!-- Reservation Row 1 -->
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-4 min-w-[220px]">
+<div class="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex flex-col items-center justify-center font-bold">
+<span class="text-xs uppercase">Time</span>
+<span class="font-label-lg text-label-lg leading-none">12:30</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Rashid Al-Kuwari</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">VIP Guest • Regular Diner</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Party Size</span>
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-base">group</span>
+                    4 Guests
+                  </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Table Allocation</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface font-bold mt-0.5">
+                    Terrace T-04 (Panoramic)
+                  </span>
+</div>
+<div class="flex flex-col hidden lg:flex">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dining Occasion</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Business Lunch</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-emerald-500/15 text-emerald-800 font-label-sm text-label-sm font-bold uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Seated &amp; Served
+                </span>
+</div>
+</div>
+<!-- Reservation Row 2 -->
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-4 min-w-[220px]">
+<div class="w-12 h-12 rounded-xl bg-surface-container text-on-surface flex flex-col items-center justify-center font-bold">
+<span class="text-xs uppercase">Time</span>
+<span class="font-label-lg text-label-lg leading-none">1:15</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Mariam Al-Subaie</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct Website Booking</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Party Size</span>
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-base">group</span>
+                    2 Guests
+                  </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Table Allocation</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface font-bold mt-0.5">
+                    Main Hall H-12 (Window)
+                  </span>
+</div>
+<div class="flex flex-col hidden lg:flex">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dining Occasion</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Special Anniversary</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-bold uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                  Expected in 10m
+                </span>
+</div>
+</div>
+<!-- Reservation Row 3 -->
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-4 min-w-[220px]">
+<div class="w-12 h-12 rounded-xl bg-surface-container text-on-surface flex flex-col items-center justify-center font-bold">
+<span class="text-xs uppercase">Time</span>
+<span class="font-label-lg text-label-lg leading-none">2:00</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">Farhan &amp; Family</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Phone Confirmation</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Party Size</span>
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-base">group</span>
+                    6 Guests (High-chair requested)
+                  </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Table Allocation</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface font-bold mt-0.5">
+                    Terrace T-08 (Corner Lounge)
+                  </span>
+</div>
+<div class="flex flex-col hidden lg:flex">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dining Occasion</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Family Gathering</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Confirmed Booking
+                </span>
+</div>
+</div>
+<!-- Reservation Row 4 -->
+<div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-container-low/40 transition-colors">
+<div class="flex items-center gap-4 min-w-[220px]">
+<div class="w-12 h-12 rounded-xl bg-surface-container text-on-surface flex flex-col items-center justify-center font-bold">
+<span class="text-xs uppercase">Time</span>
+<span class="font-label-lg text-label-lg leading-none">6:30</span>
+</div>
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface font-semibold">David K. &amp; Partners</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Corporate Hospitality</span>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Party Size</span>
+<span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5 mt-0.5">
+<span class="material-symbols-outlined text-secondary text-base">group</span>
+                    8 Guests
+                  </span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Table Allocation</span>
+<span class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface font-bold mt-0.5">
+                    Private Room PR-01
+                  </span>
+</div>
+<div class="flex flex-col hidden lg:flex">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Dining Occasion</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Executive Tasting Menu</span>
+</div>
+</div>
+<div class="flex items-center gap-3">
+<span class="px-3 py-1 rounded-full bg-surface-container-highest text-on-surface-variant font-label-sm text-label-sm font-bold uppercase flex items-center gap-1.5">
+<span class="w-1.5 h-1.5 rounded-full bg-outline"></span>
+                  Deposit Secured
+                </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- TAB 3: EMPLOYEE PROFILE (INFO PAGE)       -->
+<!-- ========================================== -->
+<section class="tab-pane hidden flex flex-col gap-6" id="tab-profile">
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+<!-- Identity Summary Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col items-center text-center">
+<div class="relative mb-4">
+<img alt="Sarah Jenkins" class="w-28 h-28 rounded-2xl object-cover shadow-lg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0Qlsr-m13FjOXoD41fPW8zwJfoXu62aKUpkdyuV3ypkTmyZgkJrKDof_PNN_1Zt5cL7DcMMC5MLzvVV3NnQ3f8fQZ-CCrbGQzmN4bAi5EaZdbKW6M7gLO5ijnNaFZuxWa2Q5ocQ3-DEVAgcOAcZMw5x19TpPpEMPBel1Iu4kBak8IAczslULpc3KO918KDyHl8Kww7w5n3jPKweLIDf5N_oXM7qbOx9kSrs-KkIne"/>
+<span class="absolute bottom-1 right-1 w-5 h-5 bg-emerald-500 rounded-full border-2 border-surface-container-lowest"></span>
+</div>
+<span class="font-headline-sm text-headline-sm text-on-surface">Sarah Jenkins</span>
+<span class="font-body-md text-body-md text-secondary font-medium mt-0.5">Floor Manager &amp; Head Hostess</span>
+<span class="font-label-sm text-label-sm px-2.5 py-1 rounded-full bg-surface-container-high text-on-surface-variant uppercase font-bold mt-2">
+              Staff Badge #EMP-204
+            </span>
+<div class="w-full mt-6 pt-6 border-t border-surface-container flex flex-col gap-3 text-left">
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Portal Username:</span>
+<span class="font-semibold text-on-surface">s.jenkins_floor</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Clearance Level:</span>
+<span class="font-semibold text-secondary">Level 2 (Supervisor)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Tenure:</span>
+<span class="font-semibold text-on-surface">2 Years, 4 Months</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<span class="text-on-surface-variant">Language Fluency:</span>
+<span class="font-semibold text-on-surface">English, Arabic (Conversational)</span>
+</div>
+</div>
+</div>
+<!-- Extended Dossier: Shifts & Contact Detail -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-md p-6 flex flex-col justify-between gap-6">
+<div>
+<div class="flex items-center justify-between pb-4 border-b border-surface-container">
+<div class="flex flex-col">
+<span class="font-title-lg text-title-lg text-on-surface">Operational Credentials &amp; Section Roster</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Direct contact records and allocated restaurant station duties.</span>
+</div>
+<span class="material-symbols-outlined text-secondary text-2xl">verified_user</span>
+</div>
+<!-- Contact & Emergency Info Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">Official Email</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">sarah.jenkins@viewrestaurant.ae</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">Direct Phone</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">+971 52 489 1109</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">Emergency Contact</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Mark Jenkins (Spouse) — +971 55 901 3342</span>
+</div>
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant font-bold">Assigned Service Sections</span>
+<span class="font-body-md text-body-md text-on-surface font-semibold">Terrace Zone A, Main Hall, Bar Counter</span>
+</div>
+</div>
+<!-- Weekly Shift Roster Preview -->
+<div class="mt-6 flex flex-col gap-3">
+<span class="font-label-md text-label-md text-on-surface font-bold uppercase tracking-wider">Weekly Schedule (Current Week)</span>
+<div class="grid grid-cols-2 sm:grid-cols-5 gap-2.5">
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Mon</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface mt-1">11am - 8pm</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">Today</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Tue</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface mt-1">11am - 8pm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Scheduled</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Wed</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface mt-1">11am - 8pm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Scheduled</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Thu</span>
+<span class="font-body-sm text-body-sm font-bold text-on-surface mt-1">2pm - 11pm</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Closing</span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-high/60 flex flex-col items-center text-center">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase">Fri</span>
+<span class="font-body-sm text-body-sm font-bold text-secondary mt-1">OFF</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Rest Day</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Bottom Disclaimer -->
+<div class="p-3 rounded-lg bg-surface-container text-on-surface-variant font-body-sm text-body-sm flex items-center justify-between">
+<span>Next Annual Hospitality Health &amp; Hygiene Inspection: <strong>Oct 2025</strong></span>
+<span class="font-label-sm text-label-sm text-emerald-700 font-bold uppercase">Certified Active</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ========================================== -->
+<!-- TAB 4: ACCOUNT SECURITY (PASSWORD CHANGE) -->
+<!-- ========================================== -->
+<section class="tab-pane hidden flex flex-col gap-6" id="tab-security">
+<div class="max-w-2xl mx-auto w-full bg-surface-container-lowest rounded-xl shadow-md p-8">
+<div class="flex items-center gap-3 pb-6 border-b border-surface-container">
+<div class="w-12 h-12 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined text-2xl">lock_reset</span>
+</div>
+<div class="flex flex-col">
+<span class="font-headline-sm text-headline-sm text-on-surface">Change Employee Station Password</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Keep your staff credential secure for POS terminal &amp; order operations.</span>
+</div>
+</div>
+<form class="mt-6 flex flex-col gap-5" id="password-form" onsubmit="handlePasswordUpdate(event)">
+<!-- Current Password -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="current-password">Current Employee Password</label>
+<div class="relative">
+<input class="w-full h-12 px-4 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface focus:outline-none shadow-sm transition-all" id="current-password" placeholder="Enter current PIN / Password" required="" type="password"/>
+<button class="absolute right-3 top-3.5 text-on-surface-variant hover:text-on-surface" onclick="togglePassVisibility('current-password', this)" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+</div>
+<!-- New Password -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="new-password">New Password</label>
+<div class="relative">
+<input class="w-full h-12 px-4 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface focus:outline-none shadow-sm transition-all" id="new-password" placeholder="Minimum 8 characters with numbers" required="" type="password"/>
+<button class="absolute right-3 top-3.5 text-on-surface-variant hover:text-on-surface" onclick="togglePassVisibility('new-password', this)" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+</div>
+<!-- Confirm New Password -->
+<div class="flex flex-col gap-1.5">
+<label class="font-label-md text-label-md text-on-surface font-semibold" for="confirm-password">Confirm New Password</label>
+<div class="relative">
+<input class="w-full h-12 px-4 pr-10 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md focus:bg-surface focus:outline-none shadow-sm transition-all" id="confirm-password" placeholder="Re-type new password" required="" type="password"/>
+<button class="absolute right-3 top-3.5 text-on-surface-variant hover:text-on-surface" onclick="togglePassVisibility('confirm-password', this)" type="button">
+<span class="material-symbols-outlined text-base">visibility</span>
+</button>
+</div>
+</div>
+<!-- Password Guidelines Card -->
+<div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-1.5">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface-variant">View Restaurant Security Guidelines:</span>
+<ul class="font-body-sm text-body-sm text-on-surface-variant list-disc pl-5 space-y-0.5">
+<li>Must contain at least 8 alphanumeric characters.</li>
+<li>Do not reuse identical credentials across shared kitchen terminals.</li>
+<li>Changes are logged and audited for shift accountability.</li>
+</ul>
+</div>
+<!-- Feedback Alert Banner -->
+<div class="hidden p-3.5 rounded-lg font-body-sm text-body-sm" id="password-feedback"></div>
+<!-- Submit Button -->
+<button class="w-full h-12 mt-2 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2 shadow-md transition-all active:scale-95" type="submit">
+<span class="material-symbols-outlined text-xl">key</span>
+<span>Update Password</span>
+</button>
+</form>
+</div>
+</section>
+</div>
+</div>
+</div>
+<script>
+  // Tab Switching Handler
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-tab-target');
+      
+      // Update Buttons
+      document.querySelectorAll('.tab-btn').forEach(b => {
+        b.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        b.classList.add('text-on-surface-variant');
+        b.setAttribute('aria-selected', 'false');
+      });
+      this.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+      this.classList.remove('text-on-surface-variant');
+      this.setAttribute('aria-selected', 'true');
+
+      // Update Panes
+      document.querySelectorAll('.tab-pane').forEach(pane => {
+        pane.classList.add('hidden');
+      });
+      const targetPane = document.getElementById(targetId);
+      if(targetPane) {
+        targetPane.classList.remove('hidden');
+      }
+    });
+  });
+
+  // Mark Order as Done (Kitchen action with feedback & Firebase sync)
+  async function markOrderDone(orderId, btnElement) {
+    const card = document.getElementById(`order-card-${orderId}`);
+    btnElement.disabled = true;
+    btnElement.innerHTML = `<span class="material-symbols-outlined text-xl animate-spin">refresh</span><span>Processing Ticket...</span>`;
+    
+    if (window.ViewFirebase?.updateOrderStatus) {
+      await window.ViewFirebase.updateOrderStatus(orderId, 'Completed & Dispatched');
+    }
+
+    setTimeout(() => {
+      btnElement.className = "w-full h-12 rounded-lg bg-emerald-600 text-white font-label-lg text-label-lg flex items-center justify-center gap-2.5 shadow-md";
+      btnElement.innerHTML = `<span class="material-symbols-outlined text-xl">check</span><span>Completed & Dispatched (تم)</span>`;
+      
+      if(card) {
+        card.style.opacity = '0.6';
+        card.style.transform = 'scale(0.98)';
+      }
+    }, 400);
+  }
+
+  // Subscribe to Live Orders from Firebase
+  function initEmployeeLiveOrders() {
+    if (!window.ViewFirebase?.subscribeOrders) {
+      setTimeout(initEmployeeLiveOrders, 500);
+      return;
+    }
+
+    window.ViewFirebase.subscribeOrders((orders) => {
+      const container = document.getElementById('kitchen-orders-container');
+      if (!container || !orders || orders.length === 0) return;
+
+      const dynamicCards = orders.map(o => {
+        const safeNum = (o.orderNumber || 'ORD-999').replace('#', '');
+        return `
+          <article class="flex flex-col justify-between bg-surface-container-lowest rounded-xl shadow-md p-6 border-2 border-secondary/40 transition-all duration-300" id="order-card-${safeNum}">
+            <div class="flex flex-col gap-4">
+              <div class="flex items-start justify-between">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-headline-sm text-headline-sm text-secondary tracking-tight">#${safeNum}</span>
+                    <span class="px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-label-sm text-label-sm font-bold uppercase">Live Firebase</span>
+                  </div>
+                  <span class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+                    <span class="material-symbols-outlined text-xs text-secondary">location_on</span> ${o.destination || o.mode || 'Suite Service'}
+                  </span>
+                </div>
+                <div class="flex flex-col items-end">
+                  <span class="px-2.5 py-1 rounded-full bg-secondary/15 text-secondary font-label-sm text-label-sm font-bold uppercase flex items-center gap-1">
+                    <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+                    ${o.status || 'In Prep'}
+                  </span>
+                  <span class="font-label-sm text-label-sm text-on-surface-variant mt-1">${o.customerName || 'Guest Order'}</span>
+                </div>
+              </div>
+
+              <div class="p-4 rounded-xl bg-surface-container-low flex flex-col gap-2.5">
+                ${o.items ? o.items.map(i => `
+                  <div class="flex items-start justify-between">
+                    <div class="flex items-center gap-2">
+                      <span class="w-6 h-6 rounded bg-primary text-on-primary font-label-md text-label-md flex items-center justify-center font-bold">${i.qty || 1}x</span>
+                      <span class="font-title-lg text-title-lg text-on-surface">${i.name}</span>
+                    </div>
+                    <span class="font-label-md text-label-md text-secondary font-bold">$${i.price || ''}</span>
+                  </div>
+                `).join('') : '<p class="text-sm">Gourmet Selection Items</p>'}
+              </div>
+
+              <div class="p-3.5 rounded-lg bg-secondary-fixed/30 flex items-start gap-3">
+                <span class="material-symbols-outlined text-secondary text-lg mt-0.5">info</span>
+                <div class="flex flex-col">
+                  <span class="font-label-sm text-label-sm uppercase font-bold text-on-secondary-fixed">Live Cloud Ticket:</span>
+                  <p class="font-body-md text-body-md text-on-surface font-medium">Order placed via web portal. Total: <strong>${o.total || '$88.15'}</strong></p>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-6 pt-4 bg-transparent flex flex-col gap-2">
+              <button class="w-full h-12 rounded-lg bg-secondary hover:bg-on-secondary-container text-on-secondary font-label-lg text-label-lg flex items-center justify-center gap-2.5 shadow-md active:scale-95 transition-all" onclick="markOrderDone('${safeNum}', this)">
+                <span class="material-symbols-outlined text-xl">check_circle</span>
+                <span>Mark as Done (تم الإنجاز)</span>
+              </button>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+      container.innerHTML = dynamicCards + container.innerHTML;
+    });
+  }
+
+  // Subscribe to Reservations in Employee Floor Schedule
+  function initEmployeeReservations() {
+    if (!window.ViewFirebase?.subscribeReservations) {
+      setTimeout(initEmployeeReservations, 500);
+      return;
+    }
+
+    window.ViewFirebase.subscribeReservations((reservations) => {
+      const list = document.getElementById('floor-reservations-list');
+      if (!list || !reservations || reservations.length === 0) return;
+
+      const dynamicRows = reservations.map(r => `
+        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-4 hover:bg-surface-container-low/40 transition-colors bg-secondary/5">
+          <div class="flex items-center gap-4 min-w-[220px]">
+            <div class="w-12 h-12 rounded-xl bg-secondary-fixed text-on-secondary-fixed flex flex-col items-center justify-center font-bold">
+              <span class="text-xs uppercase">Time</span>
+              <span class="font-label-lg text-label-lg leading-none">${r.time ? r.time.substring(0, 5) : '08:00'}</span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-title-lg text-title-lg text-on-surface font-semibold">${r.name || 'Web Guest'}</span>
+              <span class="font-body-sm text-body-sm text-emerald-600 font-bold flex items-center gap-1">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>${r.referenceId || 'Online Reservation'}</span>
+              </span>
+            </div>
+          </div>
+          <div class="flex items-center gap-8">
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Party Size</span>
+              <span class="font-body-md text-body-md text-on-surface font-medium flex items-center gap-1.5 mt-0.5">
+                <span class="material-symbols-outlined text-secondary text-base">group</span>
+                ${r.guests || '2 Guests'}
+              </span>
+            </div>
+            <div class="flex flex-col">
+              <span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Table Allocation</span>
+              <span class="px-3 py-1 rounded bg-surface-container-high font-label-md text-label-md text-on-surface font-bold mt-0.5">
+                ${r.tableAssigned || r.zone || 'Terrace'}
+              </span>
+            </div>
+            <div class="flex flex-col hidden lg:flex">
+              <span class="font-label-sm text-label-sm uppercase text-on-surface-variant">Notes</span>
+              <span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5 truncate max-w-xs">${r.notes || r.occasion || 'Standard Table'}</span>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <span class="px-3 py-1 rounded-full bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-bold uppercase flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              Confirmed Online
+            </span>
+          </div>
+        </div>
+      `).join('');
+
+      list.innerHTML = dynamicRows + list.innerHTML;
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initEmployeeLiveOrders();
+    initEmployeeReservations();
+  });
+
+  // Toggle Password Input Visibility
+  function togglePassVisibility(inputId, triggerBtn) {
+    const input = document.getElementById(inputId);
+    const icon = triggerBtn.querySelector('.material-symbols-outlined');
+    if (input.type === 'password') {
+      input.type = 'text';
+      icon.textContent = 'visibility_off';
+    } else {
+      input.type = 'password';
+      icon.textContent = 'visibility';
+    }
+  }
+
+  // Form Submission Mock for Password Update
+  function handlePasswordUpdate(e) {
+    e.preventDefault();
+    const newPass = document.getElementById('new-password').value;
+    const confirmPass = document.getElementById('confirm-password').value;
+    const feedback = document.getElementById('password-feedback');
+
+    feedback.classList.remove('hidden');
+
+    if(newPass !== confirmPass) {
+      feedback.className = "p-3.5 rounded-lg font-body-sm text-body-sm bg-error-container text-on-error-container flex items-center gap-2";
+      feedback.innerHTML = `<span class="material-symbols-outlined text-lg">error</span> Passwords do not match. Please verify.`;
+      return;
+    }
+
+    if(newPass.length < 8) {
+      feedback.className = "p-3.5 rounded-lg font-body-sm text-body-sm bg-error-container text-on-error-container flex items-center gap-2";
+      feedback.innerHTML = `<span class="material-symbols-outlined text-lg">error</span> Password must be at least 8 characters long.`;
+      return;
+    }
+
+    feedback.className = "p-3.5 rounded-lg font-body-sm text-body-sm bg-emerald-100 text-emerald-900 flex items-center gap-2";
+    feedback.innerHTML = `<span class="material-symbols-outlined text-lg">verified</span> Credentials updated successfully for Sarah Jenkins.`;
+    document.getElementById('password-form').reset();
+  }
+
+  // Shift signout handler
+  const logoutBtn = document.getElementById('btn-logout');
+  if(logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      if(confirm('Are you sure you want to sign out from Shift Lead terminal? All active kitchen tickets remain synchronized.')) {
+        logoutBtn.innerHTML = '<span class="material-symbols-outlined text-base animate-spin">refresh</span> Signing out...';
+        setTimeout(() => {
+          location.reload();
+        }, 800);
+      }
+    });
+  }
+</script></main></div></body></html>
+
+

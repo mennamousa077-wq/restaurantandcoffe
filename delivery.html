@@ -1,0 +1,1480 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>بوابة المندوب والتوصيل والتسليم الذكي | The View Cafe &amp; Restaurant</title>
+  <link rel="icon" type="image/jpeg" href="./the-view-logo.jpg" />
+  <link rel="apple-touch-icon" href="./the-view-logo.jpg" />
+  
+  <!-- Fonts & Material Symbols -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Noto+Kufi+Arabic:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; font-family: 'Noto Kufi Arabic', 'Plus Jakarta Sans', sans-serif; }
+      body { overscroll-behavior: none; }
+    }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-thumb { background: rgba(162, 63, 15, 0.3); border-radius: 9999px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(162, 63, 15, 0.6); }
+    @keyframes pulse-ring {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 1; }
+      100% { transform: scale(0.95); opacity: 0.8; }
+    }
+    .animate-pulse-ring { animation: pulse-ring 2s infinite ease-in-out; }
+    @keyframes slide-down {
+      from { transform: translateY(-100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-down { animation: slide-down 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  </style>
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="./js/firebase-config.js"></script>
+  <script defer src="./js/app.js"></script>
+  
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#000000",
+            "secondary": "#a23f0f",
+            "secondary-hover": "#b84712",
+            "secondary-container": "#fe8450",
+            "surface": "#141513",
+            "surface-container-lowest": "#1b1c1a",
+            "surface-container-low": "#222421",
+            "surface-container": "#2a2c28",
+            "surface-container-high": "#323530",
+            "surface-container-highest": "#3c3f3a",
+            "on-surface": "#f5f3f0",
+            "on-surface-variant": "#c4c7c7",
+            "outline": "#747878",
+            "outline-variant": "#444748",
+            "emerald-accent": "#10b981",
+            "sky-accent": "#0ea5e9"
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="./css/style.css"/>
+</head>
+
+<body class="bg-surface text-on-surface min-h-screen antialiased flex flex-col selection:bg-secondary selection:text-white">
+
+  <!-- TOP LIVE DELIVERY CELEBRATION NOTIFICATION BANNER -->
+  <div id="liveDeliveryCelebrationBanner" class="hidden fixed top-0 left-0 right-0 z-[100] bg-emerald-600 text-white shadow-2xl p-4 transition-all animate-slide-down">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0">
+          <span class="material-symbols-outlined text-2xl animate-bounce">task_alt</span>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="text-xs uppercase tracking-widest bg-white/25 px-2 py-0.5 rounded font-mono font-bold">إشعار تسليم فوري</span>
+            <span id="bannerTimestamp" class="text-xs text-white/90 font-mono">الآن</span>
+          </div>
+          <h4 id="bannerTitle" class="text-base sm:text-lg font-bold mt-0.5">
+            🎉 تم تسليم الأوردر للعميل بنجاح!
+          </h4>
+          <p id="bannerDesc" class="text-xs text-white/90">
+            تم تسليم الطلب واستلام الحساب كاملاً وتحديث شاشة الإدارة وشاشة العميل في نفس اللحظة.
+          </p>
+        </div>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <button onclick="switchTab('proofs')" class="px-4 py-2 rounded-xl bg-white text-emerald-800 font-bold text-xs hover:bg-white/90 shadow-sm flex items-center gap-1 transition-all">
+          <span class="material-symbols-outlined text-sm">receipt_long</span>
+          <span>عرض إثبات التسليم</span>
+        </button>
+        <button onclick="closeCelebrationBanner()" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center text-white transition-colors">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER NAVIGATION -->
+  <header class="bg-surface-container-lowest/95 backdrop-blur-md border-b border-outline-variant/30 sticky top-0 z-40 px-4 lg:px-8 py-3.5 shadow-md">
+    <div class="max-w-[1700px] mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
+      
+      <!-- Brand & Hub Title -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="flex items-center gap-2.5 group">
+          <img src="./the-view-logo.jpg" alt="The View" class="w-11 h-11 rounded-xl object-cover ring-2 ring-secondary/50 group-hover:scale-105 transition-transform shadow-md"/>
+          <div class="flex flex-col">
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-lg text-white font-mono tracking-tight">The View</span>
+              <span class="px-2 py-0.5 rounded bg-secondary/20 text-secondary text-[11px] font-bold">منظومة التوصيل والمناديب</span>
+            </div>
+            <span class="text-xs text-on-surface-variant">متابعة تواصل الموظف مع المندوب وتسليم العميل الذكي</span>
+          </div>
+        </a>
+
+        <div class="hidden xl:flex items-center gap-2 mr-4 pr-4 border-r border-outline-variant/30 text-xs">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 font-bold border border-emerald-500/30">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>مزامنة Firebase &amp; Broadcast الحية</span>
+          </span>
+          <span id="headerLiveClock" class="font-mono text-on-surface-variant font-bold">00:00:00</span>
+        </div>
+      </div>
+
+      <!-- Quick Mode Switcher Pills -->
+      <div class="flex items-center bg-surface-container-low p-1.5 rounded-2xl border border-outline-variant/30 gap-1 overflow-x-auto">
+        <button id="tabBtn-dispatch" onclick="switchTab('dispatch')" class="px-4 py-2 rounded-xl bg-secondary text-white font-bold text-xs flex items-center gap-2 shadow-md transition-all">
+          <span class="material-symbols-outlined text-sm">soup_kitchen</span>
+          <span>شاشة الموظف وموزع الطلبات</span>
+          <span id="badge-dispatch-count" class="bg-white/20 text-white px-1.5 py-0.2 rounded-full text-[10px] font-mono">0</span>
+        </button>
+        <button id="tabBtn-courier" onclick="switchTab('courier')" class="px-4 py-2 rounded-xl text-on-surface-variant hover:text-white font-bold text-xs flex items-center gap-2 transition-all">
+          <span class="material-symbols-outlined text-sm">moped</span>
+          <span>شاشة كابتن التوصيل (المندوب)</span>
+          <span id="badge-courier-count" class="bg-secondary/20 text-secondary px-1.5 py-0.2 rounded-full text-[10px] font-mono">0</span>
+        </button>
+        <button id="tabBtn-proofs" onclick="switchTab('proofs')" class="px-4 py-2 rounded-xl text-on-surface-variant hover:text-white font-bold text-xs flex items-center gap-2 transition-all">
+          <span class="material-symbols-outlined text-sm">verified</span>
+          <span>إثباتات التسليم للعملاء</span>
+          <span id="badge-proofs-count" class="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.2 rounded-full text-[10px] font-mono">0</span>
+        </button>
+      </div>
+
+      <!-- Fast Action Links -->
+      <div class="flex items-center gap-2">
+        <button onclick="toggleAudioChimes()" id="audioToggleBtn" class="p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center gap-1.5 text-xs font-bold" title="كتم أو تشغيل التنبيهات الصوتية">
+          <span class="material-symbols-outlined text-secondary text-base" id="audioToggleIcon">volume_up</span>
+          <span class="hidden sm:inline">الصوت مفعل</span>
+        </button>
+
+        <a href="admin.html" class="p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center gap-1.5 text-xs font-bold" title="الرجوع للوحة التحكم">
+          <span class="material-symbols-outlined text-base">dashboard</span>
+          <span class="hidden md:inline">لوحة المدير</span>
+        </a>
+
+        <a href="employee.html" class="p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center gap-1.5 text-xs font-bold" title="شاشة المطبخ KDS">
+          <span class="material-symbols-outlined text-base">soup_kitchen</span>
+          <span class="hidden md:inline">شاشة المطبخ</span>
+        </a>
+
+        <a href="online-order.html" target="_blank" class="px-3 py-2.5 rounded-xl bg-secondary/15 hover:bg-secondary text-secondary hover:text-white transition-all flex items-center gap-1.5 text-xs font-bold border border-secondary/30" title="فتح صفحة طلب العميل">
+          <span class="material-symbols-outlined text-base">shopping_cart</span>
+          <span>صفحة العميل</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- METRICS & LIVE STATUS RIBBON -->
+  <section class="max-w-[1700px] w-full mx-auto px-4 lg:px-8 pt-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+      
+      <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-xs text-on-surface-variant font-bold block">إجمالي أوردرات التوصيل</span>
+          <span id="metric-total-orders" class="text-2xl font-black text-white font-mono mt-1 block">0</span>
+          <span class="text-[11px] text-on-surface-variant">جميع أوردرات اليوم</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-secondary/15 text-secondary flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">local_shipping</span>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-amber-500/30 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-xs text-amber-400 font-bold block">قيد التجهيز بالمطبخ</span>
+          <span id="metric-preparing-orders" class="text-2xl font-black text-amber-400 font-mono mt-1 block">0</span>
+          <span class="text-[11px] text-on-surface-variant">جاهزة للتسليم للمندوب</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-amber-500/15 text-amber-400 flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl animate-spin">skillet</span>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-blue-500/30 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-xs text-blue-400 font-bold block">مع المناديب في الطريق</span>
+          <span id="metric-delivering-orders" class="text-2xl font-black text-blue-400 font-mono mt-1 block">0</span>
+          <span class="text-[11px] text-on-surface-variant">في الطريق لموقع العميل</span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-blue-500/15 text-blue-400 flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl animate-bounce">moped</span>
+        </div>
+      </div>
+
+      <div class="bg-surface-container-lowest border border-emerald-500/30 rounded-2xl p-4 flex items-center justify-between shadow-sm">
+        <div>
+          <span class="text-xs text-emerald-400 font-bold block">تم التسليم للعميل بنجاح</span>
+          <span id="metric-delivered-orders" class="text-2xl font-black text-emerald-400 font-mono mt-1 block">0</span>
+          <span class="text-[11px] text-emerald-400 font-bold flex items-center gap-1 mt-0.5">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            <span>مكتملة ومستلمة</span>
+          </span>
+        </div>
+        <div class="w-12 h-12 rounded-xl bg-emerald-500/15 text-emerald-400 flex items-center justify-center">
+          <span class="material-symbols-outlined text-2xl">verified</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MAIN INTERACTIVE CONTENT AREA -->
+  <main class="max-w-[1700px] w-full mx-auto px-4 lg:px-8 py-6 flex-1 flex flex-col gap-8">
+
+    <!-- ========================================================================= -->
+    <!-- TAB 1: شاشة الموظف / منسق التوصيل (DISPATCHER & COURIER COMM) -->
+    <!-- ========================================================================= -->
+    <section id="tab-dispatch" class="flex flex-col gap-6">
+      
+      <!-- Section Title & Instructions -->
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-secondary/20 text-secondary flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">support_agent</span>
+          </div>
+          <div>
+            <h2 class="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <span>شاشة الموظف ومنسق الطلبات • تواصل وتسليم المناديب</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-secondary text-white text-xs font-mono font-bold">Dispatcher Hub</span>
+            </h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">
+              من هنا يتواصل الموظف مباشرة مع المندوب (واتساب / هاتف / شات داخلي)، ويقوم بتسليمه حقيبة الأوردر للانطلاق نحو العميل.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-3">
+          <div class="relative min-w-[260px]">
+            <span class="material-symbols-outlined absolute right-3 top-2.5 text-on-surface-variant text-lg">search</span>
+            <input id="dispatchSearchInput" oninput="filterDispatchOrders(this.value)" class="w-full pr-9 pl-4 py-2 rounded-xl bg-surface-container-low font-body-sm text-xs text-white placeholder:text-outline focus:outline-none focus:ring-2 focus:ring-secondary/50 text-right" placeholder="ابحث باسم الزبون، رقم الطلب، أو المندوب..." type="text"/>
+          </div>
+          <button onclick="createNewDemoOrder()" class="px-4 py-2 rounded-xl bg-secondary text-white font-bold text-xs flex items-center gap-1.5 shadow-md hover:bg-secondary-hover transition-colors">
+            <span class="material-symbols-outlined text-sm">add_box</span>
+            <span>+ تجربة أوردر توصيل جديد</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Dispatch Grid Cards -->
+      <div id="dispatchOrdersGrid" class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 2: شاشة كابتن التوصيل (COURIER APP VIEW) -->
+    <!-- ========================================================================= -->
+    <section id="tab-courier" class="hidden flex flex-col gap-6">
+      
+      <!-- Courier Profile Bar -->
+      <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div class="flex items-center gap-3.5">
+          <div class="relative">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=120&q=80" alt="Captain Avatar" class="w-13 h-13 rounded-2xl object-cover ring-2 ring-secondary"/>
+            <span class="absolute -bottom-1 -right-1 w-4 h-4 rounded-full bg-emerald-500 border-2 border-surface"></span>
+          </div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-lg font-bold text-white" id="currentCourierDisplayName">كابتن محمد الشريف #14</span>
+              <span class="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 text-[11px] font-bold">نشط على الخط 🛵</span>
+            </div>
+            <p class="text-xs text-on-surface-variant font-mono">مركبة: دراجة نارية باجاج بوكسر • هاتف: 010 98765432</p>
+          </div>
+        </div>
+
+        <!-- Switch Courier Selector -->
+        <div class="flex items-center gap-2">
+          <span class="text-xs text-on-surface-variant font-bold">تبديل حساب الكابتن:</span>
+          <select id="courierProfileSelect" onchange="changeActiveCourier(this.value)" class="bg-surface-container-low text-white text-xs font-bold px-3 py-2 rounded-xl border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50 cursor-pointer">
+            <option value="محمد الشريف">كابتن محمد الشريف (دراجة #14)</option>
+            <option value="محمود إبراهيم">كابتن محمود إبراهيم (سكوتر #08)</option>
+            <option value="أحمد النوبي">كابتن أحمد النوبي (دراجة #22)</option>
+            <option value="مصطفى عبد الصبور">كابتن مصطفى عبد الصبور (سكوتر #05)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Delivery Missions for Courier -->
+      <div id="courierMissionsContainer" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- TAB 3: سجل إثباتات التسليم للعملاء (DELIVERED ARCHIVE & PROOFS) -->
+    <!-- ========================================================================= -->
+    <section id="tab-proofs" class="hidden flex flex-col gap-6">
+      
+      <div class="bg-surface-container-lowest border border-outline-variant/30 rounded-2xl p-5 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center shrink-0">
+            <span class="material-symbols-outlined text-2xl">verified_user</span>
+          </div>
+          <div>
+            <h2 class="text-lg md:text-xl font-bold text-white flex items-center gap-2">
+              <span>سجل إثباتات وصول وتسليم الطلبات للعملاء</span>
+              <span class="px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold font-mono">Proof of Delivery</span>
+            </h2>
+            <p class="text-xs text-on-surface-variant mt-0.5">
+              هنا يظهر لك فوراً بالدقيقة والثانية أن الأوردر تم تسليمه للعميل، مع اسم المندوب والمستلم والمبلغ وإمكانية إرسال شكر وتقييم.
+            </p>
+          </div>
+        </div>
+
+        <button onclick="window.print()" class="px-4 py-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs flex items-center gap-1.5 transition-colors">
+          <span class="material-symbols-outlined text-sm">print</span>
+          <span>طباعة تقرير التسليمات</span>
+        </button>
+      </div>
+
+      <!-- Delivered Proof Cards List -->
+      <div id="deliveredProofsGrid" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <!-- Rendered dynamically -->
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MODAL: CONFIRM DELIVERY & PROOF MODAL (COURIER TO CUSTOMER) -->
+  <!-- ========================================================================= -->
+  <div id="deliveryProofModal" class="hidden fixed inset-0 z-50 bg-black/80 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant/30 text-white rounded-2xl max-w-lg w-full p-6 shadow-2xl flex flex-col gap-4 animate-scale-up">
+      
+      <div class="flex items-center justify-between pb-3 border-b border-outline-variant/30">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+            <span class="material-symbols-outlined text-xl">fact_check</span>
+          </div>
+          <div>
+            <h3 class="font-bold text-base text-white">تأكيد تسليم الأوردر واستلام الحساب</h3>
+            <span id="modalDeliveryOrderNum" class="font-mono text-xs text-secondary font-bold">#ORD-XXXX</span>
+          </div>
+        </div>
+        <button onclick="closeDeliveryProofModal()" class="w-8 h-8 rounded-full bg-surface-container hover:bg-surface-container-high flex items-center justify-center transition-colors">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+
+      <!-- Order Details Summary inside modal -->
+      <div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2 text-xs">
+        <div class="flex items-center justify-between">
+          <span class="text-on-surface-variant">اسم العميل المستلم:</span>
+          <strong id="modalCustomerName" class="font-bold text-white">-</strong>
+        </div>
+        <div class="flex items-center justify-between">
+          <span class="text-on-surface-variant">عنوان التسليم:</span>
+          <span id="modalDestination" class="font-medium text-white truncate max-w-[260px]">-</span>
+        </div>
+        <div class="flex items-center justify-between border-t border-outline-variant/20 pt-2">
+          <span class="text-on-surface-variant">المبلغ المطلوب تحصيله:</span>
+          <strong id="modalTotalAmount" class="font-bold text-base text-secondary font-mono">0.00 ج.م</strong>
+        </div>
+      </div>
+
+      <!-- Form Inputs: Courier Delivery Confirmation -->
+      <div class="flex flex-col gap-3 text-xs">
+        
+        <div>
+          <label class="font-bold text-on-surface block mb-1">طريقة استلام الحساب من العميل:</label>
+          <div class="grid grid-cols-2 gap-2">
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low border border-secondary/40 cursor-pointer">
+              <input type="radio" name="paymentCollectionType" value="cash" checked class="accent-secondary"/>
+              <span class="font-bold">استلام نقدي كاش 💵</span>
+            </label>
+            <label class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container-low border border-outline-variant/30 cursor-pointer">
+              <input type="radio" name="paymentCollectionType" value="electronic" class="accent-secondary"/>
+              <span class="font-bold">فودافون كاش / إنستاباي 📱</span>
+            </label>
+          </div>
+        </div>
+
+        <div>
+          <label class="font-bold text-on-surface block mb-1">اسم كابتن التوصيل المنفذ:</label>
+          <input id="modalCourierNameInput" type="text" class="w-full p-2.5 rounded-xl bg-surface-container-low text-white text-xs border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50 font-bold" value="كابتن محمد الشريف #14"/>
+        </div>
+
+        <div>
+          <label class="font-bold text-on-surface block mb-1">ملاحظات التسليم أو كود التأكيد (اختياري):</label>
+          <input id="modalDeliveryNotes" type="text" class="w-full p-2.5 rounded-xl bg-surface-container-low text-white text-xs border border-outline-variant/30 focus:outline-none focus:ring-2 focus:ring-secondary/50" placeholder="مثال: تم التسليم للعميل باليد في الشقة 12 مع شكر العميل"/>
+        </div>
+
+      </div>
+
+      <!-- Confirmation Buttons -->
+      <div class="pt-2 border-t border-outline-variant/30 flex items-center justify-between gap-3">
+        <button onclick="closeDeliveryProofModal()" class="px-4 py-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-bold text-xs transition-colors">
+          إلغاء
+        </button>
+        <button onclick="executeFinalDeliveryConfirmation()" class="flex-1 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95">
+          <span class="material-symbols-outlined text-base">check_circle</span>
+          <span>تأكيد التسليم للعميل نهائياً وإشعار الإدارة 🎉</span>
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT CONTROLLER -->
+  <script>
+    // =========================================================================
+    // COURIERS ROSTER & SYSTEM STATE
+    // =========================================================================
+    const COURIERS_ROSTER = [
+      { id: 'c1', name: 'محمد الشريف', title: 'كابتن محمد الشريف #14', phone: '01098765432', vehicle: 'دراجة نارية باجاج بوكسر', available: true },
+      { id: 'c2', name: 'محمود إبراهيم', title: 'كابتن محمود إبراهيم #08', phone: '01123456789', vehicle: 'سكوتر ياماها', available: true },
+      { id: 'c3', name: 'أحمد النوبي', title: 'كابتن أحمد النوبي #22', phone: '01234567890', vehicle: 'دراجة نارية هوجان', available: true },
+      { id: 'c4', name: 'مصطفى عبد الصبور', title: 'كابتن مصطفى عبد الصبور #05', phone: '01555443322', vehicle: 'سكوتر بينيلي', available: true }
+    ];
+
+    let currentActiveCourierName = 'محمد الشريف';
+    let audioChimesActive = true;
+    let activePendingOrderIdForDelivery = null;
+
+    // Cross-window Broadcast Channels
+    let ordersChannel = null;
+    try {
+      ordersChannel = new BroadcastChannel('view_orders_channel');
+      ordersChannel.onmessage = (event) => {
+        if (event.data?.type === 'ORDER_STATUS_UPDATED') {
+          refreshAllViews();
+          if (event.data.step === 4) {
+            triggerDeliveryCelebrationBanner(event.data.orderId, event.data.extraData?.courierName || 'المندوب', event.data.extraData?.customerName || 'العميل');
+          }
+        }
+      };
+    } catch(e) {}
+
+    // Storage Event Listener for Cross-Tab Sync
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'view_restaurant_orders' || e.key === 'view_active_order') {
+        refreshAllViews();
+      }
+    });
+
+    // Custom Event Listener
+    window.addEventListener('ViewOrderStatusChanged', (e) => {
+      refreshAllViews();
+      if (e.detail?.step === 4) {
+        triggerDeliveryCelebrationBanner(e.detail.orderId, e.detail.extraData?.courierName || 'المندوب', e.detail.extraData?.customerName || 'العميل');
+      }
+    });
+
+    // Web Audio Sound Alerts
+    function playDeliveryTone(type = 'delivered') {
+      if (!audioChimesActive) return;
+      try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        if (ctx.state === 'suspended') ctx.resume().catch(() => {});
+
+        if (type === 'delivery') {
+          // 3-tone motorcycle departure chime (C5 -> E5 -> G5)
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(523.25, ctx.currentTime);
+          osc.frequency.setValueAtTime(659.25, ctx.currentTime + 0.12);
+          osc.frequency.setValueAtTime(783.99, ctx.currentTime + 0.24);
+          gain.gain.setValueAtTime(0.25, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.6);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime);
+          osc.stop(ctx.currentTime + 0.6);
+        } else if (type === 'delivered') {
+          // Fanfare celebration chime (E5 -> G#5 -> B5 -> E6)
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sine';
+          osc.frequency.setValueAtTime(659.25, ctx.currentTime);
+          osc.frequency.setValueAtTime(830.61, ctx.currentTime + 0.15);
+          osc.frequency.setValueAtTime(987.77, ctx.currentTime + 0.3);
+          osc.frequency.setValueAtTime(1318.51, ctx.currentTime + 0.45);
+          gain.gain.setValueAtTime(0.3, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.85);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(ctx.currentTime);
+          osc.stop(ctx.currentTime + 0.85);
+        }
+      } catch (e) {}
+    }
+
+    function toggleAudioChimes() {
+      audioChimesActive = !audioChimesActive;
+      const icon = document.getElementById('audioToggleIcon');
+      const btn = document.getElementById('audioToggleBtn');
+      if (audioChimesActive) {
+        if (icon) icon.textContent = 'volume_up';
+        btn.innerHTML = `<span class="material-symbols-outlined text-secondary text-base">volume_up</span><span class="hidden sm:inline">الصوت مفعل</span>`;
+        if (window.ViewApp?.showToast) window.ViewApp.showToast('تم تفعيل التنبيهات الصوتية للتوصيل 🔔');
+      } else {
+        if (icon) icon.textContent = 'volume_off';
+        btn.innerHTML = `<span class="material-symbols-outlined text-outline text-base">volume_off</span><span class="hidden sm:inline">الصوت مكتوم</span>`;
+        if (window.ViewApp?.showToast) window.ViewApp.showToast('تم كتم التنبيهات الصوتية');
+      }
+    }
+
+    // Tab Switching
+    function switchTab(tabId) {
+      ['dispatch', 'courier', 'proofs'].forEach(t => {
+        const panel = document.getElementById(`tab-${t}`);
+        const btn = document.getElementById(`tabBtn-${t}`);
+        if (panel) panel.classList.add('hidden');
+        if (btn) {
+          btn.classList.remove('bg-secondary', 'text-white', 'shadow-md');
+          btn.classList.add('text-on-surface-variant');
+        }
+      });
+
+      const activePanel = document.getElementById(`tab-${tabId}`);
+      const activeBtn = document.getElementById(`tabBtn-${tabId}`);
+      if (activePanel) activePanel.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-secondary', 'text-white', 'shadow-md');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+
+      refreshAllViews();
+    }
+
+    // Clock
+    setInterval(() => {
+      const clock = document.getElementById('headerLiveClock');
+      if (clock) {
+        clock.textContent = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+      }
+    }, 1000);
+
+    // =========================================================================
+    // ORDERS DATA LOADER & CACHE
+    // =========================================================================
+    const DEFAULT_DELIVERY_ORDERS = [
+      {
+        id: 'ORD-9480',
+        orderNumber: '#ORD-9480',
+        customerName: 'ليلى محمود',
+        customerPhone: '01098765432',
+        destination: 'شارع كورنيش النيل، برج الصداقة، الدور 4، شقة 12 - أسوان',
+        mode: 'توصيل سريع للمنزل',
+        items: [
+          { name: 'سبانيش لاتيه بارد', qty: 2, price: 75 },
+          { name: 'وافل بلجيكي بالفستق والبلوبيري', qty: 1, price: 165 },
+          { name: 'برجر ترافل أنجوس فاخر', qty: 1, price: 286 }
+        ],
+        subtotal: 601,
+        deliveryFee: 25,
+        total: '626.00 ج.م',
+        totalNumeric: 626,
+        paymentMethod: 'كاش عند الاستلام',
+        status: 'مع المندوب للتوصيل 🛵',
+        statusStep: 3,
+        courierName: 'محمد الشريف',
+        courierTitle: 'كابتن محمد الشريف #14',
+        timeFormatted: 'منذ 18 دقيقة',
+        createdAt: new Date(Date.now() - 18 * 60000).toISOString()
+      },
+      {
+        id: 'ORD-9482',
+        orderNumber: '#ORD-9482',
+        customerName: 'م. إسلام عبد الباسط',
+        customerPhone: '01155443322',
+        destination: 'ميدان المحطة، عمارة الأوقاف، الدور 2 - أسوان',
+        mode: 'توصيل للمنزل',
+        items: [
+          { name: 'فيليه ستيك واغيو بالكمأة', qty: 1, price: 420 },
+          { name: 'سلطة سيزر دجاج مشوي', qty: 1, price: 130 },
+          { name: 'كولد برو إثيوبي فاخر', qty: 2, price: 80 }
+        ],
+        subtotal: 710,
+        deliveryFee: 20,
+        total: '730.00 ج.م',
+        totalNumeric: 730,
+        paymentMethod: 'فودافون كاش (مدفوع إلكترونياً ✅)',
+        status: 'قيد التحضير والتجميع بالمطبخ 🍳',
+        statusStep: 2,
+        courierName: 'محمود إبراهيم',
+        courierTitle: 'كابتن محمود إبراهيم #08',
+        timeFormatted: 'منذ 7 دقائق',
+        createdAt: new Date(Date.now() - 7 * 60000).toISOString()
+      },
+      {
+        id: 'ORD-9478',
+        orderNumber: '#ORD-9478',
+        customerName: 'د. طارق المنصور',
+        customerPhone: '01288776655',
+        destination: 'منطقة أطلس، شارع النيابات، فيلا المنصور - أسوان',
+        mode: 'توصيل للمنزل',
+        items: [
+          { name: 'تشكيلة مشويات عائلية رويال', qty: 2, price: 650 },
+          { name: 'مقبلات شرقية متنوعة', qty: 3, price: 95 },
+          { name: 'كيكة الفستق بالزعفران', qty: 2, price: 90 }
+        ],
+        subtotal: 1765,
+        deliveryFee: 35,
+        total: '1,800.00 ج.م',
+        totalNumeric: 1800,
+        paymentMethod: 'كاش عند الاستلام',
+        status: 'تم التسليم والاستلام ✅',
+        statusStep: 4,
+        courierName: 'محمد الشريف',
+        courierTitle: 'كابتن محمد الشريف #14',
+        deliveredAt: 'اليوم، 02:40 م',
+        deliveryNotes: 'تم التسليم للعميل باليد في الفيلا مع شكر العميل',
+        timeFormatted: 'منذ 55 دقيقة',
+        createdAt: new Date(Date.now() - 55 * 60000).toISOString()
+      }
+    ];
+
+    function getAllOrders() {
+      let list = [];
+      try {
+        const raw = localStorage.getItem('view_restaurant_orders');
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) list = parsed;
+        }
+      } catch (e) {}
+
+      const map = new Map();
+      list.forEach(o => {
+        const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+        if (k) map.set(k, o);
+      });
+      DEFAULT_DELIVERY_ORDERS.forEach(o => {
+        const k = (o.orderNumber || o.id || '').replace('#', '').trim();
+        if (k && !map.has(k)) map.set(k, o);
+      });
+      return Array.from(map.values());
+    }
+
+    function saveAllOrders(list) {
+      try {
+        localStorage.setItem('view_restaurant_orders', JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    // Refresh all views
+    function refreshAllViews() {
+      const orders = getAllOrders();
+      updateMetricCounters(orders);
+      renderDispatchTab(orders);
+      renderCourierTab(orders);
+      renderProofsTab(orders);
+    }
+
+    // Update Counter Badges
+    function updateMetricCounters(orders) {
+      const total = orders.length;
+      const prep = orders.filter(o => (o.statusStep || 2) <= 2 && !o.status?.includes('ملغي')).length;
+      const deliv = orders.filter(o => o.statusStep === 3 || o.status?.includes('توصيل')).length;
+      const done = orders.filter(o => o.statusStep === 4 || o.status?.includes('تم التسليم') || o.status?.includes('استلام')).length;
+
+      const mTotal = document.getElementById('metric-total-orders');
+      const mPrep = document.getElementById('metric-preparing-orders');
+      const mDeliv = document.getElementById('metric-delivering-orders');
+      const mDone = document.getElementById('metric-delivered-orders');
+
+      if (mTotal) mTotal.textContent = total;
+      if (mPrep) mPrep.textContent = prep;
+      if (mDeliv) mDeliv.textContent = deliv;
+      if (mDone) mDone.textContent = done;
+
+      const bDisp = document.getElementById('badge-dispatch-count');
+      const bCour = document.getElementById('badge-courier-count');
+      const bProof = document.getElementById('badge-proofs-count');
+
+      if (bDisp) bDisp.textContent = prep + deliv;
+      if (bCour) bCour.textContent = deliv;
+      if (bProof) bProof.textContent = done;
+    }
+
+    // =========================================================================
+    // FEATURE 1: DISPATCH VIEW (الموظف يتواصل مع المندوب ويسلمه الأوردر)
+    // =========================================================================
+    function renderDispatchTab(orders, query = '') {
+      const container = document.getElementById('dispatchOrdersGrid');
+      if (!container) return;
+
+      const filterText = (query || document.getElementById('dispatchSearchInput')?.value || '').trim().toLowerCase();
+
+      let activeOrders = orders.filter(o => {
+        // Show pending, preparing, or on-the-way
+        const isCompleted = o.statusStep === 4 || o.status?.includes('تم التسليم');
+        const isCancelled = o.status?.includes('ملغي');
+        return (!isCompleted || isCancelled) || o.statusStep === 3;
+      });
+
+      if (filterText) {
+        activeOrders = orders.filter(o => {
+          const num = (o.orderNumber || o.id || '').toLowerCase();
+          const name = (o.customerName || '').toLowerCase();
+          const phone = (o.customerPhone || '').toLowerCase();
+          const courier = (o.courierName || o.courierTitle || '').toLowerCase();
+          const itemsText = (o.items || []).map(i => i.name).join(' ').toLowerCase();
+          return num.includes(filterText) || name.includes(filterText) || phone.includes(filterText) || courier.includes(filterText) || itemsText.includes(filterText);
+        });
+      }
+
+      if (activeOrders.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl flex flex-col items-center justify-center text-center p-6">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/40 mb-3">moped</span>
+            <h3 class="text-lg font-bold text-white">لا توجد طلبات توصيل قيد التنفيذ حالياً</h3>
+            <p class="text-xs text-on-surface-variant max-w-sm mt-1">
+              جميع الطلبات تم تسليمها للعملاء بنجاح، أو يمكنك الضغط على زر "تجربة أوردر جديد" بالأعلى لإنشاء محاكاة طلب فوري.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = activeOrders.map(o => {
+        const orderId = o.orderNumber || o.id || '#ORD-LIVE';
+        const safeNum = orderId.replace('#', '');
+        const step = o.statusStep || 2;
+        const isWithCourier = step === 3 || o.status?.includes('توصيل');
+        const isDone = step === 4 || o.status?.includes('تم التسليم');
+
+        const assignedCourier = o.courierName || 'محمد الشريف';
+        const courierObj = COURIERS_ROSTER.find(c => c.name === assignedCourier) || COURIERS_ROSTER[0];
+
+        const items = Array.isArray(o.items) ? o.items : [];
+        const itemsListHtml = items.map(i => `
+          <div class="flex items-center justify-between text-xs py-1 border-b border-outline-variant/15 last:border-0">
+            <span class="text-white"><strong class="text-secondary font-mono">${i.qty || 1}x</strong> ${i.name}</span>
+            <span class="text-on-surface-variant font-mono">${i.price ? i.price + ' ج.م' : ''}</span>
+          </div>
+        `).join('');
+
+        // Courier selector options
+        const courierOptions = COURIERS_ROSTER.map(c => `
+          <option value="${c.name}" ${c.name === assignedCourier ? 'selected' : ''}>${c.title} (${c.phone})</option>
+        `).join('');
+
+        // In-App Chat messages if stored
+        const chatStorageKey = `view_chat_${safeNum}`;
+        const chatMsgs = getLocalChatMessages(chatStorageKey);
+        const chatHtml = chatMsgs.map(m => `
+          <div class="text-[11px] p-2 rounded-lg ${m.from === 'staff' ? 'bg-secondary/20 text-white self-start' : 'bg-surface-container-high text-emerald-400 self-end'} flex flex-col gap-0.5">
+            <div class="flex items-center justify-between gap-2 text-[10px] text-on-surface-variant">
+              <strong>${m.from === 'staff' ? 'الموظف (المطبخ)' : courierObj.title}</strong>
+              <span class="font-mono">${m.time}</span>
+            </div>
+            <span>${m.text}</span>
+          </div>
+        `).join('');
+
+        return `
+          <div class="bg-surface-container-lowest border ${isWithCourier ? 'border-blue-500/40 ring-1 ring-blue-500/20' : 'border-outline-variant/30'} rounded-2xl p-5 shadow-sm flex flex-col justify-between gap-4">
+            
+            <!-- Card Header -->
+            <div class="flex items-start justify-between gap-2 pb-3 border-b border-outline-variant/20">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="font-mono text-lg font-black text-secondary">${orderId}</span>
+                  <span class="px-2 py-0.5 rounded text-[10px] font-bold ${
+                    isWithCourier ? 'bg-blue-500/20 text-blue-400 border border-blue-500/40' :
+                    isDone ? 'bg-emerald-500/20 text-emerald-400' : 'bg-amber-500/20 text-amber-400'
+                  }">
+                    ${o.status || 'قيد التحضير'}
+                  </span>
+                </div>
+                <span class="text-xs text-on-surface-variant font-mono mt-0.5 block">${o.timeFormatted || 'اليوم'} • ${o.mode || 'توصيل'}</span>
+              </div>
+              <div class="text-left">
+                <span class="font-mono text-lg font-black text-white block">${o.total || '0.00 ج.م'}</span>
+                <span class="text-[11px] font-bold ${o.paymentMethod?.includes('مدفوع') ? 'text-emerald-400' : 'text-amber-400'}">
+                  ${o.paymentMethod || 'كاش عند الاستلام'}
+                </span>
+              </div>
+            </div>
+
+            <!-- Customer & Destination Box -->
+            <div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 text-xs">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-base">person</span>
+                  <strong class="text-white text-sm">${o.customerName || 'عميل The View'}</strong>
+                </div>
+                <div class="flex items-center gap-1.5">
+                  <a href="tel:${o.customerPhone || '01101774545'}" class="px-2.5 py-1 rounded-lg bg-surface-container hover:bg-surface-container-high text-on-surface font-mono font-bold flex items-center gap-1" title="اتصال مباشر بالعميل">
+                    <span class="material-symbols-outlined text-xs">call</span>
+                    <span>${o.customerPhone || '01101774545'}</span>
+                  </a>
+                  <a href="https://wa.me/2${(o.customerPhone || '01101774545').replace(/[^0-9]/g, '')}?text=${encodeURIComponent(`مرحباً أستاذ ${o.customerName || ''}، بخصوص طلبكم ${orderId} من مطعم The View أسوان:`)}" target="_blank" class="p-1 rounded-lg bg-emerald-600/20 hover:bg-emerald-600 text-emerald-400 hover:text-white transition-colors" title="واتساب العميل">
+                    <span class="material-symbols-outlined text-xs">chat</span>
+                  </a>
+                </div>
+              </div>
+              <div class="flex items-start gap-1.5 text-on-surface-variant pt-1 border-t border-outline-variant/15">
+                <span class="material-symbols-outlined text-sm text-secondary shrink-0 mt-0.5">location_on</span>
+                <span class="text-white/90 leading-relaxed">${o.destination || 'ميدان المحطة - أسوان'}</span>
+              </div>
+            </div>
+
+            <!-- Dishes Accordion -->
+            <div class="bg-surface-container/40 rounded-xl p-3 flex flex-col gap-1.5">
+              <div class="flex items-center justify-between text-xs font-bold text-on-surface-variant">
+                <span>أصناف الطلب (${items.length} أصناف):</span>
+                <span class="text-secondary font-mono">${o.total || ''}</span>
+              </div>
+              <div class="mt-1 flex flex-col">
+                ${itemsListHtml || '<span class="text-xs text-on-surface-variant">تشكيلة وجبات ومشروبات فاخرة</span>'}
+              </div>
+            </div>
+
+            <!-- COURIER COMMUNICATION & HANDOVER CONTROLLER -->
+            <div class="bg-surface-container-low border border-outline-variant/30 rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <span class="material-symbols-outlined text-secondary text-lg">moped</span>
+                  <span class="font-bold text-xs text-white">تخصيص وتواصل المندوب:</span>
+                </div>
+                <select onchange="updateOrderAssignedCourier('${safeNum}', this.value)" class="bg-surface-container text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-outline-variant/30 focus:outline-none">
+                  ${courierOptions}
+                </select>
+              </div>
+
+              <!-- Quick Communication Action Buttons for Staff -->
+              <div class="grid grid-cols-2 gap-2">
+                <button onclick="sendOrderTicketToCourierWhatsApp('${safeNum}')" class="py-2.5 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all active:scale-95" title="إرسال تذكرة التوصيل والعنوان للمندوب على واتساب">
+                  <span class="material-symbols-outlined text-base">send_to_mobile</span>
+                  <span>واتساب المندوب 📲</span>
+                </button>
+                <a href="tel:${courierObj.phone}" class="py-2.5 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs flex items-center justify-center gap-1.5 border border-outline-variant/30 transition-all" title="اتصال هاتفي بالمندوب">
+                  <span class="material-symbols-outlined text-base">call</span>
+                  <span>اتصال بالمندوب 📞</span>
+                </a>
+              </div>
+
+              <!-- In-App Dispatch Chat Container -->
+              <div class="bg-surface-container/70 rounded-xl p-2.5 flex flex-col gap-2">
+                <div class="flex items-center justify-between text-[11px] font-bold text-on-surface-variant border-b border-outline-variant/20 pb-1.5">
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-xs text-secondary">forum</span>
+                    <span>محادثة فورية مباشرة بين الموظف والمندوب</span>
+                  </span>
+                  <span class="text-[10px] text-secondary">نشط الآن</span>
+                </div>
+
+                <!-- Chat Messages Stream -->
+                <div id="chatStream-${safeNum}" class="flex flex-col gap-1.5 max-h-32 overflow-y-auto pr-1">
+                  ${chatHtml || '<span class="text-[11px] text-on-surface-variant text-center py-2">لا توجد رسائل سابقة. أرسل تنبيهاً سريعاً للمندوب أدناه:</span>'}
+                </div>
+
+                <!-- Quick Chat Template Pills -->
+                <div class="flex flex-wrap gap-1 pt-1 border-t border-outline-variant/15">
+                  <button onclick="sendQuickChatMessage('${safeNum}', 'الطلب جاهز سخن استلمه فوراً من المطبخ 🍲')" class="text-[10px] px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white transition-colors">
+                    🍲 الطلب جاهز سخن
+                  </button>
+                  <button onclick="sendQuickChatMessage('${safeNum}', 'العميل مستني أمام البوابة الرئيسية 🏢')" class="text-[10px] px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white transition-colors">
+                    🏢 العميل عند البوابة
+                  </button>
+                  <button onclick="sendQuickChatMessage('${safeNum}', 'معاك فكة 200 جنيه كاش؟ 💵')" class="text-[10px] px-2 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white transition-colors">
+                    💵 فكة 200 جنيه
+                  </button>
+                </div>
+
+                <!-- Input to send custom text -->
+                <div class="flex items-center gap-1.5 pt-1">
+                  <input id="chatInput-${safeNum}" type="text" placeholder="اكتب رسالة للمندوب..." class="flex-1 bg-surface-container-low text-xs text-white p-2 rounded-lg border border-outline-variant/20 focus:outline-none focus:ring-1 focus:ring-secondary text-right" onkeydown="if(event.key==='Enter') sendCustomChatMessage('${safeNum}')"/>
+                  <button onclick="sendCustomChatMessage('${safeNum}')" class="p-2 rounded-lg bg-secondary text-white hover:bg-secondary-hover text-xs font-bold transition-all" title="إرسال">
+                    <span class="material-symbols-outlined text-sm">send</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- HANDOVER BUTTON (تسليم الموظف الأوردر للمندوب) -->
+              <div class="pt-1">
+                ${!isWithCourier ? `
+                  <button onclick="handoverOrderToCourier('${safeNum}')" class="w-full py-3.5 px-4 rounded-xl bg-secondary hover:bg-secondary-hover text-white font-extrabold text-sm flex items-center justify-center gap-2 shadow-lg transition-all active:scale-95 animate-pulse-ring">
+                    <span class="material-symbols-outlined text-lg">moped</span>
+                    <span>تسليم الأوردر للمندوب ➔ في الطريق للتوصيل 🛵</span>
+                  </button>
+                ` : `
+                  <div class="flex items-center justify-between p-3 rounded-xl bg-blue-500/15 border border-blue-500/30 text-blue-400 text-xs font-bold">
+                    <span class="flex items-center gap-1.5">
+                      <span class="material-symbols-outlined text-sm animate-bounce">moped</span>
+                      <span>تم تسليم العهدة للمندوب (${assignedCourier}) وهو الآن في طريقه للعميل</span>
+                    </span>
+                    <button onclick="openDeliveryProofModal('${safeNum}')" class="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs transition-colors flex items-center gap-1 shadow-sm">
+                      <span>تأكيد التسليم للعميل</span>
+                      <span class="material-symbols-outlined text-xs">check</span>
+                    </button>
+                  </div>
+                `}
+              </div>
+
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Filter Dispatch Orders
+    function filterDispatchOrders(query) {
+      const orders = getAllOrders();
+      renderDispatchTab(orders, query);
+    }
+
+    // Update Assigned Courier
+    async function updateOrderAssignedCourier(safeNum, courierName) {
+      const c = COURIERS_ROSTER.find(item => item.name === courierName) || COURIERS_ROSTER[0];
+      let orders = getAllOrders();
+      orders.forEach(o => {
+        const num = (o.orderNumber || o.id || '').replace('#', '');
+        if (num === safeNum) {
+          o.courierName = c.name;
+          o.courierTitle = c.title;
+        }
+      });
+      saveAllOrders(orders);
+      
+      if (window.ViewFirebase?.updateOrderStatus) {
+        await window.ViewFirebase.updateOrderStatus(safeNum, 'تحديث المندوب: ' + c.title, null, { courierName: c.name, courierTitle: c.title });
+      }
+
+      refreshAllViews();
+      if (window.ViewApp?.showToast) window.ViewApp.showToast(`تم تعيين ${c.title} لتوصيل الطلب #${safeNum}`);
+    }
+
+    // Staff Handover to Courier (الموظف يسلم الأوردر للمندوب)
+    async function handoverOrderToCourier(safeNum) {
+      const orders = getAllOrders();
+      const target = orders.find(o => (o.orderNumber || o.id || '').replace('#', '') === safeNum);
+      const courier = target?.courierName || currentActiveCourierName;
+
+      playDeliveryTone('delivery');
+
+      if (window.ViewFirebase?.updateOrderStatus) {
+        await window.ViewFirebase.updateOrderStatus(safeNum, 'مع المندوب للتوصيل 🛵', 3, {
+          courierName: courier,
+          handoverTime: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+        });
+      } else {
+        orders.forEach(o => {
+          if ((o.orderNumber || o.id || '').replace('#', '') === safeNum) {
+            o.status = 'مع المندوب للتوصيل 🛵';
+            o.statusStep = 3;
+            o.courierName = courier;
+            o.handoverTime = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+          }
+        });
+        saveAllOrders(orders);
+      }
+
+      // Add automated handover chat message
+      appendChatMessage(`view_chat_${safeNum}`, {
+        from: 'staff',
+        text: `📦 تم استلام الأوردر من المطبخ بنجاح وانطلاق كابتن ${courier} نحو العميل!`,
+        time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+      });
+
+      refreshAllViews();
+
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`🛵 تم تسليم الأوردر #${safeNum} للمندوب (${courier}) بنجاح!`);
+      }
+    }
+
+    // WhatsApp Dispatch Ticket for Courier
+    function sendOrderTicketToCourierWhatsApp(safeNum) {
+      const orders = getAllOrders();
+      const o = orders.find(item => (item.orderNumber || item.id || '').replace('#', '') === safeNum);
+      if (!o) return;
+
+      const courier = COURIERS_ROSTER.find(c => c.name === o.courierName) || COURIERS_ROSTER[0];
+      const itemsText = (o.items || []).map(i => `• ${i.qty || 1}x ${i.name}`).join('%0A');
+      const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(o.destination || 'ميدان المحطة أسوان')}`;
+
+      const text = 
+        `*🛵 إشعار مهمة توصيل جديدة - مطعم The View أسوان*%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `📌 *رقم الأوردر:* %23${safeNum}%0A` +
+        `👤 *اسم العميل:* ${encodeURIComponent(o.customerName || 'عميل The View')}%0A` +
+        `📞 *هاتف العميل للاتصال:* ${o.customerPhone || '01101774545'}%0A` +
+        `📍 *عنوان التوصيل:* ${encodeURIComponent(o.destination || 'ميدان المحطة - أسوان')}%0A` +
+        `🗺️ *رابط GPS خرائط Google:* ${encodeURIComponent(mapsUrl)}%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `🍽️ *محتويات الحقيبة:*%0A${itemsText}%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `💰 *المطلوب تحصيله كاش:* *${encodeURIComponent(o.total || '0.00 ج.م')}*%0A` +
+        `💳 *حالة الدفع:* ${encodeURIComponent(o.paymentMethod || 'كاش عند الاستلام')}%0A` +
+        `━━━━━━━━━━━━━━━━━━━━%0A` +
+        `⚡ *تنبيه:* يرجى الضغط على زر تأكيد التسليم فور إعطاء الأوردر للعميل. بالتوفيق كابتن ${encodeURIComponent(courier.name)}!`;
+
+      window.open(`https://wa.me/2${courier.phone}?text=${text}`, '_blank');
+    }
+
+    // In-App Chat Functions
+    function getLocalChatMessages(storageKey) {
+      try {
+        const raw = localStorage.getItem(storageKey);
+        return raw ? JSON.parse(raw) : [];
+      } catch (e) {
+        return [];
+      }
+    }
+
+    function appendChatMessage(storageKey, msgObj) {
+      try {
+        const list = getLocalChatMessages(storageKey);
+        list.push(msgObj);
+        localStorage.setItem(storageKey, JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function sendQuickChatMessage(safeNum, text) {
+      const storageKey = `view_chat_${safeNum}`;
+      appendChatMessage(storageKey, {
+        from: 'staff',
+        text: text,
+        time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+      });
+      refreshAllViews();
+    }
+
+    function sendCustomChatMessage(safeNum) {
+      const input = document.getElementById(`chatInput-${safeNum}`);
+      if (!input || !input.value.trim()) return;
+      const text = input.value.trim();
+      input.value = '';
+      sendQuickChatMessage(safeNum, text);
+    }
+
+    function courierReplyChat(safeNum, replyText) {
+      const storageKey = `view_chat_${safeNum}`;
+      appendChatMessage(storageKey, {
+        from: 'courier',
+        text: replyText,
+        time: new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' })
+      });
+      refreshAllViews();
+      if (window.ViewApp?.showToast) window.ViewApp.showToast(`📩 رسالة جديدة من المندوب: "${replyText}"`);
+    }
+
+    // =========================================================================
+    // FEATURE 2: COURIER VIEW (المندوب ياخد منه الأوردر ويسلمه للعميل)
+    // =========================================================================
+    function changeActiveCourier(name) {
+      currentActiveCourierName = name;
+      const c = COURIERS_ROSTER.find(item => item.name === name) || COURIERS_ROSTER[0];
+      const disp = document.getElementById('currentCourierDisplayName');
+      if (disp) disp.textContent = c.title;
+      refreshAllViews();
+      if (window.ViewApp?.showToast) window.ViewApp.showToast(`تم التبديل إلى حساب ${c.title}`);
+    }
+
+    function renderCourierTab(orders) {
+      const container = document.getElementById('courierMissionsContainer');
+      if (!container) return;
+
+      // Filter missions for the currently selected courier
+      const missions = orders.filter(o => {
+        const courier = o.courierName || 'محمد الشريف';
+        return courier === currentActiveCourierName && (o.statusStep === 3 || o.statusStep === 2);
+      });
+
+      if (missions.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl flex flex-col items-center justify-center text-center p-6">
+            <span class="material-symbols-outlined text-5xl text-emerald-400 mb-3 animate-pulse">check_circle</span>
+            <h3 class="text-lg font-bold text-white">لا توجد طلبات توصيل معلقة لحساب (${currentActiveCourierName})</h3>
+            <p class="text-xs text-on-surface-variant max-w-sm mt-1">
+              أنت جاهز لاستلام طلبات جديدة! يمكنك تسليم طلب من شاشة الموظف، أو التبديل لكابتن آخر.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = missions.map(o => {
+        const orderId = o.orderNumber || o.id || '#ORD-LIVE';
+        const safeNum = orderId.replace('#', '');
+        const items = Array.isArray(o.items) ? o.items : [];
+        const mapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(o.destination || 'ميدان المحطة أسوان')}`;
+        const cleanCustPhone = (o.customerPhone || '01101774545').replace(/[^0-9]/g, '');
+
+        const chatStorageKey = `view_chat_${safeNum}`;
+        const chatMsgs = getLocalChatMessages(chatStorageKey);
+        const lastStaffMsg = [...chatMsgs].reverse().find(m => m.from === 'staff');
+
+        return `
+          <div class="bg-surface-container-lowest border-2 border-secondary/50 rounded-2xl p-5 shadow-xl flex flex-col justify-between gap-5 relative overflow-hidden">
+            <div class="absolute top-0 right-0 left-0 h-1.5 bg-gradient-to-r from-secondary via-amber-500 to-emerald-500"></div>
+
+            <!-- Courier Mission Header -->
+            <div class="flex items-start justify-between gap-2 pt-1 pb-3 border-b border-outline-variant/20">
+              <div>
+                <div class="flex items-center gap-2">
+                  <span class="px-2.5 py-1 rounded-lg bg-secondary text-white font-mono text-sm font-extrabold">${orderId}</span>
+                  <span class="px-2 py-0.5 rounded-full bg-blue-500/20 text-blue-400 text-xs font-bold border border-blue-500/30">
+                    مهمة قيد التوصيل 🛵
+                  </span>
+                </div>
+                <span class="text-xs text-on-surface-variant mt-1 block">توقيت استلام العهدة: ${o.handoverTime || 'منذ قليل'}</span>
+              </div>
+              <div class="text-left bg-surface-container-low px-3 py-1.5 rounded-xl border border-outline-variant/30">
+                <span class="text-[10px] text-on-surface-variant block">المطلوب تحصيله كاش:</span>
+                <span class="font-mono text-base font-black text-secondary block">${o.total || '0.00 ج.م'}</span>
+              </div>
+            </div>
+
+            <!-- Customer Destination Card with Big GPS Button -->
+            <div class="bg-surface-container-low rounded-xl p-4 flex flex-col gap-3">
+              <div class="flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] text-on-surface-variant block">اسم العميل:</span>
+                  <strong class="text-base text-white font-bold">${o.customerName || 'عميل The View'}</strong>
+                </div>
+                <div class="flex items-center gap-2">
+                  <a href="tel:${cleanCustPhone}" class="px-3 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center gap-1 shadow-sm transition-all" title="اتصال مباشر بالعميل">
+                    <span class="material-symbols-outlined text-sm">call</span>
+                    <span>اتصال بالعميل</span>
+                  </a>
+                  <a href="https://wa.me/2${cleanCustPhone}?text=${encodeURIComponent(`مرحباً أستاذ ${o.customerName}، أنا كابتن ${currentActiveCourierName} من مطعم The View أسوان، في طريقي إليك بالطلب ${orderId}.`)}" target="_blank" class="p-2 rounded-xl bg-surface-container hover:bg-surface-container-high text-emerald-400 border border-outline-variant/30" title="محادثة واتساب">
+                    <span class="material-symbols-outlined text-base">chat</span>
+                  </a>
+                </div>
+              </div>
+
+              <!-- Address & GPS Map -->
+              <div class="pt-2 border-t border-outline-variant/20 flex flex-col gap-2">
+                <div class="flex items-start gap-1.5 text-xs">
+                  <span class="material-symbols-outlined text-secondary text-base shrink-0 mt-0.5">location_on</span>
+                  <span class="text-white font-medium leading-relaxed">${o.destination || 'ميدان المحطة - أسوان'}</span>
+                </div>
+                <a href="${mapsUrl}" target="_blank" class="w-full py-2.5 px-3 rounded-xl bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs flex items-center justify-center gap-1.5 shadow-sm transition-all">
+                  <span class="material-symbols-outlined text-base">near_me</span>
+                  <span>فتح الموقع في خرائط Google (GPS) للملاحة المباشرة 🗺️</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Items Check -->
+            <div class="bg-surface-container/50 rounded-xl p-3 text-xs flex flex-col gap-1.5">
+              <span class="font-bold text-on-surface-variant flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm text-secondary">checklist</span>
+                <span>تأكيد محتويات الحقيبة قبل التسليم:</span>
+              </span>
+              <div class="flex flex-wrap gap-1.5 mt-1">
+                ${items.map(i => `<span class="px-2 py-1 rounded-lg bg-surface-container text-white font-bold text-[11px]">${i.qty || 1}x ${i.name}</span>`).join('')}
+              </div>
+            </div>
+
+            <!-- In-App Quick Message to Staff -->
+            <div class="bg-surface-container-low rounded-xl p-3 flex flex-col gap-2 text-xs">
+              <div class="flex items-center justify-between text-on-surface-variant">
+                <span>تحديثات مع المطبخ والموظف:</span>
+                ${lastStaffMsg ? `<span class="text-secondary text-[11px] truncate max-w-[200px]" title="${lastStaffMsg.text}">💬 الموظف: "${lastStaffMsg.text}"</span>` : ''}
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <button onclick="courierReplyChat('${safeNum}', 'أنا في الطريق للعميل الآن 🛵')" class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white text-[11px] font-bold">
+                  🛵 في الطريق للعميل
+                </button>
+                <button onclick="courierReplyChat('${safeNum}', 'وصلت تحت عمارة العميل 📍')" class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white text-[11px] font-bold">
+                  📍 وصلت لموقع العميل
+                </button>
+                <button onclick="courierReplyChat('${safeNum}', 'زحام خفيف في الطريق 5 دقائق وأصل ⏱️')" class="px-2.5 py-1 rounded bg-surface-container hover:bg-surface-container-high text-white text-[11px] font-bold">
+                  ⏱️ 5 دقائق وأوصل
+                </button>
+              </div>
+            </div>
+
+            <!-- FINAL DELIVERY CONFIRMATION BUTTON (تأكيد تسليم الأوردر للعميل) -->
+            <div class="pt-2">
+              <button onclick="openDeliveryProofModal('${safeNum}')" class="w-full py-4 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-extrabold text-base flex items-center justify-center gap-2 shadow-2xl transition-all active:scale-95 animate-pulse-ring">
+                <span class="material-symbols-outlined text-2xl">check_circle</span>
+                <span>تأكيد تسليم الأوردر للعميل واستلام الحساب ✅</span>
+              </button>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // =========================================================================
+    // FEATURE 3: PROOF & DELIVERY NOTIFICATION (يظهر ليا او اعرف انه اتوصل للعميل)
+    // =========================================================================
+    function openDeliveryProofModal(safeNum) {
+      activePendingOrderIdForDelivery = safeNum;
+      const orders = getAllOrders();
+      const o = orders.find(item => (item.orderNumber || item.id || '').replace('#', '') === safeNum);
+      if (!o) return;
+
+      document.getElementById('modalDeliveryOrderNum').textContent = '#' + safeNum;
+      document.getElementById('modalCustomerName').textContent = o.customerName || 'عميل The View';
+      document.getElementById('modalDestination').textContent = o.destination || 'ميدان المحطة أسوان';
+      document.getElementById('modalTotalAmount').textContent = o.total || (o.totalNumeric ? o.totalNumeric + ' ج.م' : '0.00 ج.م');
+      document.getElementById('modalCourierNameInput').value = o.courierTitle || `كابتن ${currentActiveCourierName}`;
+
+      const modal = document.getElementById('deliveryProofModal');
+      if (modal) modal.classList.remove('hidden');
+    }
+
+    function closeDeliveryProofModal() {
+      const modal = document.getElementById('deliveryProofModal');
+      if (modal) modal.classList.add('hidden');
+      activePendingOrderIdForDelivery = null;
+    }
+
+    // Execute Delivery Confirmation
+    async function executeFinalDeliveryConfirmation() {
+      if (!activePendingOrderIdForDelivery) return;
+      const safeNum = activePendingOrderIdForDelivery;
+      const courierTitle = document.getElementById('modalCourierNameInput')?.value || `كابتن ${currentActiveCourierName}`;
+      const notes = document.getElementById('modalDeliveryNotes')?.value.trim() || 'تم التسليم للعميل باليد مع شكر العميل وتأكيد الحساب';
+      const payType = document.querySelector('input[name="paymentCollectionType"]:checked')?.value || 'cash';
+      const payText = payType === 'cash' ? 'كاش تم تحصيله بالكامل 💵' : 'دفع إلكتروني معتمد 📱';
+      const timeStr = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+      closeDeliveryProofModal();
+
+      // 1. Play Fanfare Celebration Sound
+      playDeliveryTone('delivered');
+
+      // 2. Update via Firebase Services or Local Cache
+      const extraData = {
+        courierTitle: courierTitle,
+        courierName: currentActiveCourierName,
+        deliveredAt: `${new Date().toLocaleDateString('ar-EG')}، الساعة ${timeStr}`,
+        deliveryNotes: notes,
+        paymentCollectedStatus: payText
+      };
+
+      if (window.ViewFirebase?.updateOrderStatus) {
+        await window.ViewFirebase.updateOrderStatus(safeNum, 'تم التسليم والاستلام ✅', 4, extraData);
+      } else {
+        const orders = getAllOrders();
+        orders.forEach(o => {
+          if ((o.orderNumber || o.id || '').replace('#', '') === safeNum) {
+            o.status = 'تم التسليم والاستلام ✅';
+            o.statusStep = 4;
+            Object.assign(o, extraData);
+          }
+        });
+        saveAllOrders(orders);
+      }
+
+      // Add completion chat note
+      appendChatMessage(`view_chat_${safeNum}`, {
+        from: 'courier',
+        text: `🎉 تم تسليم الأوردر للعميل بنجاح واستلام المبلغ (${payText}). شكراً لكم!`,
+        time: timeStr
+      });
+
+      // 3. Trigger Celebration Banner at top of screen ("يظهر ليا او اعرف انه اتوصل للعميل")
+      const orders = getAllOrders();
+      const target = orders.find(o => (o.orderNumber || o.id || '').replace('#', '') === safeNum);
+      const custName = target?.customerName || 'العميل';
+
+      triggerDeliveryCelebrationBanner(safeNum, courierTitle, custName);
+
+      refreshAllViews();
+
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`🎉 تم تسجيل تسليم الطلب #${safeNum} للعميل بنجاح!`);
+      }
+    }
+
+    // Trigger Top Banner
+    function triggerDeliveryCelebrationBanner(orderId, courierName, custName) {
+      const banner = document.getElementById('liveDeliveryCelebrationBanner');
+      const bTitle = document.getElementById('bannerTitle');
+      const bDesc = document.getElementById('bannerDesc');
+      const bTime = document.getElementById('bannerTimestamp');
+
+      if (!banner) return;
+
+      const num = orderId.startsWith('#') ? orderId : '#' + orderId;
+      if (bTitle) bTitle.textContent = `🎉 تم تسليم الأوردر ${num} للعميل (${custName}) بنجاح!`;
+      if (bDesc) bDesc.textContent = `تم تأكيد الاستلام والتسليم بواسطة ${courierName} في نفس اللحظة، وتحديث لوحة الإدارة وشاشة العميل.`;
+      if (bTime) bTime.textContent = new Date().toLocaleTimeString('ar-EG', { hour: '2-digit', minute: '2-digit' });
+
+      banner.classList.remove('hidden');
+
+      // Auto dismiss after 14 seconds
+      setTimeout(() => {
+        closeCelebrationBanner();
+      }, 14000);
+    }
+
+    function closeCelebrationBanner() {
+      const banner = document.getElementById('liveDeliveryCelebrationBanner');
+      if (banner) banner.classList.add('hidden');
+    }
+
+    // Render Proofs Tab
+    function renderProofsTab(orders) {
+      const container = document.getElementById('deliveredProofsGrid');
+      if (!container) return;
+
+      const delivered = orders.filter(o => o.statusStep === 4 || o.status?.includes('تم التسليم') || o.status?.includes('استلام'));
+
+      if (delivered.length === 0) {
+        container.innerHTML = `
+          <div class="col-span-full py-16 bg-surface-container-lowest border border-outline-variant/30 rounded-2xl flex flex-col items-center justify-center text-center p-6">
+            <span class="material-symbols-outlined text-5xl text-on-surface-variant/40 mb-3">verified</span>
+            <h3 class="text-lg font-bold text-white">لا توجد إثباتات تسليم سابقة حالياً</h3>
+            <p class="text-xs text-on-surface-variant max-w-sm mt-1">
+              عند إتمام أول أوردر وتسليمه للعميل، سيتم أرشفة الإيصال وإثبات التسليم هنا تلقائياً.
+            </p>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = delivered.map(o => {
+        const orderId = o.orderNumber || o.id || '#ORD-LIVE';
+        const safeNum = orderId.replace('#', '');
+        const items = Array.isArray(o.items) ? o.items : [];
+        const cleanPhone = (o.customerPhone || '01101774545').replace(/[^0-9]/g, '');
+
+        const thankYouWaText = encodeURIComponent(
+          `*The View Cafe & Restaurant - أسوان*%0A` +
+          `━━━━━━━━━━━━━━━━━━━━%0A` +
+          `مرحباً أستاذ/ة ${o.customerName || ''}، نود أن نشكركم لاختياركم The View أسوان! نتمنى أن تكون وجبتكم بالطلب ${orderId} قد نالت كامل رضاكم.%0A` +
+          `يسعدنا دائماً تقييمكم لخدمتنا ولتجربة التوصيل معنا. بالهناء والشفاء! 🌟🍽️`
+        );
+
+        return `
+          <div class="bg-surface-container-lowest border border-emerald-500/30 rounded-2xl p-5 shadow-lg flex flex-col justify-between gap-4 relative overflow-hidden">
+            <div class="absolute top-0 right-0 left-0 h-1 bg-emerald-500"></div>
+
+            <div class="flex items-center justify-between pb-3 border-b border-outline-variant/20">
+              <div>
+                <span class="font-mono text-base font-black text-white">${orderId}</span>
+                <span class="text-[11px] text-emerald-400 font-bold block mt-0.5">تم التسليم بنجاح ✅</span>
+              </div>
+              <div class="w-10 h-10 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
+                <span class="material-symbols-outlined text-xl">done_all</span>
+              </div>
+            </div>
+
+            <!-- Proof Metadata -->
+            <div class="bg-surface-container-low rounded-xl p-3.5 flex flex-col gap-2 text-xs">
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">العميل المستلم:</span>
+                <strong class="text-white">${o.customerName || 'عميل The View'}</strong>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">كابتن التوصيل:</span>
+                <strong class="text-emerald-400">${o.courierTitle || o.courierName || 'كابتن محمد الشريف #14'}</strong>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">توقيت التسليم الفعلي:</span>
+                <span class="font-mono text-white font-bold">${o.deliveredAt || o.timeFormatted || 'اليوم'}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-on-surface-variant">المبلغ المحصل:</span>
+                <strong class="font-mono text-secondary font-bold text-sm">${o.total || '0.00 ج.م'}</strong>
+              </div>
+              ${o.deliveryNotes ? `
+                <div class="pt-2 border-t border-outline-variant/15 text-[11px] text-on-surface-variant italic">
+                  📝 إثبات: ${o.deliveryNotes}
+                </div>
+              ` : ''}
+            </div>
+
+            <!-- Proof Actions -->
+            <div class="grid grid-cols-2 gap-2 pt-1">
+              <a href="https://wa.me/2${cleanPhone}?text=${thankYouWaText}" target="_blank" class="py-2 px-3 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs flex items-center justify-center gap-1 shadow-sm transition-all" title="إرسال رسالة شكر وتقييم للعميل على واتساب">
+                <span class="material-symbols-outlined text-sm">reviews</span>
+                <span>شكر وتقييم واتساب 🌟</span>
+              </a>
+              <button onclick="window.print()" class="py-2 px-3 rounded-xl bg-surface-container hover:bg-surface-container-high text-white font-bold text-xs flex items-center justify-center gap-1 border border-outline-variant/30 transition-all">
+                <span class="material-symbols-outlined text-sm">print</span>
+                <span>طباعة الإيصال 🖨️</span>
+              </button>
+            </div>
+
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Helper: Create Demo Order for Testing
+    function createNewDemoOrder() {
+      const num = Math.floor(1000 + Math.random() * 9000);
+      const newOrder = {
+        id: `ORD-${num}`,
+        orderNumber: `#ORD-${num}`,
+        customerName: 'أحمد فتحي (تجربة توصيل)',
+        customerPhone: '01012345678',
+        destination: 'كورنيش النيل، أمام نادى التجديف، عمارة 3، الدور 2 - أسوان',
+        mode: 'توصيل سريع',
+        items: [
+          { name: 'ستيك تندرلوين واغيو فاخر', qty: 1, price: 420 },
+          { name: 'كولد برو إثيوبي', qty: 2, price: 75 },
+          { name: 'كيكة فستق بالزعفران', qty: 1, price: 90 }
+        ],
+        subtotal: 660,
+        deliveryFee: 25,
+        total: '685.00 ج.م',
+        totalNumeric: 685,
+        paymentMethod: 'كاش عند الاستلام',
+        status: 'قيد التحضير والتجميع بالمطبخ 🍳',
+        statusStep: 2,
+        courierName: currentActiveCourierName,
+        courierTitle: `كابتن ${currentActiveCourierName}`,
+        timeFormatted: 'الآن',
+        createdAt: new Date().toISOString()
+      };
+
+      const orders = getAllOrders();
+      orders.unshift(newOrder);
+      saveAllOrders(orders);
+
+      if (window.ViewFirebase?.saveOrder) {
+        window.ViewFirebase.saveOrder(newOrder).catch(() => {});
+      }
+
+      refreshAllViews();
+      if (window.ViewApp?.showToast) {
+        window.ViewApp.showToast(`✨ تم إنشاء الأوردر التجريبي #${newOrder.id} بنجاح!`);
+      }
+    }
+
+    // Initial Load
+    document.addEventListener('DOMContentLoaded', () => {
+      // Check query param for tab or order
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      const orderParam = urlParams.get('order');
+
+      if (tabParam && ['dispatch', 'courier', 'proofs'].includes(tabParam)) {
+        switchTab(tabParam);
+      } else {
+        refreshAllViews();
+      }
+
+      if (orderParam) {
+        setTimeout(() => {
+          const input = document.getElementById('dispatchSearchInput');
+          if (input) {
+            input.value = orderParam.replace('#', '');
+            filterDispatchOrders(input.value);
+          }
+        }, 300);
+      }
+    });
+  </script>
+</body>
+</html>
