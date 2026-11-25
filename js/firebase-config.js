@@ -1,6 +1,6 @@
 /**
  * View Restaurant & Café - Firebase Configuration and Data Service
- * Project: view-restaurant-and-coffe
+ * Project: restaurant-c0548
  */
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js";
@@ -21,13 +21,13 @@ import {
 } from "https://www.gstatic.com/firebasejs/13.4.0/firebase-firestore.js";
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyBy6MG73rCI8PusVST6Mj7sI64R4vN8EHI",
-  authDomain: "view-restaurant-and-coffe.firebaseapp.com",
-  projectId: "view-restaurant-and-coffe",
-  storageBucket: "view-restaurant-and-coffe.firebasestorage.app",
-  messagingSenderId: "445303018686",
-  appId: "1:445303018686:web:1ce4e73d0997cf5729baef",
-  measurementId: "G-T998ESKZV9"
+  apiKey: "AIzaSyD3RS3M8nPhJ8kDtx8sQTE9h5qxCBgRFKQ",
+  authDomain: "restaurant-c0548.firebaseapp.com",
+  projectId: "restaurant-c0548",
+  storageBucket: "restaurant-c0548.firebasestorage.app",
+  messagingSenderId: "319057869103",
+  appId: "1:319057869103:web:a8af973d3c0b90364489da",
+  measurementId: "G-GCHZ7K59LB"
 };
 
 // Initialize Firebase App
@@ -39,6 +39,9 @@ isAnalyticsSupported().then(supported => {
   if (supported) {
     try {
       analytics = getAnalytics(app);
+      if (typeof window !== "undefined" && window.ViewFirebase) {
+        window.ViewFirebase.analytics = analytics;
+      }
       console.log("Firebase Analytics initialized successfully");
     } catch (e) {
       console.warn("Analytics initialization skipped:", e.message);

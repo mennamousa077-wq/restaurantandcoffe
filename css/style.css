@@ -82,6 +82,43 @@
   animation: gentlePulse 2s infinite;
 }
 
+/* Mobile Navigation Drawer & Drawer Animations */
+#view-mobile-nav-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.3s ease;
+}
+
+#view-mobile-nav-drawer.drawer-closed {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+#view-mobile-nav-drawer.drawer-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+#view-mobile-drawer-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
+#view-mobile-nav-drawer.drawer-closed #view-mobile-drawer-panel {
+  transform: translateX(100%);
+}
+
+#view-mobile-nav-drawer.drawer-open #view-mobile-drawer-panel {
+  transform: translateX(0);
+}
+
 @media print {
   header, footer, #view-floating-whatsapp, nav, #stepperNav, #quickDateChips, .cal-day, #tablesContainer, #occasionChips, #primaryCtaBtn, .lg\:col-span-4 {
     display: none !important;

@@ -37,6 +37,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script type="module" src="./js/firebase-config.js"></script>
   <script defer src="./js/app.js"></script>
+  <link rel="stylesheet" href="./css/style.css"/>
   
   <script id="tailwind-config">
     tailwind.config = {
@@ -149,6 +150,9 @@
 
       <!-- Fast Action Links -->
       <div class="flex items-center gap-2">
+        <button type="button" onclick="window.ViewApp?.toggleMobileDrawer ? window.ViewApp.toggleMobileDrawer() : (window.toggleMobileDrawer && window.toggleMobileDrawer())" class="view-mobile-drawer-trigger p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center justify-center text-xs font-bold" aria-label="القائمة الجانبية" title="القائمة الجانبية">
+          <span class="material-symbols-outlined text-secondary text-base">menu</span>
+        </button>
         <button onclick="toggleAudioChimes()" id="audioToggleBtn" class="p-2.5 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface transition-colors flex items-center gap-1.5 text-xs font-bold" title="كتم أو تشغيل التنبيهات الصوتية">
           <span class="material-symbols-outlined text-secondary text-base" id="audioToggleIcon">volume_up</span>
           <span class="hidden sm:inline">الصوت مفعل</span>

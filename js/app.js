@@ -41,6 +41,7 @@
     'online-order': rootPrefix + 'online-order.html',
     'book-a-table': rootPrefix + 'book-a-table.html',
     'cart-checkout': rootPrefix + 'online-order.html',
+    'delivery-hub': rootPrefix + 'delivery.html',
     'admin-portal': rootPrefix + 'admin.html',
     'employee-hub': rootPrefix + 'employee.html',
     'live-orders': rootPrefix + 'employee.html',
@@ -127,6 +128,12 @@
 
     // Update dish cards
     updateDishCardBadges();
+
+    // Update mobile drawer cart badge
+    const drawerCartBadge = document.getElementById('view-mobile-drawer-cart-badge');
+    if (drawerCartBadge) {
+      drawerCartBadge.textContent = totalCount;
+    }
   }
 
   // Bind All Path Links
@@ -462,70 +469,129 @@
     if (document.getElementById('view-portal-gateway-modal')) return;
 
     const modalHtml = `
-      <div id="view-portal-gateway-modal" class="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
-        <div class="bg-surface-container-lowest text-on-surface rounded-2xl max-w-lg w-full p-6 sm:p-8 shadow-2xl relative border border-outline-variant/30">
-          <button id="close-portal-modal" class="absolute top-5 right-5 p-2 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors" type="button">
+      <div id="view-portal-gateway-modal" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-surface-container-lowest text-on-surface rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl relative border border-outline-variant/30 max-h-[90vh] overflow-y-auto">
+          <button id="close-portal-modal" class="absolute top-5 right-5 p-2 rounded-full hover:bg-surface-container text-on-surface-variant transition-colors" type="button" aria-label="إغلاق">
             <span class="material-symbols-outlined">close</span>
           </button>
+          
           <div class="flex items-center gap-3 mb-2">
-            <div class="w-10 h-10 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed">
-              <span class="material-symbols-outlined text-xl">hub</span>
+            <div class="w-12 h-12 rounded-2xl bg-secondary text-white flex items-center justify-center shadow-md">
+              <span class="material-symbols-outlined text-2xl">hub</span>
             </div>
             <div>
-              <span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">بوابات النظام • System Portals</span>
-              <h3 class="font-headline-sm text-headline-sm font-bold">اختر البوابة أو لوحة التحكم</h3>
+              <span class="font-label-sm text-label-sm text-secondary uppercase font-bold tracking-wider">بوابات النظام • Complete System Map</span>
+              <h3 class="font-headline-sm text-headline-sm font-bold">بوابات وواجهات The View</h3>
             </div>
           </div>
-          <p class="font-body-sm text-body-sm text-on-surface-variant mb-6">
-            ${CONTACT_INFO.brandName} - تصفح موقع الزبائن أو لوحات الإدارة والتشغيل بأسوان.
+          <p class="font-body-sm text-body-sm text-on-surface-variant mb-5">
+            جميع صفحات ومنظومات المطعم والكافيه مربوطة لحظياً ببيانات واحدة وسحاب Firebase المباشر.
           </p>
 
-          <div class="grid grid-cols-1 gap-3">
-            <a href="${ROUTES['home']}" class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20">
-              <div class="flex items-center gap-3.5">
-                <div class="w-10 h-10 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
-                  <span class="material-symbols-outlined">restaurant</span>
+          <!-- Group 1: Customer View -->
+          <div class="mb-4">
+            <span class="font-label-sm text-label-sm uppercase font-bold text-secondary mb-2 block tracking-wider">
+              ✦ واجهات وتجارب الزبائن والضيوف (Customer Portals)
+            </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <a href="${ROUTES['home']}" class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-lg">home</span>
+                  </div>
+                  <div>
+                    <h4 class="font-title-lg text-sm font-bold">الرئيسية (Home)</h4>
+                    <p class="font-body-sm text-[11px] text-on-surface-variant">الواجهة الاستقبالية الشاملة</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-title-lg text-title-lg font-bold">واجهة الزبائن والموقع العام</h4>
-                  <p class="font-body-sm text-xs text-on-surface-variant">تصفح قائمة الطعام، حجز الطاولات، والطلب أونلاين</p>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
-            </a>
+                <span class="material-symbols-outlined text-xs text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              </a>
 
-            <a href="${ROUTES['admin-portal']}" class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20">
-              <div class="flex items-center gap-3.5">
-                <div class="w-10 h-10 rounded-lg bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed group-hover:scale-105 transition-transform">
-                  <span class="material-symbols-outlined">admin_panel_settings</span>
+              <a href="${ROUTES['menu']}" class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-lg">restaurant_menu</span>
+                  </div>
+                  <div>
+                    <h4 class="font-title-lg text-sm font-bold">قائمة الطعام (Menu)</h4>
+                    <p class="font-body-sm text-[11px] text-on-surface-variant">الأطباق والأسعار وتصفيات المنيو</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-title-lg text-title-lg font-bold">لوحة تحكم الإدارة (Admin)</h4>
-                  <p class="font-body-sm text-xs text-on-surface-variant">متابعة المبيعات، إدارة الأطباق، ومراجعة الحجوزات اللحظية</p>
-                </div>
-              </div>
-              <span class="material-symbols-outlined text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
-            </a>
+                <span class="material-symbols-outlined text-xs text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              </a>
 
-            <a href="${ROUTES['employee-hub']}" class="flex items-center justify-between p-4 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20">
-              <div class="flex items-center gap-3.5">
-                <div class="w-10 h-10 rounded-lg bg-primary text-on-primary flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <span class="material-symbols-outlined">soup_kitchen</span>
+              <a href="${ROUTES['online-order']}" class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-lg">shopping_cart</span>
+                  </div>
+                  <div>
+                    <h4 class="font-title-lg text-sm font-bold">الطلب أونلاين والتتبع</h4>
+                    <p class="font-body-sm text-[11px] text-on-surface-variant">السلة، الدفع، وتتبع المسار الحي</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 class="font-title-lg text-title-lg font-bold">شاشة المطبخ والموظفين (KDS)</h4>
-                  <p class="font-body-sm text-xs text-on-surface-variant">شاشة تذاكر تحضير الطلبات، حالة الوردية، وجداول الصالة</p>
+                <span class="material-symbols-outlined text-xs text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              </a>
+
+              <a href="${ROUTES['book-a-table']}" class="flex items-center justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-3">
+                  <div class="w-9 h-9 rounded-lg bg-surface-container-highest flex items-center justify-center text-secondary group-hover:scale-105 transition-transform">
+                    <span class="material-symbols-outlined text-lg">table_restaurant</span>
+                  </div>
+                  <div>
+                    <h4 class="font-title-lg text-sm font-bold">حجز طاولة (Book Table)</h4>
+                    <p class="font-body-sm text-[11px] text-on-surface-variant">اختيار المقاعد والموعد والتأكيد</p>
+                  </div>
                 </div>
-              </div>
-              <span class="material-symbols-outlined text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
-            </a>
+                <span class="material-symbols-outlined text-xs text-secondary group-hover:-translate-x-1 transition-transform">arrow_back</span>
+              </a>
+            </div>
           </div>
 
-          <div class="mt-6 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
-            <span class="flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span> ${CONTACT_INFO.brandName} - أسوان
+          <!-- Group 2: Staff & Operations -->
+          <div>
+            <span class="font-label-sm text-label-sm uppercase font-bold text-on-surface mb-2 block tracking-wider">
+              ✦ لوحات التشغيل والإدارة والمناديب (Staff & Management)
             </span>
-            <span class="font-mono">v2.5.0</span>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+              <a href="${ROUTES['employee-hub']}" class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-primary text-on-primary flex items-center justify-center">
+                    <span class="material-symbols-outlined text-base">soup_kitchen</span>
+                  </div>
+                  <h4 class="font-title-lg text-xs font-bold leading-tight">شاشة المطبخ (KDS)</h4>
+                </div>
+                <p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">استقبال وتجميع الوجبات وجرس الإنذار</p>
+              </a>
+
+              <a href="${ROUTES['delivery-hub']}" class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-emerald-600 text-white flex items-center justify-center">
+                    <span class="material-symbols-outlined text-base">moped</span>
+                  </div>
+                  <h4 class="font-title-lg text-xs font-bold leading-tight">بوابة المندوب والتسليم</h4>
+                </div>
+                <p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">تواصل الموظف والمندوب وإثبات التسليم</p>
+              </a>
+
+              <a href="${ROUTES['admin-portal']}" class="flex flex-col justify-between p-3.5 rounded-xl bg-surface-container-low hover:bg-surface-container transition-all group border border-outline-variant/20 shadow-sm">
+                <div class="flex items-center gap-2.5 mb-2">
+                  <div class="w-8 h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center">
+                    <span class="material-symbols-outlined text-base">admin_panel_settings</span>
+                  </div>
+                  <h4 class="font-title-lg text-xs font-bold leading-tight">لوحة الإدارة (Admin)</h4>
+                </div>
+                <p class="font-body-sm text-[11px] text-on-surface-variant leading-tight">إحصائيات المبيعات، الحجوزات، والمنيو</p>
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-5 pt-4 border-t border-outline-variant/30 flex items-center justify-between text-xs text-on-surface-variant">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span>مشروع Firebase: <strong>restaurant-c0548</strong></span>
+            </span>
+            <span class="font-mono text-secondary font-bold">The View Platform 2025</span>
           </div>
         </div>
       </div>
@@ -533,6 +599,14 @@
 
     document.body.insertAdjacentHTML('beforeend', modalHtml);
     document.getElementById('close-portal-modal').addEventListener('click', closePortalModal);
+
+    // Also close on background backdrop click
+    const modalEl = document.getElementById('view-portal-gateway-modal');
+    if (modalEl) {
+      modalEl.addEventListener('click', (e) => {
+        if (e.target === modalEl) closePortalModal();
+      });
+    }
   }
 
   function openPortalModal() {
@@ -719,6 +793,501 @@
     }
   }
 
+  // -------------------------------------------------------------
+  // Mobile Navigation Drawer (القائمة الجانبية الفاخرة للهاتف)
+  // -------------------------------------------------------------
+  function injectMobileDrawer() {
+    if (document.getElementById('view-mobile-nav-drawer')) return;
+
+    const drawerHtml = `
+      <div id="view-mobile-nav-drawer" class="drawer-closed select-none" aria-hidden="true" style="font-family: 'Noto Kufi Arabic', 'Inter', sans-serif;">
+        <!-- Backdrop Overlay -->
+        <div id="view-mobile-drawer-backdrop" class="fixed inset-0 bg-black/65 backdrop-blur-sm z-[9998] transition-opacity duration-300"></div>
+
+        <!-- Right Slide-In Panel -->
+        <aside id="view-mobile-drawer-panel" class="fixed top-0 right-0 bottom-0 w-[86%] max-w-[390px] bg-[#18181b] text-white z-[9999] shadow-2xl flex flex-col border-l border-white/10 overflow-hidden" dir="rtl">
+          
+          <!-- Top Drawer Header -->
+          <div class="p-4 sm:p-5 border-b border-white/10 flex items-center justify-between bg-gradient-to-l from-[#27272a] to-[#18181b]">
+            <a href="${rootPrefix}index.html" class="flex items-center gap-3 group">
+              <img src="${CONTACT_INFO.logoPath}" alt="Logo" class="w-11 h-11 rounded-xl object-cover shadow-md border border-white/20 group-hover:scale-105 transition-transform" />
+              <div class="flex flex-col">
+                <span class="font-bold text-sm sm:text-base text-white tracking-tight leading-tight">${CONTACT_INFO.brandName}</span>
+                <span class="text-xs text-[#fe8450] font-semibold">${CONTACT_INFO.arabicName}</span>
+                <span class="text-[10px] text-emerald-400 flex items-center gap-1 mt-0.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  مفتوح الآن حتى منتصف الليل
+                </span>
+              </div>
+            </a>
+            <button id="view-mobile-drawer-close" type="button" class="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 active:scale-90 text-white flex items-center justify-center transition-all" aria-label="إغلاق القائمة">
+              <span class="material-symbols-outlined text-2xl">close</span>
+            </button>
+          </div>
+
+          <!-- Quick Action Bar (3 CTA Buttons) -->
+          <div class="px-3 py-2.5 bg-[#202024] border-b border-white/10 grid grid-cols-3 gap-2 text-center">
+            <a href="tel:${CONTACT_INFO.phoneLocalRaw}" class="py-2 px-1 rounded-xl bg-white/5 hover:bg-white/10 text-white flex flex-col items-center gap-1 transition-all border border-white/5 active:scale-95">
+              <span class="material-symbols-outlined text-secondary text-lg">call</span>
+              <span class="font-bold text-[11px]">اتصال فوري</span>
+            </a>
+            <a href="${CONTACT_INFO.whatsappUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-1 rounded-xl bg-[#25D366]/15 hover:bg-[#25D366]/25 text-[#25D366] flex flex-col items-center gap-1 transition-all border border-[#25D366]/20 active:scale-95">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.599 2.679-.702c.971.558 1.996.882 3.125.882 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-6.112-5.772zm3.393 8.169c-.144.405-.837.774-1.17.824-.312.045-.694.074-2.147-.527-1.745-.723-2.884-2.493-2.971-2.608-.088-.116-.708-.941-.708-1.793 0-.852.448-1.271.607-1.444.159-.175.348-.219.463-.219.116 0 .232.001.333.007.106.005.249-.04.39.298.144.347.491 1.2.535 1.288.043.088.072.19.014.305-.058.116-.087.188-.173.289l-.26.305c-.087.086-.18.18-.077.355.101.174.45 1.056 1.411 1.479.289.127.534.144.694.093.193-.061.607-.708.769-.95.162-.242.325-.203.548-.121.223.082 1.416.668 1.662.791.246.123.409.183.468.286.061.103.061.597-.083 1.002z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2.05 22l4.986-1.309A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.167c-1.632 0-3.15-.472-4.436-1.285l-.318-.202-2.955.775.789-2.88-.221-.352A8.127 8.127 0 013.833 12c0-4.503 3.664-8.167 8.167-8.167s8.167 3.664 8.167 8.167-3.664 8.167-8.167 8.167z"/></svg>
+              <span class="font-bold text-[11px]">واتساب</span>
+            </a>
+            <a href="${CONTACT_INFO.googleMapsUrl}" target="_blank" rel="noopener noreferrer" class="py-2 px-1 rounded-xl bg-white/5 hover:bg-white/10 text-white flex flex-col items-center gap-1 transition-all border border-white/5 active:scale-95">
+              <span class="material-symbols-outlined text-secondary text-lg">near_me</span>
+              <span class="font-bold text-[11px]">الموقع</span>
+            </a>
+          </div>
+
+          <!-- Scrollable Nav Links Body -->
+          <div class="flex-1 overflow-y-auto px-3.5 py-3 space-y-4" style="scrollbar-width: thin; scrollbar-color: #3f3f46 transparent;">
+            
+            <!-- Live Active Order Banner (auto populated) -->
+            <div id="view-mobile-drawer-order-banner" class="hidden"></div>
+
+            <!-- Customer Pages Group -->
+            <div>
+              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 px-2">خدمات المطعم والكافيه</div>
+              <div class="space-y-1">
+                
+                <a href="${rootPrefix}index.html" data-drawer-nav="index" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white group-hover:bg-secondary group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">home</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">الرئيسية</span>
+                      <span class="text-[11px] text-gray-400">الصفحة التعريفية والأجواء</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </a>
+
+                <a href="${rootPrefix}menu.html" data-drawer-nav="menu" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">restaurant_menu</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">قائمة الطعام والمشروبات</span>
+                      <span class="text-[11px] text-gray-400">مشويات، بيتزا، كافيه، حلويات</span>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-secondary/30 text-orange-300 text-[10px] font-bold">كاملة</span>
+                </a>
+
+                <a href="${rootPrefix}online-order.html" data-drawer-nav="online-order" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-emerald-400 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">shopping_bag</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">الطلب أونلاين والدليفري</span>
+                      <span class="text-[11px] text-gray-400">سلة التسوق والتوصيل للعملاء</span>
+                    </div>
+                  </div>
+                  <span id="view-mobile-drawer-cart-badge" class="px-2.5 py-0.5 rounded-full bg-secondary text-white text-xs font-bold shadow-sm">0</span>
+                </a>
+
+                <a href="${rootPrefix}book-a-table.html" data-drawer-nav="book-a-table" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-amber-400 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">table_bar</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">حجز طاولة جديدة</span>
+                      <span class="text-[11px] text-gray-400">تأكيد فوري عبر واتساب & SMS</span>
+                    </div>
+                  </div>
+                  <span class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-bold">تأكيد فوري</span>
+                </a>
+
+                <button type="button" id="drawer-btn-qr" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-right group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-cyan-400 group-hover:bg-cyan-600 group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">qr_code_2</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">كود المنيو السريع (QR)</span>
+                      <span class="text-[11px] text-gray-400">امسح الكود واستعرض على هاتفك</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </button>
+
+                <button type="button" id="drawer-btn-account" class="w-full flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors text-right group">
+                  <div class="flex items-center gap-3">
+                    <span class="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-purple-400 group-hover:bg-purple-600 group-hover:text-white transition-colors">
+                      <span class="material-symbols-outlined text-xl">event_seat</span>
+                    </span>
+                    <div>
+                      <span class="font-bold text-sm block text-white">حجوزاتي وطاولتي</span>
+                      <span class="text-[11px] text-gray-400">معاينة الحجز الفوري وبيانات الطاولة</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </button>
+
+              </div>
+            </div>
+
+            <!-- Operations Group -->
+            <div class="pt-3 border-t border-white/10">
+              <div class="text-[11px] font-bold text-gray-400 uppercase tracking-wider mb-1.5 px-2 flex items-center justify-between">
+                <span>بوابات العمل والتشغيل</span>
+                <span class="text-[10px] text-emerald-400 flex items-center gap-1 font-mono">
+                  <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  Firebase Live
+                </span>
+              </div>
+              <div class="space-y-1">
+                
+                <a href="${rootPrefix}employee.html" data-drawer-nav="employee" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-primary flex items-center justify-center text-white border border-white/20">
+                      <span class="material-symbols-outlined text-lg">soup_kitchen</span>
+                    </span>
+                    <div>
+                      <span class="text-xs font-bold text-white block">شاشة المطبخ (KDS)</span>
+                      <span class="text-[10px] text-gray-400">استقبال وتجميع الوجبات والإنذار</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </a>
+
+                <a href="${rootPrefix}delivery.html" data-drawer-nav="delivery" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-emerald-700 flex items-center justify-center text-white border border-white/20">
+                      <span class="material-symbols-outlined text-lg">moped</span>
+                    </span>
+                    <div>
+                      <span class="text-xs font-bold text-white block">بوابة المندوب والتسليم</span>
+                      <span class="text-[10px] text-emerald-300">تواصل الموظف والمندوب والتسليم</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </a>
+
+                <a href="${rootPrefix}admin.html" data-drawer-nav="admin" class="drawer-link flex items-center justify-between p-2.5 rounded-xl hover:bg-white/10 transition-colors group">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-8 h-8 rounded-lg bg-secondary flex items-center justify-center text-white border border-white/20">
+                      <span class="material-symbols-outlined text-lg">admin_panel_settings</span>
+                    </span>
+                    <div>
+                      <span class="text-xs font-bold text-white block">لوحة الإدارة والتحكم (Admin)</span>
+                      <span class="text-[10px] text-orange-300">التقارير، الحجوزات، وإدارة المنيو</span>
+                    </div>
+                  </div>
+                  <span class="material-symbols-outlined text-gray-500 text-sm rotate-180">arrow_forward</span>
+                </a>
+
+              </div>
+            </div>
+
+            <!-- Info & Policies -->
+            <div class="pt-2 border-t border-white/10 space-y-1">
+              <button type="button" id="drawer-btn-contact" class="w-full flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-right text-gray-300 text-xs">
+                <span class="material-symbols-outlined text-base text-secondary">pin_drop</span>
+                <span>معلومات العنوان ومواعيد العمل بالتفصيل</span>
+              </button>
+              <button type="button" id="drawer-btn-terms" class="w-full flex items-center gap-2.5 p-2 rounded-xl hover:bg-white/10 transition-colors text-right text-gray-300 text-xs">
+                <span class="material-symbols-outlined text-base text-secondary">gavel</span>
+                <span>الشروط وسياسات الخصوصية والإلغاء</span>
+              </button>
+            </div>
+
+          </div>
+
+          <!-- Drawer Footer -->
+          <div class="p-3.5 border-t border-white/10 bg-[#141416] text-xs text-gray-400 space-y-2">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-bold text-white text-xs block">${CONTACT_INFO.brandName}</span>
+                <span class="text-[10px] text-emerald-400 font-mono">Firebase: restaurant-c0548</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <a href="${CONTACT_INFO.instagramUrl}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors" title="Instagram">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                </a>
+                <a href="${CONTACT_INFO.facebookUrl}" target="_blank" rel="noopener noreferrer" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white transition-colors" title="Facebook">
+                  <svg class="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                </a>
+              </div>
+            </div>
+            <div class="text-[11px] text-gray-400 leading-tight">
+              ${CONTACT_INFO.shortAddress}
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    `;
+
+    document.body.insertAdjacentHTML('beforeend', drawerHtml);
+
+    // Bind event handlers
+    const closeBtn = document.getElementById('view-mobile-drawer-close');
+    const backdrop = document.getElementById('view-mobile-drawer-backdrop');
+    if (closeBtn) closeBtn.addEventListener('click', closeMobileDrawer);
+    if (backdrop) backdrop.addEventListener('click', closeMobileDrawer);
+
+    // Bind QR, Account, Contact, Terms buttons
+    const btnQr = document.getElementById('drawer-btn-qr');
+    if (btnQr) {
+      btnQr.addEventListener('click', () => {
+        closeMobileDrawer();
+        openQRModal();
+      });
+    }
+
+    const btnAcc = document.getElementById('drawer-btn-account');
+    if (btnAcc) {
+      btnAcc.addEventListener('click', () => {
+        closeMobileDrawer();
+        openUserAccountModal();
+      });
+    }
+
+    const btnContact = document.getElementById('drawer-btn-contact');
+    if (btnContact) {
+      btnContact.addEventListener('click', () => {
+        closeMobileDrawer();
+        const contactSec = document.getElementById('contact');
+        if (contactSec) {
+          contactSec.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          openContactModal();
+        }
+      });
+    }
+
+    const btnTerms = document.getElementById('drawer-btn-terms');
+    if (btnTerms) {
+      btnTerms.addEventListener('click', () => {
+        closeMobileDrawer();
+        openTermsModal();
+      });
+    }
+
+    // Set navigation from drawer flag when clicking a link inside drawer
+    document.querySelectorAll('#view-mobile-nav-drawer .drawer-link').forEach(link => {
+      link.addEventListener('click', () => {
+        sessionStorage.setItem('view_navigated_from_drawer', 'true');
+        closeMobileDrawer();
+      });
+    });
+
+    // Touch Swipe-Right to Dismiss (Native Mobile App Gesture)
+    const panel = document.getElementById('view-mobile-drawer-panel');
+    if (panel) {
+      let touchStartX = 0;
+      let touchCurrentX = 0;
+      panel.addEventListener('touchstart', (e) => {
+        touchStartX = e.touches[0].clientX;
+      }, { passive: true });
+      panel.addEventListener('touchmove', (e) => {
+        touchCurrentX = e.touches[0].clientX;
+      }, { passive: true });
+      panel.addEventListener('touchend', () => {
+        // RTL panel slides from right. Swiping towards the right (touchCurrentX > touchStartX + 50) means dismissal!
+        if (touchCurrentX > touchStartX + 50) {
+          closeMobileDrawer();
+        }
+      }, { passive: true });
+    }
+
+    // Escape key closes drawer
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') closeMobileDrawer();
+    });
+  }
+
+  function openMobileDrawer() {
+    injectMobileDrawer();
+    const drawer = document.getElementById('view-mobile-nav-drawer');
+    if (!drawer) return;
+
+    // Update cart badge
+    const badge = document.getElementById('view-mobile-drawer-cart-badge');
+    if (badge) {
+      badge.textContent = getCartTotalCount();
+    }
+
+    // Update active order tracker banner in drawer
+    updateDrawerActiveOrder();
+
+    // Highlight current active page link
+    highlightActiveDrawerLink();
+
+    // Show drawer
+    drawer.classList.remove('drawer-closed');
+    drawer.classList.add('drawer-open');
+    drawer.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileDrawer() {
+    const drawer = document.getElementById('view-mobile-nav-drawer');
+    if (!drawer) return;
+
+    drawer.classList.remove('drawer-open');
+    drawer.classList.add('drawer-closed');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function toggleMobileDrawer() {
+    const drawer = document.getElementById('view-mobile-nav-drawer');
+    if (drawer && drawer.classList.contains('drawer-open')) {
+      closeMobileDrawer();
+    } else {
+      openMobileDrawer();
+    }
+  }
+
+  function highlightActiveDrawerLink() {
+    const path = window.location.pathname.toLowerCase();
+    document.querySelectorAll('#view-mobile-nav-drawer .drawer-link').forEach(link => {
+      const navTarget = link.getAttribute('data-drawer-nav');
+      let isCurrent = false;
+      if (navTarget === 'index' && (path.endsWith('index.html') || path.endsWith('/') || !path.includes('.html'))) isCurrent = true;
+      else if (navTarget && path.includes(navTarget)) isCurrent = true;
+
+      if (isCurrent) {
+        link.classList.add('bg-white/15', 'border-r-4', 'border-secondary');
+      } else {
+        link.classList.remove('bg-white/15', 'border-r-4', 'border-secondary');
+      }
+    });
+  }
+
+  function updateDrawerActiveOrder() {
+    const banner = document.getElementById('view-mobile-drawer-order-banner');
+    if (!banner) return;
+    let activeOrder = null;
+    try {
+      const saved = localStorage.getItem('view_active_order');
+      if (saved) activeOrder = JSON.parse(saved);
+    } catch(e) {}
+
+    if (!activeOrder) {
+      banner.classList.add('hidden');
+      banner.innerHTML = '';
+      return;
+    }
+
+    const step = activeOrder.statusStep || 2;
+    const isDelivered = step === 4;
+    const isWithDelivery = step === 3;
+    const isCancelled = step === 0 || (activeOrder.status && activeOrder.status.includes('ملغي'));
+
+    let colorClass = 'bg-amber-600/25 border-amber-500/40 text-amber-200';
+    let icon = 'soup_kitchen';
+    if (isWithDelivery) {
+      colorClass = 'bg-blue-600/25 border-blue-500/40 text-blue-200';
+      icon = 'moped';
+    } else if (isDelivered) {
+      colorClass = 'bg-emerald-600/25 border-emerald-500/40 text-emerald-200';
+      icon = 'task_alt';
+    } else if (isCancelled) {
+      colorClass = 'bg-red-600/25 border-red-500/40 text-red-200';
+      icon = 'cancel';
+    }
+
+    banner.className = `p-3 rounded-xl border ${colorClass} flex items-center justify-between gap-3 mb-2`;
+    banner.innerHTML = `
+      <div class="flex items-center gap-2.5 min-w-0">
+        <span class="material-symbols-outlined text-2xl ${isWithDelivery ? 'animate-bounce' : ''}">${icon}</span>
+        <div class="min-w-0">
+          <span class="text-[10px] block font-mono text-gray-300">طلبك رقم: ${activeOrder.orderNumber || ''}</span>
+          <span class="text-xs font-bold truncate block">${activeOrder.status || 'قيد التحضير'}</span>
+        </div>
+      </div>
+      <a href="${rootPrefix}online-order.html" onclick="sessionStorage.setItem('view_navigated_from_drawer','true');" class="px-2.5 py-1.5 rounded-lg bg-white/20 hover:bg-white/30 text-white text-[11px] font-bold shrink-0 transition-colors">
+        تتبع
+      </a>
+    `;
+    banner.classList.remove('hidden');
+  }
+
+  // Inject Mobile Header Button if missing
+  function injectMobileHeaderButton() {
+    const header = document.querySelector('header');
+    if (!header) return;
+    if (document.getElementById('view-mobile-drawer-toggle') || header.querySelector('.view-mobile-drawer-trigger')) return;
+
+    // Find the actions cluster in the header
+    const actionsCluster = header.querySelector('.gap-space-sm, .items-center.gap-4, .items-center.gap-2, nav');
+    
+    const btn = document.createElement('button');
+    btn.id = 'view-mobile-drawer-toggle';
+    btn.className = 'view-mobile-drawer-trigger xl:hidden flex items-center justify-center w-10 h-10 rounded-xl bg-surface-container hover:bg-surface-container-high text-on-surface shadow-sm border border-outline-variant/30 active:scale-95 transition-all shrink-0';
+    btn.setAttribute('type', 'button');
+    btn.setAttribute('aria-label', 'فتح القائمة الجانبية');
+    btn.setAttribute('title', 'فتح القائمة الجانبية');
+    btn.innerHTML = `<span class="material-symbols-outlined text-2xl text-secondary">menu</span>`;
+    btn.addEventListener('click', toggleMobileDrawer);
+
+    if (actionsCluster) {
+      actionsCluster.prepend(btn);
+    } else {
+      header.appendChild(btn);
+    }
+  }
+
+  // Inject Floating Mobile Menu Button (Thumb-reach button on mobile)
+  function injectFloatingMobileMenuButton() {
+    if (document.getElementById('view-floating-mobile-menu')) return;
+    if (window.location.pathname.includes('employee.html') || window.location.pathname.includes('admin.html')) return;
+
+    const floatingBtn = document.createElement('button');
+    floatingBtn.id = 'view-floating-mobile-menu';
+    floatingBtn.className = 'xl:hidden fixed bottom-6 left-6 z-40 flex items-center gap-2 bg-[#18181b] hover:bg-[#27272a] text-white px-3.5 py-2.5 rounded-full shadow-[0_8px_30px_rgba(0,0,0,0.35)] border border-white/20 active:scale-95 transition-all duration-300 group';
+    floatingBtn.setAttribute('type', 'button');
+    floatingBtn.setAttribute('title', 'فتح القائمة الجانبية (The View)');
+    floatingBtn.innerHTML = `
+      <span class="material-symbols-outlined text-secondary text-xl group-hover:rotate-90 transition-transform">menu</span>
+      <span class="font-bold text-xs font-sans">القائمة</span>
+    `;
+    floatingBtn.addEventListener('click', toggleMobileDrawer);
+
+    document.body.appendChild(floatingBtn);
+
+    // Adjust position if order tracker is also active
+    function adjustFloatingPos() {
+      const tracker = document.getElementById('view-floating-order-tracker');
+      if (tracker && tracker.children.length > 0) {
+        floatingBtn.style.bottom = '5rem';
+      } else {
+        floatingBtn.style.bottom = '1.5rem';
+      }
+    }
+
+    adjustFloatingPos();
+    window.addEventListener('storage', adjustFloatingPos);
+    window.addEventListener('ViewOrderStatusChanged', adjustFloatingPos);
+  }
+
+  // Auto-open side drawer on mobile load
+  function checkMobileAutoOpen() {
+    const isMobile = window.innerWidth <= 1024 || /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    if (!isMobile) return;
+
+    // Check if user just clicked a link inside drawer to view a specific page
+    const navigatedFromDrawer = sessionStorage.getItem('view_navigated_from_drawer');
+    if (navigatedFromDrawer) {
+      sessionStorage.removeItem('view_navigated_from_drawer');
+      return;
+    }
+
+    // Auto-open side drawer smoothly on mobile after page render
+    setTimeout(() => {
+      openMobileDrawer();
+    }, 450);
+  }
+
   // Expose global methods
   window.ViewApp = {
     getCart,
@@ -730,6 +1299,9 @@
     openTermsModal,
     openContactModal,
     openQRModal,
+    openMobileDrawer,
+    closeMobileDrawer,
+    toggleMobileDrawer,
     updateAllCartBadges,
     routes: ROUTES,
     contactInfo: CONTACT_INFO
@@ -741,6 +1313,9 @@
   window.openContactModal = openContactModal;
   window.openPortalModal = openPortalModal;
   window.openUserAccountModal = openUserAccountModal;
+  window.openMobileDrawer = openMobileDrawer;
+  window.closeMobileDrawer = closeMobileDrawer;
+  window.toggleMobileDrawer = toggleMobileDrawer;
 
   // Floating Active Order Tracker Pill (shown when customer has an active order on index.html, menu.html, etc.)
   function injectFloatingOrderTracker() {
@@ -808,14 +1383,22 @@
   try {
     bindNavigationLinks();
     updateAllCartBadges();
+    injectMobileDrawer();
+    injectMobileHeaderButton();
+    injectFloatingMobileMenuButton();
+    checkMobileAutoOpen();
   } catch(e) {}
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       bindNavigationLinks();
       updateAllCartBadges();
+      injectMobileDrawer();
+      injectMobileHeaderButton();
+      injectFloatingMobileMenuButton();
       injectFloatingWhatsApp();
       injectFloatingOrderTracker();
+      checkMobileAutoOpen();
     });
   } else {
     injectFloatingWhatsApp();
